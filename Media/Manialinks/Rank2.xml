@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+	<manialink version="3">
+	
+	<stylesheet> 
+		<style id="M_Name1 M_Name2 M_Name3 M_Name4 M_Name5 M_Name6 M_Name7 M_Name8 M_Name9 M_Name10" style="TextTitle2" pos="-55 0" size="77 8"  textcolor="00000FF" textsize="2" valign="center2" z-index="10" scale="1" halign="left" />	
+		<style id="M_SP1 M_SP2 M_SP3 M_SP4 M_SP5 M_SP6 M_SP7 M_SP8 M_SP9 M_SP10" style="TextRaceChronoOfficial" pos="44 0" size="20 8" textcolor="FFFFFFF" textsize="3" valign="center2" z-index="10" scale="1" halign="right" />	
+		<style id="_Btn1 _Btn2 _Btn3 _Btn4 _Btn5 _Btn6 _Btn7 _Btn8 _Btn9 _Btn10" style="Bgs1InRace" substyle="BgCardBuddy" image="file://Media/Images/Icon/profile button2.png" pos="-57 0" size="106 8.5"/>
+		<style id="M_Btn1 M_Btn2 M_Btn3 M_Btn4 M_Btn5 M_Btn6 M_Btn7 M_Btn8 M_Btn9 M_Btn10" style="Bgs1InRace" substyle="BgCard" pos="-57 0" size="104 8.5"/>
+	</stylesheet>
+
+
+
+
+<frame id="RT"  pos="10 -38" scale=".86">
+<frame scale=".95" pos="0 5">			
+			
+			<frame hidden="" id="details" pos="0 35">
+			<label id="SP" sizen="24 13" posn="-17 63" style="TextRankingsBig" textsize="4.2" text="???" valign="center" halign="center" z-index="2"/>
+			<quad pos="-47 70.5" z-index="2" size="17 15" bgcolor="FFFA" style="Icons128x128_1" substyle="SkillPoints" id="SPIcon"/>
+			<quad pos="100 69" z-index="2" size="15 12" bgcolor="FFFA" style="Icons128x128_1" substyle="Rankings" id="SPIcon" halign="center"/>
+			<label id="Rank" sizen="28 13" posn="79 63" halign="center" valign="center" z-index="10" textsize="4.2" text="???" style="TextRankingsBig" translate="1"/>
+			<quad pos="-27 69" z-index="0" size="43 13" bgcolor="FFFA" style="Bgs1" substyle="BgDialogBlur" halign="center"/>
+			<quad pos="87 68.7" z-index="0" size="43 13" bgcolor="FFFA" style="Bgs1" substyle="BgDialogBlur" halign="center"/>
+			</frame>
+			
+			<label id="header" text="Your SkillPoints World Ranking" sizen="125 10" posn="31 75" style="TextButtonBig" textsize="2.5" translate="1" halign="center" valign="center"/>
+			<quad posn="31 85.5" sizen="136.5 8" halign="center" bgcolor="2E2E2EFF" style="Bgs1" substyle="BgGlow2"/>
+			<quad posn="31 81" sizen="130 12.5" halign="center" bgcolor="2E2E2EFF" style="Bgs1" substyle="BgTitle"/>
+			<quad pos="31 69" z-index="-5" size="130 125" bgcolor="FFFA" style="Bgs1" substyle="BgWindow3" halign="center" id="Switch" scriptevents="1"/>
+			<quad pos="31 -56" z-index="-5" size="130 2" bgcolor="FFFA" style="Bgs1" substyle="BgMetalBar" halign="center" />
+			
+			<frame id="Country_"  z-index="100">
+				<label id="zone0" text="Country" sizen="49 7" posn="32 68" style="TextRankingsBig" textsize="3.5" textcolor="000000FF" translate="1" halign="left" valign="top" z-index="5" hidden="1"/>
+				<quad id="country" style="Icons128x128_1" substyle="Vehicles"  posn="17 67" sizen="14 11" hidden="1"/>
+				
+			
+			</frame>
+									
+		</frame>
+
+
+
+
+
+<frame pos="35 22.5" scale="1" z-index="5">	
+	
+	<quad pos="-5 29" z-index="-5" size="106 93" bgcolor="FFFA" style="Bgs1" substyle="BgColorContour" halign="center"/>
+	
+	<label pos="-60 47" z-index="0" size="122 9" text="Best players of" id="Zone_" halign="left" style="TextTitle1" textsize="2" translate="1" valign="center2"  hidden="1"/>
+	<quad pos="50 36" z-index="0" size="8 8" id="Right" scriptevents="1" style="Icons128x128_1" substyle="BackFocusable" halign="center" valign="center" scale="-1"/>	
+	<quad pos="-60 36" z-index="0" size="8 8" bgcolor="FFFA" rot="180" scriptevents="1" id="Left" style="Icons128x128_1" substyle="BackFocusable" halign="center" valign="center" scale="-1"/>	
+	<label pos="-43 36" z-index="0" size="47 9" text="_country_" id="Zone2_" halign="left" style="TextRankingsBig" textsize="2" translate="1" valign="center" textcolor="000000FF"/>
+	<quad pos="-53 40" z-index="5" size="9 8" id="Flag" style="Icons128x128_1" substyle="Vehicles"/>
+	<quad pos="-5 41" z-index="-1" size="100 10" bgcolor="FFFA" halign="center" style="Bgs1" substyle="BgCardPlayer"/>
+	<label id="Playerstext" text="Players" sizen="35 10" posn="43 36" style="TextRankingsBig" textsize="2" textcolor="292929FF" translate="1" valign="center2" halign="right"/>	
+	
+	<frame hidden="">
+	<quad pos="29 -72" z-index="0" size="8 8" id="RightCamp" scriptevents="1" style="Icons128x128_1" substyle="BackFocusable" halign="center" valign="center" scale="-1"/>	
+	<quad pos="-39 -72" z-index="0" size="8 8" bgcolor="FFFA" rot="180" scriptevents="1" id="LeftCamp" style="Icons128x128_1" substyle="BackFocusable" halign="center" valign="center" scale="-1"/>	
+	<label pos="-5 -72" z-index="5" size="50 8" style="TrackerTextBig" textsize="1.8" halign="center" valign="center" textcolor="404747FF" text="_CampId_" id="CampText"/>
+	<quad pos="-5 -67" z-index="-1" size="55 10" bgcolor="FFFA" halign="center"/>
+	</frame>
+	
+		<label id="M_Name1" hidden="1"/>
+		<label id="M_Name2" hidden="1"/>
+		<label id="M_Name3" hidden="1"/>
+		<label id="M_Name4" hidden="1"/>
+		<label id="M_Name5" hidden="1"/>
+		<label id="M_Name6" hidden="1"/>
+		<label id="M_Name7" hidden="1"/>
+		<label id="M_Name8" hidden="1"/>
+		<label id="M_Name9" hidden="1"/>
+		<label id="M_Name10" hidden="1"/>
+		
+		<label id="M_SP1" hidden="1"/>
+		<label id="M_SP2" hidden="1"/>
+		<label id="M_SP3" hidden="1"/>
+		<label id="M_SP4" hidden="1"/>
+		<label id="M_SP5" hidden="1"/>
+		<label id="M_SP6" hidden="1"/>
+		<label id="M_SP7" hidden="1"/>
+		<label id="M_SP8" hidden="1"/>
+		<label id="M_SP9" hidden="1"/>
+		<label id="M_SP10" hidden="1"/>
+		
+		<quad id="M_Btn1" scriptevents="1" hidden="1"/>
+		<quad id="M_Btn2" scriptevents="1" hidden="1"/>
+		<quad id="M_Btn3" scriptevents="1" hidden="1"/>
+		<quad id="M_Btn4" scriptevents="1" hidden="1"/>
+		<quad id="M_Btn5" scriptevents="1" hidden="1"/>
+		<quad id="M_Btn6" scriptevents="1" hidden="1"/>
+		<quad id="M_Btn7" scriptevents="1" hidden="1"/>
+		<quad id="M_Btn8" scriptevents="1" hidden="1"/>
+		<quad id="M_Btn9" scriptevents="1" hidden="1"/>
+		<quad id="M_Btn10" scriptevents="1" hidden="1"/>
+
+</frame>	
+</frame>	
+
+//
+<label id="xko" text="Back" hidden="1" scriptevents="1" posn="-157 -75" style="CardMain_Quit" sizen="46.4 6" textsize="3.5" translate="1" z-index="10"/>
+				
+<script><!--
+
+#Include "TextLib" as TextLib
+
+Void HideResults()	{
+	for (h, 1, 10){
+		Page.GetFirstChild("M_Name"^h).Hide();
+		Page.GetFirstChild("M_SP"^h).Hide();
+		Page.GetFirstChild("M_Btn"^h).Hide();
+	}
+}
+
+
+main() 
+{
+		declare c = 0;
+		declare Camp <=> DataFileMgr.Campaigns[c];
+		declare Camp_ = Camp.CampaignId;
+			
+		//declare CImage[Text]	MapMedals;				
+		declare Real M_posY;
+		declare p = -9.; //medzera okna v Y
+		declare Integer q;
+		declare S = 1;
+		declare prevS = 1;//predch zona
+		declare prevc = 1;//predch kampan
+		declare ShowSP = False;
+		declare prevShowSP = True;
+		declare Zones = TextLib::Split("|",LocalUser.ZonePath);
+		declare Zone0 = Zones[S-1];
+		declare RankingPlayer = ScoreMgr.CampaignLeaderBoard_GetPlayerList(LocalUser.Id, Camp_, Zone0, ShowSP, 1, 10); 	
+		sleep(10);
+		EnableMenuNavigation(False, True, Page.GetFirstChild("xko"), 1);	
+
+	
+	while(True){
+		if(c!=prevc || S!=prevS || prevShowSP!=ShowSP)	{
+		HideResults();
+		sleep(10);
+		if (ScoreMgr.CampaignLeaderBoard_GetPlayerRanking(LocalUser.Id, Camp_, Zone0, False) == -1)	{
+			(Page.GetFirstChild("Rank") as CMlLabel).SetText("???");
+		}
+		else	{
+			(Page.GetFirstChild("Rank") as CMlLabel).SetText(""^ ScoreMgr.CampaignLeaderBoard_GetPlayerRanking(NullId, Camp_, Zone0, ShowSP));
+		}
+ 	   (Page.GetFirstChild("zone0") as CMlLabel).SetText(Zone0);
+	
+		Zone0 = Zones[S-1];
+		(Page.GetFirstChild("Playerstext") as CMlLabel).SetText(ScoreMgr.CampaignLeaderBoard_GetPlayerCount(Camp_, Zone0, False)^" Players");
+		
+		RankingPlayer = ScoreMgr.CampaignLeaderBoard_GetPlayerList(NullId, Camp_, Zone0, ShowSP, 1, 10); 
+		wait(!RankingPlayer.IsProcessing);
+		if(RankingPlayer.HasSucceeded){
+			log("ide");
+		}
+		else if(RankingPlayer.HasFailed)	
+			log("neide");
+			
+		prevc = c;
+		prevS = S;
+		prevShowSP=ShowSP;
+		}
+		
+		
+		
+		if (RankingPlayer.LeaderBoardInfo.count > 9)	{
+			q = 10;	
+		}
+		if (RankingPlayer.LeaderBoardInfo.count <= 10)	{
+			q = RankingPlayer.LeaderBoardInfo.count;	
+		}
+			
+		for (m, 1, q)	{ 			
+			M_posY = (m * p)+22;
+			
+			Page.GetFirstChild("M_Name"^m).Show();
+			Page.GetFirstChild("M_Btn"^m).Show();
+			Page.GetFirstChild("M_SP"^m).Show();
+			(Page.GetFirstChild("M_Name"^m) as CMlLabel).SetText(""^m^"	$s"^RankingPlayer.LeaderBoardInfo[m-1].DisplayName);
+			(Page.GetFirstChild("M_SP"^m) as CMlLabel).SetText("   $g$z"^RankingPlayer.LeaderBoardInfo[m-1].Score);
+			(Page.GetFirstChild("M_Name"^m) as CMlLabel).RelativePosition.Y = M_posY+ 10;
+			(Page.GetFirstChild("M_SP"^m) as CMlLabel).RelativePosition.Y = M_posY+ 10;
+			(Page.GetFirstChild("M_Btn"^m) as CMlLabel).RelativePosition.Y = M_posY+ 14;
+								
+		}				
+		//log(q^" NECITAT! "^M_posY^" ");
+
+		
+		foreach (Event in PendingEvents) {
+			if (Event.Type == CMlEvent::Type::MenuNavigation) {
+
+				if (Event.MenuNavAction == CMlEvent::EMenuNavAction::Right)	{
+					if(S<Zones.count)	{
+					S+=1;
+					Zone0 = Zones[S-1];
+					}
+					}
+					
+				//vpravo	
+				if (Event.MenuNavAction == CMlEvent::EMenuNavAction::Left)	{
+					if (S>1)	{
+						S -= 1;
+						Zone0 = Zones[S-1];		
+				}
+				}
+				//vybrat = zmenit cele
+				if (Event.MenuNavAction == CMlEvent::EMenuNavAction::Select)	{
+					HideResults();
+				if (ShowSP != False)	{
+					ShowSP = False;
+					}
+					else	ShowSP = True;	
+					RankingPlayer = ScoreMgr.CampaignLeaderBoard_GetPlayerList(NullId, Camp_, Zone0, ShowSP, 1, 10); 
+				}
+				
+				//dalsia kampan
+				if (Event.MenuNavAction == CMlEvent::EMenuNavAction::PageDown)	{	
+						HideResults();
+						if (c !=0) {
+							c -= 1;
+							}
+						Camp = DataFileMgr.Campaigns[c];
+						Camp_ = Camp.CampaignId;
+						RankingPlayer = ScoreMgr.CampaignLeaderBoard_GetPlayerList(NullId, Camp_, Zone0, ShowSP, 1, 10); 
+				}
+				
+				//predch kamp
+				if (Event.MenuNavAction == CMlEvent::EMenuNavAction::PageUp)	{	
+					HideResults();
+						log(c^" ... "^DataFileMgr.Campaigns.count);
+						if (c != DataFileMgr.Campaigns.count - 1)	{
+							c += 1;
+							
+							}
+						Camp = DataFileMgr.Campaigns[c];
+						Camp_ = Camp.CampaignId;
+						RankingPlayer = ScoreMgr.CampaignLeaderBoard_GetPlayerList(NullId, Camp_, Zone0, ShowSP, 1, 10);					
+				}
+				
+				//zrusit
+				if (Event.MenuNavAction == CMlEvent::EMenuNavAction::Cancel)	{	
+						SendCustomEvent("BackToSoloMain0", [""]);
+					}
+				}
+			if (Event.Type ==  CMlEvent::Type::MouseClick) {
+                if (Event.ControlId == "Right") {
+					if (S<Zones.count)	{	
+						S += 1;
+						Zone0 = Zones[S-1];
+						//HideResults();
+						//RankingPlayer = ScoreMgr.CampaignLeaderBoard_GetPlayerList(NullId, Camp_, Zone0, ShowSP, 1, 10); 
+					}
+				}
+				for (m, 1, 10)	{ 
+					if (Event.ControlId == "M_Btn"^m) {
+						OpenLink("profile?"^RankingPlayer.LeaderBoardInfo[m-1].Login, CMlScript::LinkType::ManialinkBrowser);
+					}
+				}
+				if (Event.ControlId == "Left") {
+					if (S>1)	{
+						S -= 1;
+						Zone0 = Zones[S-1];
+						//HideResults();
+						//RankingPlayer = ScoreMgr.CampaignLeaderBoard_GetPlayerList(NullId, Camp_, Zone0, ShowSP, 1, 10);
+						}															
+				}
+				if (Event.ControlId == "RightCamp") {
+						//HideResults();
+						if (c!=DataFileMgr.Campaigns.count-1)	{
+							c += 1;
+						}
+						Camp = DataFileMgr.Campaigns[c];
+						Camp_ = Camp.CampaignId;
+						//RankingPlayer = ScoreMgr.CampaignLeaderBoard_GetPlayerList(NullId, Camp_, Zone0, ShowSP, 1, 10);					
+				}
+				if (Event.ControlId == "LeftCamp") {
+						//HideResults();
+						if (c !=0) {
+							c -= 1;
+						}
+						Camp = DataFileMgr.Campaigns[c];
+						Camp_ = Camp.CampaignId;
+						//RankingPlayer = ScoreMgr.CampaignLeaderBoard_GetPlayerList(NullId, Camp_, Zone0, ShowSP, 1, 10); 
+										
+				}
+				if (Event.ControlId == "xko") {
+					SendCustomEvent("BackToSoloMain0", [""]);
+				}
+				if (Event.ControlId == "Switch") {
+				//HideResults();
+				if (ShowSP != False)	{
+					ShowSP = False;
+					}
+					else	ShowSP = True;	
+				//RankingPlayer = ScoreMgr.CampaignLeaderBoard_GetPlayerList(NullId, Camp_, Zone0, ShowSP, 1, 10); 
+											
+				}
+			
+			
+				}
+		}	
+				
+		//log(q^" NECITAT! "^M_posY^" ");	
+		if (ShowSP == True)	(Page.GetFirstChild("Zone_") as CMlLabel).SetText("Best players of "^Zone0^" (Skillpoints)");
+		if (ShowSP == False)	(Page.GetFirstChild("Zone_") as CMlLabel).SetText("Best players of "^Zone0^" (Medals)");
+				
+		(Page.GetFirstChild("CampText") as CMlLabel).SetText(""^Camp.ScoreContext);
+		
+		(Page.GetFirstChild("Zone2_") as CMlLabel).SetText(""^Zone0);
+	
+	//
+	//
+	//
+	
+	if (Zone0 == Zones[Zones.count-1])
+	(Page.GetFirstChild("Flag") as CMlQuad).ImageUrl = LocalUser.AvatarUrl;
+	else
+	(Page.GetFirstChild("Flag") as CMlQuad).ImageUrl = "";	
+    
+	(Page.GetFirstChild("country") as CMlQuad).ImageUrl = (Page.GetFirstChild("Flag") as CMlQuad).ImageUrl;
+
+
+	if (ShowSP == True)	{
+		(Page.GetFirstChild("SP") as CMlLabel).SetText(""^ ScoreMgr.Campaign_GetSkillPoints(NullId, Camp_));
+		(Page.GetFirstChild("SPIcon") as CMlQuad).ImageUrl = "";
+		(Page.GetFirstChild("header") as CMlLabel).SetText("Your SkillPoints World Ranking");		
+		}
+		else {
+		(Page.GetFirstChild("SP") as CMlLabel).SetText(""^ScoreMgr.Campaign_GetMultiAsyncLevel(NullId, Camp_));
+		(Page.GetFirstChild("SPIcon") as CMlQuad).ImageUrl = "file://Media/Images/Icon/medals.png";
+		(Page.GetFirstChild("header") as CMlLabel).SetText("Your Medals World Ranking");	
+		}
+		
+		
+ 		yield;   
+	}	
+}
+		
+
+		--></script>
+</manialink>

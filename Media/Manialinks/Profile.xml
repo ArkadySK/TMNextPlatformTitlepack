@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<manialink version="3">
+
+
+
+<label  text="Profile" sizen="80 5" posn="-12 53.6" style="TextButtonBig" textsize="2" halign="center" translate="1"/>
+
+<label id="Button_" text="Show Stunt Names" sizen="45 5" posn="-51 -44" textsize="2" translate="1" style="FrameTransitionFromLeft"/>
+<label id="Button_" text="Nickname" sizen="45 5" posn="-51 41" textsize="2" translate="1" style="FrameTransitionFromLeft"/>
+
+
+	<stylesheet>
+			<style id="C" style="BgsPlayerCard0" substyle="BgPlayerCardBig"  size="74 17"/>
+		<style id="TitleLogo" posn="-149 85" style="TitleLogos" substyle="Title" sizen="68 26"/>
+		<style id="BgTitleMenu" posn="-150 100 -25" opacity="0.75" style="Bgs1" substyle="BgWindow2" sizen="70 200"/>
+		<style id="PlanetLogo" posn="-146 52" style="Icons128x128_1" substyle="Vehicles" sizen="16 16"/>
+		<style id="LabelWelcome" posn="-128 49" style="TextRankingsBig" sizen="40 5"/>
+		<style id="LabelActivity" posn="-128 43" style="TextSubTitle1" sizen="44 5"/>
+		
+		<style id="FrameMenuButtons" posn="-144 44"/>	
+		<style id="FrameSolo"/>		
+		<style id="FrameMulti" posn="0 -14"/>	
+		<style id="FrameLocalPlay" posn="0 -58"/>		
+		<style id="FrameEditors" posn="0 -72"/>		
+		<style id="FrameProfile" posn="0 -86"/>		
+		
+		<style id="ButtonSolo ButtonMulti ButtonLocalPlay ButtonEditors ButtonProfile" posn="0 -4.5" style="TextButtonBig" sizen="48 5" valign="center2"/>
+		<style id="ButtonQuit" posn="-160 -72" style="CardMain_Quit" sizen="60 5"/>
+		
+		<style posn="59 -4.5" style="Icons128x128_1" sizen="9 9" halign="right" valign="center">
+			<style id="QuadIconSolo" 		substyle="Solo" />
+			<style id="QuadIconMulti" 		substyle="Multiplayer" />
+			<style id="QuadIconLocalPlay" 	substyle="Hotseat" />
+			<style id="QuadIconEditors" 	substyle="Editor" />
+			<style id="QuadIconProfile" 	substyle="Profile" />
+		</style>
+	</stylesheet>
+	
+	<quad id="Titlelogo"  sizen="70 70" pos="-150 90" z-index="-0.151" style="TitleLogos" substyle="Title" image="file://Media/Images/MenuHeader.png"/>
+	<quad id="aa"  sizen="16 16" pos="-146 52" z-index="1" style="Icons128x128_1" substyle="Profile"/>
+	
+	<quad style="Bgs1" substyle="BgGradLeft"  posn="-162 92" sizen="78 183" z-index="-4" hidden="1"/>
+	<quad style="Icons128x128_1" substyle="Profile"  posn="-94 8" sizen="9 9"/>
+	<quad style="Icons128x128_1" substyle="Advanced"  posn="-94 21" sizen="9 9"/>
+	
+	<quad style="Bgs1" substyle="BgButtonOff" posn="-150 92" sizen="70 183" z-index="-4"/>
+	<quad style="Bgs1" substyle="BgCardProperty"  posn="-54 46" sizen="84 104" z-index="-2" hidden=""/>
+	<quad style="Bgs1" substyle="BgMetalBar"  posn="-54 -58" sizen="84 2" z-index="-2" />
+	<quad style="Bgs1" substyle="BgTitle"  posn="-54 59" sizen="84 14" z-index="-2"/>
+		
+	<label id="0" posn="27 39" sizen="40 6" text="{{{LocalUser.Name}}}"  textsize="3.5" scriptevents="1" halign="right" valign="center2"/>
+	<quad style="Bgs1InRace" substyle="BgGlow2"  posn="-12 62" sizen="90 7" halign="center" z-index="2"/>
+	<label posn="27 -46" sizen="40 6" style="TrackerTextBig" scriptevents="1" valign="center2" halign="right" translate="1" textcolor="DCDCDCFF" id="stnt"/>
+	
+
+	
+
+	
+	<quad  posn="13 34" sizen="15 15" id="img"  scriptevents="1" z-index="2" image="file://Media/Images/Checker.jpg"/>
+	<quad   posn="-155 10" sizen="14 13" id="Profile" style="Icons128x128_1" substyle="Challenge" hidden="1"/>
+	<quad style="Icons128x128_1" substyle="PlayerPage"  posn="-94 -4" sizen="9 9" id="Profile"/>
+	<quad style="Bgs1" substyle="BgTitle3_2"  posn="-161 92" sizen="78 26" modulatecolor="2265A9FF" z-index="-1" hidden="1"/>
+	
+	
+	<frame >
+		
+		<label id="LabelWelcome" text="Profile" posn="-128 49" sizen="34 8" halign="left" translate="1" z-index="2"/>
+		<label id="LabelActivity" text="Personal Settings and Data" posn="-128 42" sizen="44 10" textsize="2" translate="1" z-index="2"/>
+	</frame>
+	<frame id="FrameMenuButtons">
+		<frame id="Frame" pos="0">
+			
+			
+			
+		</frame>
+		<frame id="FrameMulti">
+			<label id="ButtonSolo" text="Settings" scriptevents="1" sizen="52 15" posn="0 -27" translate="1" style="TextButtonBig" textsize="1.9" manialink="file://media/manialinks/settings1.xml" z-index="1"/>
+			<label scriptaction="skinsshow" id="Models" text="Models" sizen="52 16" posn="3 9" style="TextCardSmallScores2" translate="1" textsize="3.5" valign="center" scriptevents="1" hidden="1"/>
+			<quad posn="-13 15" sizen="13 13" z-index="2" style="Icons128x128_1" substyle="ProfileVehicle" hidden="1"/>
+			
+			
+		</frame>
+		<frame id="FrameLocalPlay">
+			<label id="ButtonLocalPlay" text="Default" sizen="52 16" posn="0 29" style="TextButtonBig" translate="1" textsize="1.9" scriptevents="1" action="menu_profile" z-index="1"/>
+			<label scriptaction="SHBackground" id="ButtonLocalPlay" text="New Interface" sizen="54 16" posn="2 34" style="TextCardSmallScores2" translate="1" halign="left" textsize="3.5" hidden="1"/>
+			<label id="ButtonLocalPlay" text="Player Page" scriptevents="1" sizen="55 16" posn="0 5" style="TextButtonBig" url="player.maniaplanet.com" translate="1" textsize="1.9" z-index="1"/>
+			
+		</frame>
+	</frame>
+	
+	
+	
+	
+<label id="xko" text="Back" scriptevents="1" posn="-160 -72" style="CardMain_Quit" sizen="46.4 6" textsize="3.5" translate="1" z-index="10"/>
+	
+	
+			
+<quad style="Icons128x128_1" substyle="Quit"  sizen="18 17" posn="-104 89" image="file://Media/Images/Icon/profile.png" z-index="2" hidden="1"/>
+<script><!--
+
+main() 
+{
+	declare persistent Boolean ShowStunts for LocalUser; //náročnosť!
+
+	sleep(100);
+	(Page.GetFirstChild("0") as CMlLabel).SetText(LocalUser.Name);
+	(Page.GetFirstChild("img") as CMlQuad).ImageUrl = LocalUser.AvatarUrl;
+	
+	EnableMenuNavigation(True, False, Page.GetFirstChild("xko"), 1);
+		
+	while(True){
+		
+	(Page.GetFirstChild("stnt") as CMlLabel).SetText(""^ShowStunts);
+        foreach (Event in PendingEvents) {
+			if (Event.Type == CMlEvent::Type::MenuNavigation) {
+				if (Event.MenuNavAction == CMlEvent::EMenuNavAction::Cancel)	{
+					SendCustomEvent("BackToMainMenu", [""]);
+				}
+			}
+            if (Event.Type ==  CMlEvent::Type::MouseClick) {
+				if (Event.ControlId == "stnt") {
+				if(!ShowStunts)			
+					ShowStunts = True;
+				else 
+					ShowStunts = False;
+				}
+				if (Event.ControlId == "xko") {
+					SendCustomEvent("menu_main", [""]);
+				}	
+					
+			}		
+		}
+		yield;
+	}	   
+}
+
+--></script>
+
+</manialink>

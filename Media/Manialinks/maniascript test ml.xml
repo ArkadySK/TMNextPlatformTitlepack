@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+
+<label pos="0 0" z-index="0" size="20 5" text="Hello"/>
+<script><!--
+main()	{
+
+	log(DataFileMgr);
+	declare a = DataFileMgr.Media_GetFilteredGameList(CDataFileMgr::EMediaType::Sound, 1, "Menu\\Media\\audio\\Sound\\wav", False, True, True);
+	declare b = DataFileMgr.Media_GetFilteredGameList(CDataFileMgr::EMediaType::Sound, 1, "Menu\\Media\\audio\\Sound\\wav", True, True, True);
+	log(a);
+	log(b);
+}
+--></script>
