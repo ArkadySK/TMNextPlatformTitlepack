@@ -64,7 +64,7 @@
 				<quad id="Right" pos="42 62" z-index="0" size="8 8" halign="center" valign="center" scriptevents="1" style="Icons128x128_1" substyle="BackFocusable" scale="-1"/>
 				<quad style="Bgs1" substyle="BgButtonOff"  posn="40.5 81.7" sizen="189 42" z-index="-2" halign="center" scriptevents="1" id="QQ"/>
 				
-				<frame id="keby_to_išlo_tak_to_tam_je" hidden="1">
+				<frame id="Skillpointsframe" hidden="1">
 				<quad pos="-44 58" z-index="2" size="15 15" style="Icons128x128_1" substyle="SkillPoints"/>
 				<quad style="Bgs1" substyle="BgList"  sizen="50 10" posn="-46 55" z-index="-1"/>				
 				<label pos="-26 49.5" z-index="0" size="25 12" style="TextRaceChrono" textsize="4.5" valign="center2" id="SPMap" text="0"/>		
@@ -444,6 +444,7 @@ main() {
 							if(Map.Unlocked)	{
 								wait(TitleControl.IsReady);
 								TitleControl.PlayMap(Map.FileName, "Modes\\TrackMania\\LegacyMode.Script.txt", "");
+								Audio.PlaySoundEvent("file://Media/Audio/Sound/Wav/MenuStartChallenge.wav", 1.);
 							}
 							else {
 								if (Color == "A") {
