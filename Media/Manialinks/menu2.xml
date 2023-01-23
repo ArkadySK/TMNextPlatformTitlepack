@@ -25,7 +25,7 @@
 		</style>
 	</stylesheet>
 	
-	<quad id="Titlelogo"  sizen="70 70" pos="-150 90" z-index="-0.151" style="TitleLogos" substyle="Title" image="file://Media/Images/MenuHeader.png"/>
+	<quad id="Titlelogo" sizen="70 70" pos="-150 90" z-index="-0.151" style="TitleLogos" substyle="Title" image="file://Media/Images/MenuHeader.png"/>
 				
 	<quad id="BgTitleMenu" style="Bgs1" substyle="BgButtonOff" pos="-150 100" z-index="-5"/>
 	<frame>
@@ -38,52 +38,35 @@
 	
 	<frame id="FrameMenuButtons">
 		<frame id="FrameSolo">
-			<label id="ButtonSolo" text="Solo" action="menu_solo" scriptevents="1" pos="0 -4" translate="1"/>
+			<label id="ButtonSolo" text="Solo" scriptevents="1" pos="0 -4" translate="1"/>
 			<quad id="QuadIconSolo"/>
 		</frame>
 		<frame id="FrameMulti" hidden="">
-			<label id="ButtonMulti" text="Multiplayer" scriptevents="1" translate="1" action="menu_internet"/>
+			<label id="ButtonMulti" text="Multiplayer" scriptevents="1" translate="1" />
 			<quad id="QuadIconMulti"/>
 		</frame>
 		<frame id="FrameLocalPlay">
-			<label id="ButtonLocalPlay" text="Local Play" action="menu_local" scriptevents="1" translate="1"/>
+			<label id="ButtonLocalPlay" text="Local Play" scriptevents="1" translate="1"/>
 			<quad id="QuadIconLocalPlay"/>
 		</frame>
 		<frame id="FrameEditors">
-			<label id="ButtonEditors" text="Editors" action="menu_editors" scriptevents="1" translate="1"/>
+			<label id="ButtonEditors" text="Editors" scriptevents="1" translate="1"/>
 			<quad id="QuadIconEditors"/>
 		</frame>
 		<frame id="FrameProfile">
-			<label id="ButtonEditors" text="Profile" action="menu_profile" scriptevents="1" translate="1"/>
+			<label id="ButtonEditors" text="Profile" scriptevents="1" translate="1"/>
 			<quad id="QuadIconEditors"/>
 		</frame>
 		
 	</frame>
 
-	
-	
-		<frame id="BgsPlayerCard" hidden="" z-index="2" pos="0 2">
-			
-			
-			
-			
-			
-			
-						
-						
-			
-		</frame>
 
 		<frame id="menu3" hidden="" z-index="3" pos="0 0">
-			<label id="QUITgame" text="Back" scriptevents="1" posn="-160 -72" style="CardMain_Quit" sizen="46.4 6" textsize="3.5" translate="1" z-index="10" action="quit"/>
-			<label text="Quit" posn="-141 -81" style="TextCardSmallScores2" sizen="54 14" textsize="3.5" translate="1" valign="center2" id="QUITgame" scriptevents="1" z-index="100" hidden="1"/>
-			
-			
-			<quad style="Icons128x128_1" substyle="Quit"  sizen="14 12" posn="-155 -75" z-index="100" hidden="1"/>
-		</frame>
+			<label id="QUITgame" text="Quit" scriptevents="1" posn="-160 -72" style="CardMain_Quit" sizen="46.4 6" textsize="3.5" translate="1" z-index="10" hidden=""/>
+			</frame>
 		
 		
-		<frame id="frame2" hidden="1" z-index="101">
+		<frame id="frame2" hidden="1" z-index="10">
 		
 			<label posn="0 1" sizen="90 5" text="Are you sure you want to quit?" valign="center" halign="center" textcolor="FFFFFFFF" style="TextCardMedium" translate="1" z-index="56" textsize="3.5"/>
 			<quad posn="0 0" sizen="500 500" bgcolor="FFFA" style="Bgs1" substyle="BgDialogBlur" halign="center" valign="center" scriptevents="1" z-index="50"/>
@@ -91,52 +74,9 @@
 			<quad style="Bgs1InRace" substyle="BgGlow2"  posn="0 13" sizen="152 8" z-index="102" halign="center"/>
 	
 			<quad style="Bgs1" substyle="BgMetalBar"  posn="0 -15" sizen="145 1.5" halign="center" z-index="110"/>
-			<quad posn="-1 -4 4" sizen="65 10" bgcolor="FFFA" image="file://Media/Images/Icon/share_nations.png" imagefocus="file://Media/Images/Icon/share_nations_over.png" scriptevents="1" id="NO" z-index="55" hidden="1"/>
 			<label posn="30 -10" sizen="50 8" text="No" textsize="3" halign="center" style="CardButtonMediumL" translate="1" id="NO" scriptevents="1" z-index="56" focusareacolor1="FFFFFFFF" focusareacolor2="BFBFBFE0" textcolor="000000FF" valign="center"/>
 			
 			<label posn="-30 -10" id="YES" sizen="50 8" text="Yes" textsize="3" valign="center" halign="center" textcolor="000000FF" style="CardButtonMediumL" scriptevents="1" action="quit" translate="1" z-index="56" focusareacolor1="FFFFFFFF" focusareacolor2="BFBFBFE0"/>
-		</frame>
-	
-
-		
-		<frame id="menu2" z-index="1.1" hidden="0">
-
-		<frame id="welcome" hidden="0" z-index="5">
-			
-			
-			
-		</frame>
-		<frame id="FrameAllMenu" hidden="0" z-index="1">
-		
-			<frame id="FrameEditors" hidden="0">
-
-				
-				
-				
-				<frame id="invite" hidden="1">			
-				<quad posn="78 58" sizen="14 13" image="file://Media/Images/Icon/add buddy.png" z-index="3"/>
-				<quad posn="76 59" sizen="74 16" style="BgsPlayerCard" substyle="BgActivePlayerName" modulatecolor="ADADADFF" scriptevents="1" scriptaction="share"/>
-				<label pos="95 49" z-index="0" size="60 5" text="Add a player to your buddy list" textsize="1.5" style="TextCardInfoVerySmall" textcolor="ADADADFF"/>		
-				<label text="Invite!" sizen="15 6" textsize="3" translate="1" halign="left" style="TextRankingsBig" scriptevents="1" z-index="-4.18" pos="95 55"/>
-				</frame>
-				
-				<frame id="fakebuddies" pos="0 10" hidden="1">
-				<quad posn="75 41" sizen="77 14" style="Bgs1" substyle="BgCardPlayer" image="file://Media/Images/Icon/profile button.png" z-index="1.5"/>
-				<quad posn="75 15" sizen="77 14" style="Bgs1" substyle="BgCardBuddy" image="file://Media/Images/Icon/profile button.png" z-index="-0.5"/>
-				<quad posn="75 28" sizen="77 14" style="Bgs1" substyle="BgCardPlayer" image="file://Media/Images/Icon/profile button.png"/>
-				<quad sizen="11 10" posn="82 39" z-index="2" style="Icons128x128_1" substyle="Vehicles"/>
-				<quad sizen="5 5" posn="146 14" style="Icons64x64_1" substyle="Close" bgcolor="000000FF" modulatecolor="000000FF" scriptevents="1" hidden="1"/>
-				<quad sizen="11 10" posn="83 13" z-index="4" style="Icons128x128_1" substyle="Puzzle"/>
-				<quad sizen="5 5" posn="146 27" style="Icons64x64_1" substyle="Close" bgcolor="000000FF" modulatecolor="000000FF" scriptevents="1" z-index="4" hidden="1"/>
-				<quad sizen="11 10" posn="82 26" z-index="3" style="Icons128x128_1" substyle="Forever"/>
-				<quad sizen="5 5" posn="146 40" style="Icons64x64_1" substyle="Close" bgcolor="000000FF" modulatecolor="000000FF" scriptevents="1" z-index="4" hidden="1"/>
-				
-				<label text="Show/hide Background" scriptaction="SHBackground" posn="94 34" sizen="54 12" style="TextValueBig" textsize="3" valign="center2" z-index="2" textcolor="000000FF"/>
-				<label text="Help" posn="94 8" sizen="53 12" style="TextValueBig" textsize="3" translate="1" scriptevents="1" textcolor="000000FF" valign="center2" scriptaction="SHHelp"/>
-				<label scriptaction="SHNews"  text="Show/hide News" posn="94 21" sizen="53 12" style="TextValueBig" textsize="3" valign="center2" z-index="5" textcolor="000000FF"/>
-				</frame>
-				</frame>
-		</frame>
 		</frame>
 
 </frame>
@@ -155,27 +95,32 @@ main() {
 		
 		if (ProcessedClick != LatestClickedControl)
 		{
-				ProcessedClick = LatestClickedControl;
-                /*if (LatestClickedControl == "QUITgame") {
-                    Page.GetFirstChild("frame2").Show();
-				Page.GetFirstChild("FrameAllMenu").Hide();
-                }*/
-                if (LatestClickedControl == "NO") {						
-				Page.GetFirstChild("frame2").Hide();
-				Page.GetFirstChild("FrameAllMenu").Show();
-				}			
-			/*if (LatestClickedControl == "QuitTXT") {
-				Page.GetFirstChild("menu2").Show();						
-				Page.GetFirstChild("frame2").Hide();
-				Page.GetFirstChild("menu3").Show();
-				Page.GetFirstChild("welcome").Show();				
-				Page.GetFirstChild("FrameAllMenu").Show();
-				Page.GetFirstChild("BgsPlayerCard").Show();
-                }*/
+			ProcessedClick = LatestClickedControl;
+			if (LatestClickedControl == "QUITgame") {
+				Page.GetFirstChild("frame2").Show();
+			}
+			if (LatestClickedControl == "NO") {						
+			Page.GetFirstChild("frame2").Hide();
+			}	
  			if (LatestClickedControl == "YES") {
 				Page.GetFirstChild("frame2").Hide();
-				Page.GetFirstChild("FrameAllMenu").Show();
-                }
+			}
+
+			if (LatestClickedControl == "ButtonSolo") {
+				
+			}
+			if (LatestClickedControl == "ButtonMulti") {
+				ParentApp.Menu_Internet();
+			}
+			if (LatestClickedControl == "ButtonEditors") {
+				ParentApp.Menu_Editor();
+			}
+			if (LatestClickedControl == "ButtonLocalPlay") {
+				ParentApp.Menu_Local();
+			}
+			if (LatestClickedControl == "ButtonProfile") {
+				ParentApp.Menu_Profile();
+			}
         }
 	
         yield;
