@@ -136,15 +136,11 @@
 			<quad id="M_Main15" pos="92 -27" scriptevents="1" hidden="1"/>									
 							
 		</frame>
-		<frame id="LockFrame" z-index="1000" hidden="1">
-		
+		<frame id="LockFrame" z-index="1000" hidden="1">	
 			<quad style="Bgs1" substyle="BgCardProperty"  posn="0 17" sizen="168 25" z-index="-5" halign="center" hidden="0"/>
-			<quad style="Bgs1InRace" substyle="BgGlow2"  posn="0 20" sizen="174 8" z-index="1" halign="center"/>
-		
-			<quad style="Bgs1" substyle="BgMetalBar"  posn="0 -8" sizen="168 1.5" halign="center"/>
-			
+			<quad style="Bgs1InRace" substyle="BgGlow2"  posn="0 20" sizen="174 8" z-index="1" halign="center"/>	
+			<quad style="Bgs1" substyle="BgMetalBar"  posn="0 -8" sizen="168 1.5" halign="center"/>		
 			<label  z-index="3" size="157 5" valign="center" pos="-78.5 7" translate="1" autonewline="1" style="TextCardMedium" id="LockR" text="Locked" textsize="2.2"/>
-			<quad id="ZamocekZrus" pos="0 -3" size="85 8.77"  z-index="20" image="file://Media/Images/Icon/share_nations.png" halign="center" valign="center" imagefocus="file://Media/Images/Icon/share_nations_over.png" scriptevents="1" hidden="1"/>
 			<label pos="0 1" z-index="21" size="50.5 5" text="OK" style="CardButtonMediumL" textsize="3" textcolor="222222FF" halign="center" translate="1" id="ZamocekZrus" scriptevents="1"/>
 			<quad pos="0 0" z-index="0" size="400 200" halign="center" valign="center" scriptevents="1" style="Bgs1" substyle="BgEmpty"/>
 		</frame>
@@ -311,7 +307,7 @@ Void ClearShownMaps()	{
 Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 
 	declare Text ScContext = "";
-	//pre každú trať v danej kampani, farbe a strane 
+	//pre kaÅ¾dÃº traÅ¥ v danej kampani, farbe a strane 
 	wait(!_MapInfosTask.IsProcessing);	
 	ClearShownMaps();
 	
@@ -369,11 +365,14 @@ main() {
 	declare MedalsTotal_ <=> (Page.MainFrame.GetFirstChild("MedalsTotal") 	as CMlFrame);
 	declare MedalsMap_ <=> (Page.MainFrame.GetFirstChild("MedalsMap") 	as CMlFrame);
 
+	declare LoadMapSound = Audio.CreateSound("https://raw.githubusercontent.com/ArkadySK/TMNextPlatformTitlepack/main/Media/Audio/MenuStartChallenge.wav?token=GHSAT0AAAAAAB52YFOI4KI6FVS4PAURYXW2Y6OZ2FQ");
+	Audio.ClearAllDelayedSoundsEvents();
 	declare Text ScContext = "";
 	declare Text Color;	//uroven trate
 	
 	UpQuad.Hide();
 
+	wait(LoadMapSound != Null);
 	log("the menu is loading...");
 
 	declare CurMapInfosTask = DataFileMgr.Map_GetGameList("", False);
@@ -444,7 +443,7 @@ main() {
 							if(Map.Unlocked)	{
 								wait(TitleControl.IsReady);
 								TitleControl.PlayMap(Map.FileName, "Modes\\TrackMania\\LegacyMode.Script.txt", "");
-								Audio.PlaySoundEvent("file://Media/Audio/Sound/Wav/MenuStartChallenge.wav", 1.);
+								Audio.PlaySoundEvent(LoadMapSound, 0.8, 0);
 							}
 							else {
 								if (Color == "A") {
