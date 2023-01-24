@@ -384,7 +384,10 @@ main() {
 	DownQuad.Hide();
 		
 	EnableMenuNavigation(True, True, Page.GetFirstChild("xko"), 1);
-		
+	
+	declare Text LastClickedId = "";
+	declare Text ProceededId = "";
+
 	while(True){	
 		switch (Color)	{
 			case "A":	{
@@ -417,102 +420,115 @@ main() {
 		
     	foreach (Event in PendingEvents) {
 			if (Event.Type ==  CMlEvent::Type::MouseClick) {
-				for (y, 1, 15){				
-					if (Event.ControlId == "M_Main"^y) {
+				if(Event.ControlId != "")
+					LastClickedId = Event.ControlId;
+				
+			}	
+		}	
+
+		if(LastClickedId != ProceededId)	{
+
+			ProceededId = LastClickedId;
+
+			for (y, 1, 15)	{				
+				if (LastClickedId == "M_Main"^y) {
+					
+					declare CMapInfo Map;
+					Map <=> CurMapInfosTask.MapInfos[y-1];
+											
+					if ((Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected == False) 	{
+						Deselect();
+						MedalsTotal_ .Hide();
+						MedalsMap_ .Show();
 						
-						declare CMapInfo Map;
-						Map <=> CurMapInfosTask.MapInfos[y-1];
-												
-						if ((Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected == False) 	{
-							Deselect();
-							MedalsTotal_ .Hide();
-							MedalsMap_ .Show();
-							
-							declare Integer Record = ScoreMgr.Map_GetRecord(NullId, Map.MapUid, ScContext);					
-							(Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected = True;
-							(Page.GetFirstChild("header0") as CMlLabel).SetText("Official time rankings for "^Map.Name);
-							
-							declare Text RecordText;
-							if (Record !=-1)	
-								RecordText = TimeToText(Record, True);
-							else
-								RecordText = "Not Played";
-							(Page.GetFirstChild("TrainingMap") as CMlLabel).SetText(RecordText);
+						declare Integer Record = ScoreMgr.Map_GetRecord(NullId, Map.MapUid, ScContext);					
+						(Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected = True;
+						(Page.GetFirstChild("header0") as CMlLabel).SetText("Official time rankings for "^Map.Name);
+						
+						declare Text RecordText;
+						if (Record !=-1)	
+							RecordText = TimeToText(Record, True);
+						else
+							RecordText = "Not Played";
+						(Page.GetFirstChild("TrainingMap") as CMlLabel).SetText(RecordText);
+					}
+					else {
+						if(Map.Unlocked)	{
+							wait(TitleControl.IsReady);
+							TitleControl.PlayMap(Map.FileName, "Modes\\TrackMania\\LegacyMode.Script.txt", "");
+							Audio.PlaySoundEvent(LoadMapSound, 0.8, 0);
 						}
 						else {
-							if(Map.Unlocked)	{
-								wait(TitleControl.IsReady);
-								TitleControl.PlayMap(Map.FileName, "Modes\\TrackMania\\LegacyMode.Script.txt", "");
-								Audio.PlaySoundEvent(LoadMapSound, 0.8, 0);
+							if (Color == "A") {
+								ShowMessage("You need a bronze medal on the previous map to unlock this map.");
 							}
-							else {
-								if (Color == "A") {
-									ShowMessage("You need a bronze medal on the previous map to unlock this map.");
-								}
-								else if (Color == "B") {
-									ShowMessage("You need a silver medal on the previous map to unlock this map.");
-								}
-								else if (Color == "C") {
-									ShowMessage("You need a silver medal on the previous map to unlock this map.");
-								}
-								else if (Color == "D") {
-									ShowMessage("You need a gold medal on the previous map to unlock this map.");
-								}
-								else if (Color == "E") {
-									ShowMessage("You need a gold medal on all the previous maps to unlock this map.");
-								}
+							else if (Color == "B") {
+								ShowMessage("You need a silver medal on the previous map to unlock this map.");
 							}
-							MedalsTotal_.Show();
-							MedalsMap_.Hide();
+							else if (Color == "C") {
+								ShowMessage("You need a silver medal on the previous map to unlock this map.");
+							}
+							else if (Color == "D") {
+								ShowMessage("You need a gold medal on the previous map to unlock this map.");
+							}
+							else if (Color == "E") {
+								ShowMessage("You need a gold medal on all the previous maps to unlock this map.");
+							}
 						}
+						MedalsTotal_.Show();
+						MedalsMap_.Hide();
 					}
 				}
-				
-				if (Event.ControlId == "ZamocekZrus") {
-					Page.GetFirstChild("LockFrame").Hide();
-				}
-				
-				if (Event.ControlId == "xko") {
-					SendCustomEvent("menu_main", [""]);
-				}
-				if (Event.ControlId == "WhiteBTN" || Event.ControlId == "GreenBTN" || Event.ControlId == "BlueBTN" || Event.ControlId == "RedBTN" || Event.ControlId == "BlackBTN")	{
-					Deselect();
-					RefreshRank();
-					MedalsTotal_ .Show();
-					MedalsMap_ .Hide();
-				}
-				if (Event.ControlId == "WhiteBTN" && Color != "A")  {
-					if(CurFoldersTask.SubFolders.count > 0)
-						Color = "A";
-					else
-						ShowMessage("Folder not found!");
-        		} 
-				if (Event.ControlId == "GreenBTN" && Color != "B") {
-					if(CurFoldersTask.SubFolders.count > 1)
-						Color = "B";
-					else
-						ShowMessage("Folder not found!");
-       		 	} 
-				if (Event.ControlId == "BlueBTN" && Color != "C")	{
-					if(CurFoldersTask.SubFolders.count > 2)
-						Color = "C";
-					else
-						ShowMessage("Folder not found!");
-       		 	}
-				if (Event.ControlId == "RedBTN" && Color != "D") {
-					if(CurFoldersTask.SubFolders.count > 3)
-						Color = "D";
-					else
-						ShowMessage("Folder not found!");
-       		 	}
-				if (Event.ControlId == "BlackBTN" && Color != "E") {
-					if(CurFoldersTask.SubFolders.count > 4)
-						Color = "E";
-					else
-						ShowMessage("Folder not found!");
-       		 	}
 			}
+			
+			if (LastClickedId == "ZamocekZrus") {
+				Page.GetFirstChild("LockFrame").Hide();
+			}
+			
+			if (LastClickedId == "xko") {
+				SendCustomEvent("menu_main", [""]);
+			}
+			if (LastClickedId == "WhiteBTN" || LastClickedId == "GreenBTN" || LastClickedId == "BlueBTN" || LastClickedId == "RedBTN" || LastClickedId == "BlackBTN")	{
+				Deselect();
+				RefreshRank();
+				MedalsTotal_ .Show();
+				MedalsMap_ .Hide();
+			}
+			if (LastClickedId == "WhiteBTN" && Color != "A")  {
+				if(CurFoldersTask.SubFolders.count > 0)
+					Color = "A";
+				else
+					ShowMessage("Folder not found!");
+			} 
+			if (LastClickedId == "GreenBTN" && Color != "B") {
+				if(CurFoldersTask.SubFolders.count > 1)
+					Color = "B";
+				else
+					ShowMessage("Folder not found!");
+			} 
+			if (LastClickedId == "BlueBTN" && Color != "C")	{
+				if(CurFoldersTask.SubFolders.count > 2)
+					Color = "C";
+				else
+					ShowMessage("Folder not found!");
+			}
+			if (LastClickedId == "RedBTN" && Color != "D") {
+				if(CurFoldersTask.SubFolders.count > 3)
+					Color = "D";
+				else
+					ShowMessage("Folder not found!");
+			}
+			if (LastClickedId == "BlackBTN" && Color != "E") {
+				if(CurFoldersTask.SubFolders.count > 4)
+					Color = "E";
+				else
+					ShowMessage("Folder not found!");
+			}
+
+			LastClickedId = "";
+			ProceededId = "";
 		}
+
 		yield;
 	}
 	log("this very page was done by arkady, 2023 :)");	
