@@ -1,6 +1,6 @@
 <manialink name="Page_HomePage" version="3">
 	<stylesheet>
-		<style id="LabelWelcome" posn="-128 49" style="TextRankingsBig" sizen="40 5"/>
+		<style id="LabelWelcome" posn="-128 49" style="TextTitle1" sizen="40 5"/>
 		<style id="LabelActivity" posn="-128 43" style="TextSubTitle1" sizen="44 5"/>		
 		<style id="WhiteBTN GreenBTN BlueBTN RedBTN BlackBTN" style="TextButtonBig"/>
 		<style id="1 2 3 4 5"  style="Icons128x128_1" sizen="9 9" halign="right" valign="center"/>
@@ -19,21 +19,12 @@
 			<quad style="Bgs1" substyle="BgButtonOff" posn="-150 92" sizen="70 183" z-index="-4"/>
 			<label id="LabelWelcome" text="Play Solo" posn="-128 49" sizen="34 8" translate="1"/>
 			<label id="LabelActivity" text="Choose a difficulty" posn="-128 42" sizen="60 10" translate="1"/>
-			<label id="CampText2" posn="159 -90" sizen="61 10" translate="1" style="TextValueSmallSm" halign="right" valign="bottom" text="None" textsize="3" hidden="1"/>			
-		</frame>	
+			</frame>	
 		
 		  <frame id="nocol" z-index="20" hidden="1">
 					<label pos="40 32" z-index="11" size="220 22" text="Choose a difficulty" translate="1" halign="center" valign="center" style="TextTitle3" textsize="6" textcolor="FFFFFFFF" textemboss="1"/>
 					<quad pos="40 -2" z-index="11" size="55 77" bgcolor="FFFA" style="Icons128x128_Blink" substyle="BackFocusable" halign="center" valign="center"/>
 					<quad style="Bgs1InRace" substyle="BgGradRight"  posn="39.9 94.7" sizen="263 189" z-index="10" halign="center" scriptevents="1"/>
-	
-			</frame>
-			
-			<frame id="camp" pos="30 -140" scale=".9" hidden="1">
-				<label pos="20 62" z-index="0" size="80 9" text="Race" id="CampText" style="TextRankingsBig" textsize="2.5" translate="1" valign="center2" textcolor="000000FF" halign="center"/>		
-				<quad pos="20 67" z-index="-1" size="90 10" bgcolor="FFFA" image="file://Media/Images/Icon/ButtonRank.png" halign="center"/>
-				<quad id="LeftCamp" pos="-29 62" z-index="0" size="8 8" bgcolor="FFFA" halign="center" valign="center" scriptevents="1" style="Icons128x128_1" substyle="BackFocusable"/>
-				<quad id="RightCamp" pos="69 62" z-index="0" size="8 8" bgcolor="FFFA" halign="center" valign="center" scriptevents="1" style="Icons128x128_1" substyle="BackFocusable" scale="-1"/>
 			</frame>
 			
 			
@@ -47,7 +38,7 @@
 				<quad style="Bgs1" substyle="BgCardProperty"  posn="40 56.5" sizen="168 16" z-index="-5" halign="center"/>
 				<quad style="Bgs1InRace" substyle="BgGlow2"  posn="40 71" sizen="174 8" z-index="1" halign="center"/>
 				
-				<label id="header" text="Your Medals World Ranking" sizen="189 5" posn="41 62" style="TextButtonBig" textsize="2.5" translate="1" halign="center" valign="center"/>
+				<label id="header" text="Your Medals World Ranking" sizen="189 5" posn="41 62" style="TextTitle3" textsize="2.5" translate="1" halign="center" valign="center"/>
 			<quad style="Bgs1" substyle="BgTitle"  posn="40 67" sizen="168 11" halign="center"/>
 			<quad style="Bgs1" substyle="BgMetalBar"  posn="40 41" sizen="168 1.5" halign="center"/>
 
@@ -71,10 +62,10 @@
 				</frame>
 				<label id="header0" text="Official time rankings for this Map" sizen="102 5" posn="1 78" style="TextButtonBig" textsize="2.5" translate="1" halign="center"/>
 				
-				<label pos="6 54" z-index="0" size="16 5" text="Training" translate="1" textsize="2" style="TextCardRaceRank"/>
-				<label pos="6 49" z-index="0" size="20 5" text="Official" translate="1" textsize="2" style="TextTitle2" hidden="1"/>
+				<label pos="6 54" z-index="0" size="16 5" text="Time" translate="1" textsize="2" style="TextCardRaceRank"/>
+				<label pos="6 49" z-index="0" size="20 5" text="Platform" translate="1" textsize="2" style="TextTitle2"/>
 				<label pos="24 54" z-index="50" size="21 5" textsize="2" style="TextRankingsBig" textcolor="0085CCFF" id="TrainingMap" translate="1" text="0:00:00"/>
-				<label pos="24 49" z-index="50" size="21 5" text="No record" translate="1" textsize="2" style="TextRankingsBig" textcolor="0085CCFF" id="OfcMap" hidden="1"/>
+				<label pos="24 49" z-index="50" size="35 5" text="No record" translate="1" textsize="2" style="TextRankingsBig" textcolor="0085CCFF" id="PlatformRecordMap"/>
 				<frame hidden="0" pos="1 10" scale=".9">
 					<label scriptevents="1" id="P1"/>
 					<label scriptevents="1" id="P2" pos="69 71"/>
@@ -180,6 +171,23 @@
 			<label id="M_Name14" pos="74 -60"/>
 			<label id="M_Name15" pos="108 -60"/>
 		</frame>
+		<frame pos="-13 7">	
+			<label id="M_PlatformRecord1" textemboss="1" pos="-28 12"/>
+			<label id="M_PlatformRecord2" textemboss="1" pos="6 12"/>
+			<label id="M_PlatformRecord3" textemboss="1" pos="40 12"/>
+			<label id="M_PlatformRecord4" textemboss="1" pos="74 12"/>
+			<label id="M_PlatformRecord5" textemboss="1" pos="108 12"/>
+			<label id="M_PlatformRecord6" textemboss="1" pos="-28 -24"/>
+			<label id="M_PlatformRecord7" textemboss="1" pos="6 -24"/>
+			<label id="M_PlatformRecord8" textemboss="1" pos="40 -24"/>
+			<label id="M_PlatformRecord9" textemboss="1" pos="74 -24"/>
+			<label id="M_PlatformRecord10" textemboss="1" pos="108 -24"/>
+			<label id="M_PlatformRecord11" textemboss="1" pos="-28 -60"/>
+			<label id="M_PlatformRecord12" textemboss="1" pos="6 -60"/>
+			<label id="M_PlatformRecord13" textemboss="1" pos="40 -60"/>
+			<label id="M_PlatformRecord14" textemboss="1" pos="74 -60"/>
+			<label id="M_PlatformRecord15" textemboss="1" pos="108 -60"/>
+		</frame>
 		
 		<frame z-index="0">
 			<quad id="M_Medal1" hidden="1" pos="-23 24"/>
@@ -252,6 +260,8 @@
 
 	<script><!--
 
+declare Integer[] PlatformRecords;
+
 Void Deselect()	{
 	for (yy, 1, 15) {
 		(Page.GetFirstChild("M_Main"^yy) as CMlQuad).StyleSelected = False;
@@ -290,24 +300,69 @@ Text TimeToText(Integer _score, Boolean _useMS)	{
 	return "";
 }
 
+CGhost Map_GetRecordGhost(Text MapName)	{
+	declare MapGhosts = DataFileMgr.Replay_Load("PlatformRecords\\AutoSave"^MapName^".Replay.Gbx");
+	wait(MapGhosts != Null);
+	if(!MapGhosts.HasSucceeded)
+		return Null;
+	if(MapGhosts.Ghosts.count > 0)
+		return MapGhosts.Ghosts[0];
+	return Null;
+}
+
+Integer Map_GetPlatformRecord(Text MapName)	{
+	declare MapGhost = Map_GetRecordGhost(MapName);
+	if(MapGhost == Null)
+		return -1;
+	return MapGhost.Result.NbRespawns;
+}
+
 Void ShowMessage(Text _Text)	{
 	Page.GetFirstChild("LockFrame").Show();
 	(Page.GetFirstChild("LockR") as CMlLabel).SetText(_Text);
 }
 
 Void ClearShownMaps()	{
+	PlatformRecords.clear();
 	for (y, 1, 15)	{
-				(Page.GetFirstChild("M_Main"^y) as CMlQuad).Hide();
-				(Page.GetFirstChild("M_Icon"^y) as CMlQuad).Hide();
-				(Page.GetFirstChild("M_Medal"^y) as CMlQuad).Hide();
-				(Page.GetFirstChild("M_Lock"^y) as CMlFrame).Hide();
-				(Page.GetFirstChild("M_Name"^y) as CMlLabel).SetText("");
-			}}
+		(Page.GetFirstChild("M_Main"^y) as CMlQuad).Hide();
+		(Page.GetFirstChild("M_Icon"^y) as CMlQuad).Hide();
+		(Page.GetFirstChild("M_Medal"^y) as CMlQuad).Hide();
+		(Page.GetFirstChild("M_Lock"^y) as CMlFrame).Hide();
+		(Page.GetFirstChild("M_Name"^y) as CMlLabel).SetText("");
+	}
+}
+
+Integer Map_GetMedalCount(CMapInfo Map, Integer Record_NbRespawns)	{
+	if(Record_NbRespawns == -1)
+		return 0;
+
+	declare Integer Author = 0;
+	declare Integer Gold = 1;
+	declare Integer Silver = 3;
+	declare Integer Bronze = 10;
+	
+	if(Map.TMObjective_AuthorTime > 0 && Map.TMObjective_AuthorTime < 100)	{
+		Author = Map.TMObjective_AuthorTime;
+		Gold = Map.TMObjective_GoldTime;
+		Silver = Map.TMObjective_SilverTime;
+		Bronze = Map.TMObjective_BronzeTime;
+	}
+	
+	if(Record_NbRespawns <= Author && Author != Gold)
+		return 4;
+	else if(Record_NbRespawns <= Gold)
+		return 3;
+	else if(Record_NbRespawns <= Silver)
+		return 2;
+	else if(Record_NbRespawns <= Bronze)
+		return 1;
+	return 0;
+}
 
 Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 
 	declare Text ScContext = "";
-	//pre kaÅ¾dÃº traÅ¥ v danej kampani, farbe a strane 
 	wait(!_MapInfosTask.IsProcessing);	
 	ClearShownMaps();
 	
@@ -321,8 +376,9 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 		(Page.GetFirstChild("M_Name"^i) as CMlLabel).SetText("");
 		(Page.GetFirstChild("M_Icon"^i) as CMlQuad).ImageUrl = "";
 		(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Hide();
-		}
-		else	{
+		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText("");
+	}
+	else	{
 		(Page.GetFirstChild("M_Icon"^i) as CMlQuad).ImageUrl = "file://Thumbnails/MapUid/"^Map.MapUid;
 		(Page.GetFirstChild("M_Lock"^i) as CMlFrame).Hide();
 		(Page.GetFirstChild("M_Name"^i) as CMlLabel).SetText(Map.Name);
@@ -332,7 +388,9 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 	
 	//meDAJly
 	
-	declare NbMedals = ScoreMgr.Map_GetMultiAsyncLevel(NullId, Map.MapUid, ScContext);
+	declare Integer Record_NbRespawns = Map_GetPlatformRecord(Map.Name);	
+	declare NbMedals = Map_GetMedalCount(Map, Record_NbRespawns);
+	PlatformRecords.add(Record_NbRespawns);
 	switch (NbMedals)	{
 		case 4: {
 			(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Substyle = "MedalNadeo";
@@ -350,7 +408,12 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 			(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Substyle = "MedalSlot";
 		}
 	}	
-	
+	if(Record_NbRespawns != -1)
+		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText(""^Record_NbRespawns);
+	else
+		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText("");
+
+		
 	(Page.GetFirstChild("M_Main"^i) as CMlQuad).Show();
 	(Page.GetFirstChild("M_Icon"^i) as CMlQuad).Show();
 	
@@ -365,6 +428,8 @@ main() {
 	declare MedalsTotal_ <=> (Page.MainFrame.GetFirstChild("MedalsTotal") 	as CMlFrame);
 	declare MedalsMap_ <=> (Page.MainFrame.GetFirstChild("MedalsMap") 	as CMlFrame);
 
+	declare CampaignPath = "PlatformTest";
+
 	declare LoadMapSound = Audio.CreateSound("https://raw.githubusercontent.com/ArkadySK/TMNextPlatformTitlepack/main/Media/Audio/MenuStartChallenge.wav?token=GHSAT0AAAAAAB52YFOI4KI6FVS4PAURYXW2Y6OZ2FQ");
 	Audio.ClearAllDelayedSoundsEvents();
 	declare Text ScContext = "";
@@ -376,11 +441,10 @@ main() {
 	log("the menu is loading...");
 
 	declare CurMapInfosTask = DataFileMgr.Map_GetGameList("", False);
-	declare CurFoldersTask = DataFileMgr.Map_GetGameList("PlatformTest", False);
+	declare CurFoldersTask = DataFileMgr.Map_GetGameList(CampaignPath, False);
 	sleep(100);
 	wait(!CurFoldersTask.IsProcessing);
-	
-	log("menu loaded successfully");
+	log("menu loaded successfully. If you see this console, close it with CTRL + G.");
 	DownQuad.Hide();
 		
 	EnableMenuNavigation(True, True, Page.GetFirstChild("xko"), 1);
@@ -440,17 +504,25 @@ main() {
 						Deselect();
 						MedalsTotal_ .Hide();
 						MedalsMap_ .Show();
-						
-						declare Integer Record = ScoreMgr.Map_GetRecord(NullId, Map.MapUid, ScContext);					
+																
 						(Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected = True;
 						(Page.GetFirstChild("header0") as CMlLabel).SetText("Official time rankings for "^Map.Name);
 						
+						declare Integer Record_Time = ScoreMgr.Map_GetRecord(NullId, Map.MapUid, ScContext);
+						declare Integer Record_NbRespawns = PlatformRecords[y-1];					
 						declare Text RecordText;
-						if (Record !=-1)	
-							RecordText = TimeToText(Record, True);
+						declare Text PlatformRecordText;
+						if (Record_Time !=-1)
+							RecordText = TimeToText(Record_Time, True);
 						else
-							RecordText = "Not Played";
+							RecordText = "Not Played";		
+						if (Record_NbRespawns !=-1)
+							PlatformRecordText = ""^Record_NbRespawns;
+						else
+							PlatformRecordText = "Replay not found!";
+						
 						(Page.GetFirstChild("TrainingMap") as CMlLabel).SetText(RecordText);
+						(Page.GetFirstChild("PlatformRecordMap") as CMlLabel).SetText(PlatformRecordText);
 					}
 					else {
 						if(Map.Unlocked)	{
