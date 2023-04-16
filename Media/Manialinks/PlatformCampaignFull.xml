@@ -34,7 +34,7 @@
 				
 				<quad style="Bgs1" substyle="BgList"  sizen="38 10" posn="-30 54" z-index="-1"/>
 				
-				<label id="SP" sizen="30 14" posn="-19 49" style="TextRankingsBig" textsize="4" text="0" valign="center" halign="center" z-index="2"/>	
+				<label id="MedalsLabel" sizen="30 14" posn="-19 49" style="TextRankingsBig" textsize="4" text="0" valign="center" halign="center" z-index="2"/>	
 				<quad pos="-4 54" z-index="2" size="10 10" style="Icons128x128_1" substyle="MedalCount"/>
 				<quad style="Bgs1" substyle="BgCardProperty"  posn="40 56.5" sizen="168 16" z-index="-5" halign="center"/>
 				<quad style="Bgs1InRace" substyle="BgGlow2"  posn="40 71" sizen="174 8" z-index="1" halign="center"/>
@@ -261,7 +261,14 @@
 
 	<script><!--
 
-declare Integer[] PlatformRecords;
+#Struct MapRecord {
+	Integer Medals;
+	Integer NbRespawns;
+}
+
+declare MapRecord[CMapInfo] MapRecords;
+declare Integer MedalsTotal;
+declare Text CampaignPath;
 
 Void Deselect()	{
 	for (yy, 1, 15) {
@@ -324,14 +331,13 @@ Void ShowMessage(Text _Text)	{
 }
 
 Void ClearShownMaps()	{
-	PlatformRecords.clear();
 	for (y, 1, 15)	{
 		(Page.GetFirstChild("M_Main"^y) as CMlQuad).Hide();
 		(Page.GetFirstChild("M_Icon"^y) as CMlQuad).Hide();
 		(Page.GetFirstChild("M_Medal"^y) as CMlQuad).Hide();
 		(Page.GetFirstChild("M_Lock"^y) as CMlFrame).Hide();
 		(Page.GetFirstChild("M_Name"^y) as CMlLabel).SetText("");
-		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText("");
+		(Page.GetFirstChild("M_PlatformRecord"^y) as CMlLabel).SetText("");
 	}
 }
 
@@ -362,6 +368,30 @@ Integer Map_GetMedalCount(CMapInfo Map, Integer Record_NbRespawns)	{
 	return 0;
 }
 
+Void ReloadAllRecords()	{
+	MedalsTotal = 0;
+	declare CurFoldersTask = DataFileMgr.Map_GetGameList(CampaignPath, False);
+	sleep(100);
+	wait(!CurFoldersTask.IsProcessing);
+
+	for (Col, 0, 4) {
+		declare CurMapInfosTask = DataFileMgr.Map_GetGameList(CurFoldersTask.SubFolders[0], False);
+		sleep(50);
+		foreach (Map in CurMapInfosTask.MapInfos) {		
+			declare Integer Record_NbRespawns = Map_GetPlatformRecord(Map.Name);	
+			MapRecords[Map].NbRespawns = Record_NbRespawns;
+			declare NbMedals = Map_GetMedalCount(Map, Record_NbRespawns);
+			MapRecords[Map].Medals = NbMedals;
+			MedalsTotal += NbMedals;
+		}
+	}
+
+
+
+	(Page.GetFirstChild("MedalsLabel") as CMlLabel).SetText("" ^ MedalsTotal);
+	
+}
+
 Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 
 	declare Text ScContext = "";
@@ -387,13 +417,7 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 		(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Show();
 	}
 	
-	
-	//meDAJly
-	
-	declare Integer Record_NbRespawns = Map_GetPlatformRecord(Map.Name);	
-	declare NbMedals = Map_GetMedalCount(Map, Record_NbRespawns);
-	PlatformRecords.add(Record_NbRespawns);
-	switch (NbMedals)	{
+	switch (MapRecords[Map].Medals)	{
 		case 4: {
 			(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Substyle = "MedalNadeo";
 		}				
@@ -410,8 +434,8 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 			(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Substyle = "MedalSlot";
 		}
 	}	
-	if(Record_NbRespawns != -1)
-		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText(""^Record_NbRespawns);
+	if(MapRecords[Map].NbRespawns != -1)
+		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText(""^MapRecords[Map].NbRespawns);
 	else
 		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText("");
 
@@ -425,14 +449,16 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 
 
 main() {	
+	log("the menu is loading...");
+
 	declare UpQuad <=> (Page.MainFrame.GetFirstChild("Up") 	as CMlQuad);
 	declare DownQuad <=> (Page.MainFrame.GetFirstChild("Down") 	as CMlQuad);	
 	declare MedalsTotal_ <=> (Page.MainFrame.GetFirstChild("MedalsTotal") 	as CMlFrame);
 	declare MedalsMap_ <=> (Page.MainFrame.GetFirstChild("MedalsMap") 	as CMlFrame);
 
-	declare CampaignPath = "PlatformTest";
+	CampaignPath = "PlatformTest";
 
-	declare LoadMapSound = Audio.CreateSound("https://raw.githubusercontent.com/ArkadySK/TMNextPlatformTitlepack/main/Media/Audio/MenuStartChallenge.wav?token=GHSAT0AAAAAAB52YFOI4KI6FVS4PAURYXW2Y6OZ2FQ");
+	declare LoadMapSound = Audio.CreateSound("https://raw.githubusercontent.com/ArkadySK/TMNextPlatform/main/Audio/MenuStartChallenge.wav");
 	Audio.ClearAllDelayedSoundsEvents();
 	declare Text ScContext = "";
 	declare Text Color;	//uroven trate
@@ -440,7 +466,6 @@ main() {
 	UpQuad.Hide();
 
 	wait(LoadMapSound != Null);
-	log("the menu is loading...");
 
 	declare CurMapInfosTask = DataFileMgr.Map_GetGameList("", False);
 	declare CurFoldersTask = DataFileMgr.Map_GetGameList(CampaignPath, False);
@@ -453,6 +478,9 @@ main() {
 	
 	declare Text LastClickedId = "";
 	declare Text ProceededId = "";
+
+	
+	ReloadAllRecords();
 
 	while(True){	
 		switch (Color)	{
@@ -511,7 +539,7 @@ main() {
 						(Page.GetFirstChild("header0") as CMlLabel).SetText("Official time rankings for "^Map.Name);
 						
 						declare Integer Record_Time = ScoreMgr.Map_GetRecord(NullId, Map.MapUid, ScContext);
-						declare Integer Record_NbRespawns = PlatformRecords[y-1];					
+						declare Integer Record_NbRespawns = MapRecords[Map].NbRespawns;					
 						declare Text RecordText;
 						declare Text PlatformRecordText;
 						if (Record_Time !=-1)
