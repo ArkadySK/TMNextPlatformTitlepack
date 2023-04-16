@@ -261,12 +261,8 @@
 
 	<script><!--
 
-#Struct MapRecord {
-	Integer Medals;
-	Integer NbRespawns;
-}
-
-declare MapRecord[CMapInfo] MapRecords;
+declare Integer[CMapInfo] MapRecords;
+declare Integer[CMapInfo] MapMedals;
 declare Integer MedalsTotal;
 declare Text CampaignPath;
 
@@ -373,15 +369,17 @@ Void ReloadAllRecords()	{
 	declare CurFoldersTask = DataFileMgr.Map_GetGameList(CampaignPath, False);
 	sleep(100);
 	wait(!CurFoldersTask.IsProcessing);
-
-	for (Col, 0, 4) {
-		declare CurMapInfosTask = DataFileMgr.Map_GetGameList(CurFoldersTask.SubFolders[0], False);
+	declare MaxCol = CurFoldersTask.SubFolders.count - 1;
+	if(MaxCol > 4)
+		MaxCol = 4;
+	for (Col, 0, MaxCol) {
+		declare CurMapInfosTask = DataFileMgr.Map_GetGameList(CurFoldersTask.SubFolders[Col], False);
 		sleep(50);
-		foreach (Map in CurMapInfosTask.MapInfos) {		
+		foreach (Map in CurMapInfosTask.MapInfos) {	
 			declare Integer Record_NbRespawns = Map_GetPlatformRecord(Map.Name);	
-			MapRecords[Map].NbRespawns = Record_NbRespawns;
+			MapRecords[Map] = Record_NbRespawns;
 			declare NbMedals = Map_GetMedalCount(Map, Record_NbRespawns);
-			MapRecords[Map].Medals = NbMedals;
+			MapMedals[Map] = NbMedals;
 			MedalsTotal += NbMedals;
 		}
 	}
@@ -417,7 +415,7 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 		(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Show();
 	}
 	
-	switch (MapRecords[Map].Medals)	{
+	switch (MapMedals[Map])	{
 		case 4: {
 			(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Substyle = "MedalNadeo";
 		}				
@@ -434,8 +432,8 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 			(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Substyle = "MedalSlot";
 		}
 	}	
-	if(MapRecords[Map].NbRespawns != -1)
-		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText(""^MapRecords[Map].NbRespawns);
+	if(MapRecords[Map] != -1)
+		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText(""^MapRecords[Map]);
 	else
 		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText("");
 
@@ -532,14 +530,14 @@ main() {
 											
 					if ((Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected == False) 	{
 						Deselect();
-						MedalsTotal_ .Hide();
-						MedalsMap_ .Show();
+						MedalsTotal_.Hide();
+						MedalsMap_.Show();
 																
 						(Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected = True;
 						(Page.GetFirstChild("header0") as CMlLabel).SetText("Official time rankings for "^Map.Name);
 						
 						declare Integer Record_Time = ScoreMgr.Map_GetRecord(NullId, Map.MapUid, ScContext);
-						declare Integer Record_NbRespawns = MapRecords[Map].NbRespawns;					
+						declare Integer Record_NbRespawns = MapRecords[Map];					
 						declare Text RecordText;
 						declare Text PlatformRecordText;
 						if (Record_Time !=-1)
@@ -639,3 +637,4 @@ main() {
 }
 --></script>
 </manialink>
+	
