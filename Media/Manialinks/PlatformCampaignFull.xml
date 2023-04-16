@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <manialink name="Page_HomePage" version="3">
 	<stylesheet>
 		<style id="LabelWelcome" posn="-128 49" style="TextTitle1" sizen="40 5"/>
@@ -132,7 +133,7 @@
 			<quad style="Bgs1InRace" substyle="BgGlow2"  posn="0 20" sizen="174 8" z-index="1" halign="center"/>	
 			<quad style="Bgs1" substyle="BgMetalBar"  posn="0 -8" sizen="168 1.5" halign="center"/>		
 			<label  z-index="3" size="157 5" valign="center" pos="-78.5 7" translate="1" autonewline="1" style="TextCardMedium" id="LockR" text="Locked" textsize="2.2"/>
-			<label pos="0 1" z-index="21" size="50.5 5" text="OK" style="CardButtonMediumL" textsize="3" textcolor="222222FF" halign="center" translate="1" id="ZamocekZrus" scriptevents="1"/>
+			<label pos="0 1" z-index="21" size="50.5 5" text="OK" style="CardButtonMediumL" textsize="3" textcolor="222222FF" halign="center" translate="1" id="HideMessageDialog" scriptevents="1"/>
 			<quad pos="0 0" z-index="0" size="400 200" halign="center" valign="center" scriptevents="1" style="Bgs1" substyle="BgEmpty"/>
 		</frame>
 		
@@ -292,7 +293,6 @@ Text TimeToText(Integer _score, Boolean _useMS)	{
 			msText = ".0"^ms;
 	}
 
-
 	if(hours == 0)
 		return minutes ^ secondsText ^ msText;
 	else
@@ -318,6 +318,7 @@ Integer Map_GetPlatformRecord(Text MapName)	{
 }
 
 Void ShowMessage(Text _Text)	{
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::ShowDialog, 0, 1.);
 	Page.GetFirstChild("LockFrame").Show();
 	(Page.GetFirstChild("LockR") as CMlLabel).SetText(_Text);
 }
@@ -330,6 +331,7 @@ Void ClearShownMaps()	{
 		(Page.GetFirstChild("M_Medal"^y) as CMlQuad).Hide();
 		(Page.GetFirstChild("M_Lock"^y) as CMlFrame).Hide();
 		(Page.GetFirstChild("M_Name"^y) as CMlLabel).SetText("");
+		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText("");
 	}
 }
 
@@ -553,8 +555,9 @@ main() {
 				}
 			}
 			
-			if (LastClickedId == "ZamocekZrus") {
+			if (LastClickedId == "HideMessageDialog") {
 				Page.GetFirstChild("LockFrame").Hide();
+				Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
 			}
 			
 			if (LastClickedId == "xko") {
@@ -565,6 +568,7 @@ main() {
 				RefreshRank();
 				MedalsTotal_ .Show();
 				MedalsMap_ .Hide();
+				Audio.PlaySoundEvent(CAudioManager::ELibSound::Valid, 0, 1.);
 			}
 			if (LastClickedId == "WhiteBTN" && Color != "A")  {
 				if(CurFoldersTask.SubFolders.count > 0)
