@@ -44,7 +44,7 @@
 		<label id="LabelActivity" text="Choose an activity" posn="-128 42" sizen="60 10" translate="1"/>
 	</frame>	
 	
-	<frame id="FrameDemoInfo" pos="40">
+	<frame id="FrameDemoInfo" pos="40 60">
 	<quad size="200 40" opacity="0.7" style="Bgs1" substyle="BgCardProperty" halign="center" valign="center"/>
 	<label pos="-95 15" z-index="1" size="190 30" text="Welcome! This is a big temporary wall of text. As you can see, there is plenty of unfinished work here. Solo is the only thing that works now xd ...to access editors, you have to use OpenPlanet's menu (for now). This message should also remind you to not share this private and unfinished stuff. BUT, you can invite your friends to our Discord, so I can add them here and we can build an awesome project together!" halign="left" autonewline="1" style="TextCardInfoSmall" textsize="3"/>
 	</frame>
