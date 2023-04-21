@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <manialink name="Page_HomePage" version="3">
 	<stylesheet>
 		<style id="LabelWelcome" posn="-128 49" style="TextTitle1" sizen="40 5"/>
 		<style id="LabelActivity" posn="-128 43" style="TextSubTitle1" sizen="44 5"/>		
-		<style id="WhiteBTN GreenBTN BlueBTN RedBTN BlackBTN" style="TextButtonBig"/>
+		<style id="SoloBTN EditorsBTN WhiteBTN GreenBTN BlueBTN RedBTN BlackBTN" style="TextButtonBig"/>
+		
+		<style id="MultiBTN LocalBTN ProfileBTN" textcolor="999" style="TextButtonBig"/>
 		<style id="1 2 3 4 5"  style="Icons128x128_1" sizen="9 9" halign="right" valign="center"/>
 		
 		<style id="M_Medal1 M_Medal2 M_Medal3 M_Medal4 M_Medal5 M_Medal6 M_Medal7 M_Medal8 M_Medal9 M_Medal10 M_Medal11 M_Medal12 M_Medal13 M_Medal14 M_Medal15" style="MedalsBig" substyle="MedalSlot" pos="-38 24" z-index="25" size="10 10"/> 	
@@ -15,100 +16,135 @@
 		<style id="P1 P2 P3 P4 P5 P6 P7 P8 P9 P10" pos="69 75" z-index="5" size="70 4" style="TextChallengeNameSmall" textsize="2.0" valign="center" textcolor="FFFFFFFF"/>
 	</stylesheet>
 	
-	<frame id="MainPanel" z-index="-4">		
-			
-			<quad style="Bgs1" substyle="BgButtonOff" posn="-150 92" sizen="70 183" z-index="-4"/>
-			<label id="LabelWelcome" text="Play Solo" posn="-128 49" sizen="34 8" translate="1"/>
-			<label id="LabelActivity" text="Choose a difficulty" posn="-128 42" sizen="60 10" translate="1"/>
-			</frame>	
-		
-		  <frame id="nocol" z-index="20" hidden="1">
-					<label pos="40 32" z-index="11" size="220 22" text="Choose a difficulty" translate="1" halign="center" valign="center" style="TextTitle3" textsize="6" textcolor="FFFFFFFF" textemboss="1"/>
-					<quad pos="40 -2" z-index="11" size="55 77" bgcolor="FFFA" style="Icons128x128_Blink" substyle="BackFocusable" halign="center" valign="center"/>
-					<quad style="Bgs1InRace" substyle="BgGradRight"  posn="39.9 94.7" sizen="263 189" z-index="10" halign="center" scriptevents="1"/>
-			</frame>
-			
-			
-			
-			<frame id="MedalsTotal" hidden="0" z-index="-2">
-				
-				<quad style="Bgs1" substyle="BgList"  sizen="38 10" posn="-30 54" z-index="-1"/>
-				
-				<label id="MedalsLabel" sizen="30 14" posn="-19 49" style="TextRankingsBig" textsize="4" text="0" valign="center" halign="center" z-index="2"/>	
-				<quad pos="-4 54" z-index="2" size="10 10" style="Icons128x128_1" substyle="MedalCount"/>
-				<quad style="Bgs1" substyle="BgCardProperty"  posn="40 56.5" sizen="168 16" z-index="-5" halign="center"/>
-				<quad style="Bgs1InRace" substyle="BgGlow2"  posn="40 71" sizen="174 8" z-index="1" halign="center"/>
-				
-				<label id="header" text="Your Medals World Ranking" sizen="189 5" posn="41 62" style="TextTitle3" textsize="2.5" translate="1" halign="center" valign="center"/>
-			<quad style="Bgs1" substyle="BgTitle"  posn="40 67" sizen="168 11" halign="center"/>
-			<quad style="Bgs1" substyle="BgMetalBar"  posn="40 41" sizen="168 1.5" halign="center"/>
+<frame z-index="-1" id="FrameMenuCommon">	
+	<quad style="Bgs1" substyle="BgButtonOff" posn="-150 92" sizen="70 183" z-index="-4"/>
+	<quad id="Titlelogo"  sizen="70 70" pos="-150 90" z-index="-0.151" style="TitleLogos" substyle="Title" image="file://Media/Images/MenuHeader.png" hidden="1"/>
+	<frame id="BackBTN">
+		<label id="xko" text="Back" scriptevents="1" posn="-160 -72" style="CardMain_Quit" sizen="46.4 6" textsize="3.5" translate="1" z-index="10"/>
+		<quad sizen="13 13" posn="-157 -75" z-index="10" halign="left" style="Icons128x128_1" substyle="BackFocusable" hidden="1"/>	
+	</frame>
+</frame>
+<frame id="LockFrame" z-index="100" hidden="1">	
+	<quad style="Bgs1" substyle="BgCardProperty"  posn="0 17" sizen="168 25" z-index="-5" halign="center" hidden="0"/>
+	<quad style="Bgs1InRace" substyle="BgGlow2"  posn="0 20" sizen="174 8" z-index="1" halign="center"/>	
+	<quad style="Bgs1" substyle="BgMetalBar"  posn="0 -8" sizen="168 1.5" halign="center"/>		
+	<label  z-index="3" size="157 5" valign="center" pos="-78.5 7" translate="1" autonewline="1" style="TextCardMedium" id="LockR" text="Locked" textsize="2.2"/>
+	<label pos="0 1" z-index="21" size="50.5 5" text="OK" style="CardButtonMediumL" textsize="3" textcolor="222222FF" halign="center" translate="1" id="HideMessageDialog" scriptevents="1"/>
+	<quad pos="0 0" z-index="0" size="400 200" halign="center" valign="center" scriptevents="1" style="Bgs1" substyle="BgEmpty"/>
+</frame>
 
 
-			</frame>
-			
-			<frame id="MedalsMap" hidden="1" z-index="1" pos="0 0">
-			
-				<label pos="-26 62" z-index="0" size="61 9" text="Country" id="Zone_" style="TextRankingsBig" textsize="2" translate="1" valign="center2" textcolor="000000FF"/>
-				<quad pos="-35 66" z-index="5" size="8 8" id="Flag" style="Icons128x128_1" substyle="Vehicles"/>
-				<quad pos="-38 67" z-index="-1" size="75 10" bgcolor="FFFA" style="Bgs1" substyle="BgCardPlayer"/>
-		
-				<quad id="Left" pos="-43 62" z-index="0" size="8 8" halign="center" valign="center" scriptevents="1" style="Icons128x128_1" substyle="BackFocusable"/>
-				<quad id="Right" pos="42 62" z-index="0" size="8 8" halign="center" valign="center" scriptevents="1" style="Icons128x128_1" substyle="BackFocusable" scale="-1"/>
-				<quad style="Bgs1" substyle="BgButtonOff"  posn="40.5 81.7" sizen="189 42" z-index="-2" halign="center" scriptevents="1" id="QQ"/>
-				
-				<frame id="Skillpointsframe" hidden="1">
-				<quad pos="-44 58" z-index="2" size="15 15" style="Icons128x128_1" substyle="SkillPoints"/>
-				<quad style="Bgs1" substyle="BgList"  sizen="50 10" posn="-46 55" z-index="-1"/>				
-				<label pos="-26 49.5" z-index="0" size="25 12" style="TextRaceChrono" textsize="4.5" valign="center2" id="SPMap" text="0"/>		
-				</frame>
-				<label id="header0" text="Official time rankings for this Map" sizen="102 5" posn="1 78" style="TextButtonBig" textsize="2.5" translate="1" halign="center"/>
-				
-				<label pos="6 54" z-index="0" size="16 5" text="Time" translate="1" textsize="2" style="TextCardRaceRank"/>
-				<label pos="6 49" z-index="0" size="20 5" text="Platform" translate="1" textsize="2" style="TextTitle2"/>
-				<label pos="24 54" z-index="50" size="21 5" textsize="2" style="TextRankingsBig" textcolor="0085CCFF" id="TrainingMap" translate="1" text="0:00:00"/>
-				<label pos="24 49" z-index="50" size="35 5" text="No record" translate="1" textsize="2" style="TextRankingsBig" textcolor="0085CCFF" id="PlatformRecordMap"/>
-				<frame hidden="0" pos="1 10" scale=".9">
-					<label scriptevents="1" id="P1"/>
-					<label scriptevents="1" id="P2" pos="69 71"/>
-					<label scriptevents="1" id="P3" pos="69 67"/>
-					<label scriptevents="1" id="P4" pos="69 63"/>			
-					<label scriptevents="1" id="P5" pos="69 59"/>
-					<label scriptevents="1" id="P6" pos="69 55"/>
-					<label scriptevents="1" id="P7" pos="69 51"/>
-					<label scriptevents="1" id="P8" pos="69 47"/>
-					<label scriptevents="1" id="P9" pos="69 43"/>
-					<label scriptevents="1" id="P10" pos="69 39"/>
-				</frame>
-			</frame>
-											
-		<quad id="Titlelogo"  sizen="70 70" pos="-150 90" z-index="-0.151" style="TitleLogos" substyle="Title" image="file://Media/Images/MenuHeader.png" hidden="1"/>
+
+
+
+
+
+<frame id="FrameMainMenu" hidden="">
+	<frame id="MainPanel" z-index="-4">				
+		<label id="LabelWelcome" text="Welcome" posn="-128 49" sizen="34 8" translate="1"/>
+		<label id="LabelActivity" text="Choose an activity" posn="-128 42" sizen="60 10" translate="1"/>
+	</frame>	
 	
 	<frame id="FrameMenuButtons" pos="-144 27.5">
-	<frame pos="-2 -14.5" scale=".92">
-				<label id="WhiteBTN" text="White" scriptevents="1" sizen="59 17" posn="3 12" valign="center2" translate="1" textemboss="1" substyle="Beginner"/>
-				<label id="GreenBTN" text="Green" scriptevents="1" sizen="61 17" posn="3 -1" translate="1" valign="center2" textemboss="1" substyle="Easy"/>
-				<label id="BlueBTN" text="Blue" scriptevents="1" sizen="56 17" pos="3 -14" z-index="0" valign="center2" translate="1" textemboss="1" substyle="Medium"/>
-				<label id="RedBTN" text="Red" scriptevents="1" sizen="55 17" pos="3 -27" z-index="5" translate="1" valign="center2" textemboss="1" substyle="Hard"/>
-				<label id="BlackBTN" text="Black" scriptevents="1" sizen="61 16" posn="3 -40" translate="1" valign="center2" textemboss="1" substyle="Extreme"/>
+		<frame pos="-2 -14.5" scale=".92">
+			<label id="SoloBTN" text="Solo" scriptevents="1" sizen="60 17" posn="3 12" valign="center2" translate="1" textemboss="1"/>
+			<label id="MultiBTN" text="Multi" scriptevents="1" sizen="60 17" posn="3 -1" translate="1" valign="center2" textemboss="1"/>
+			<label id="LocalBTN" text="Local" scriptevents="1" sizen="60 17" pos="3 -14" z-index="0" valign="center2" translate="1" textemboss="1"/>
+			<label id="EditorsBTN" text="Editors" scriptevents="1" sizen="60 16" posn="3 -66" translate="1" valign="center2" textemboss="1"/>		
+			<label id="ProfileBTN" text="Profile" scriptevents="1" sizen="60 17" pos="3 -79" z-index="5" translate="1" valign="center2" textemboss="1"/>
+		</frame>
+		
+		<quad id="aa" style="Icons128x128_1"  sizen="16 16" pos="-2 24" z-index="-0.151" substyle="Vehicles"/>
+		<quad id="1" pos="59 -3.5" substyle="Solo"/>
+		<quad id="2" pos="59 -15" substyle="Multiplayer"/>
+		<quad id="3" pos="59 -27" substyle="Hotseat"/>
+		<quad id="4" pos="59 -75" substyle="Editors"/>
+		<quad id="5" pos="59 -86" substyle="Profile"/>
 	</frame>
-				<quad id="aa" style="Icons128x128_1"  sizen="16 16" pos="-2 24" z-index="-0.151" substyle="Solo"/>
-				<label pos="-16 -114" z-index="0" size="20 5" text="Legacy Browser" style="CardButtonSmallS" scale=".65" scriptevents="1" action="menu_solo"/>
-				<quad id="1" pos="59 -3.5" substyle="Beginner"/>
-				<quad id="2" pos="59 -15" substyle="Easy" />
-				<quad id="3" pos="59 -27" substyle="Medium"/>
-				<quad id="4" pos="59 -39" substyle="Hard"/>
-				<quad id="5" pos="59 -51" substyle="Extreme"/>
-				
-				<quad id="1BTN" style="Bgs1" substyle="BgGradLeft"  sizen="74 17" pos="-15 40" z-index="-0.151" hidden="1"/>
-				<quad id="2BTN" style="Bgs1" substyle="BgGradLeft"  sizen="74 17" pos="-15 21" z-index="-0.0755" hidden="1"/>
-				<quad id="3BTN" style="Bgs1" substyle="BgGradLeft"  posn="-15 2" sizen="74 17" hidden="1"/>
-				<quad id="4BTN" style="Bgs1" substyle="BgGradLeft" pos="-15 -17" sizen="74 17" hidden="1"/>
-				<quad id="5BTN" style="Bgs1" substyle="BgGradLeft" pos="-15 -37" sizen="74 17" hidden="1"/>
+</frame>
+	
+	
+	
+	
+	
+	
+	
+<frame id="FrameSolo" hidden="1">
+	<frame id="MainPanel" z-index="-4">				
+		<label id="LabelWelcome" text="Play Solo" posn="-128 49" sizen="34 8" translate="1"/>
+		<label id="LabelActivity" text="Choose a difficulty" posn="-128 42" sizen="60 10" translate="1"/>
+	</frame>	
+	
+	<frame id="nocol" z-index="20" hidden="1">
+		<label pos="40 32" z-index="11" size="220 22" text="Choose a difficulty" translate="1" halign="center" valign="center" style="TextTitle3" textsize="6" textcolor="FFFFFFFF" textemboss="1"/>
+		<quad pos="40 -2" z-index="11" size="55 77" bgcolor="FFFA" style="Icons128x128_Blink" substyle="BackFocusable" halign="center" valign="center"/>
+		<quad style="Bgs1InRace" substyle="BgGradRight"  posn="39.9 94.7" sizen="263 189" z-index="10" halign="center" scriptevents="1"/>
+	</frame>
+	
+	<frame id="MedalsTotal" hidden="0" z-index="-2">	
+		<quad style="Bgs1" substyle="BgList"  sizen="38 10" posn="-30 54" z-index="-1"/>	
+		<label id="MedalsLabel" sizen="30 14" posn="-19 49" style="TextRankingsBig" textsize="4" text="0" valign="center" halign="center" z-index="2"/>	
+		<quad pos="-4 54" z-index="2" size="10 10" style="Icons128x128_1" substyle="MedalCount"/>
+		<quad style="Bgs1" substyle="BgCardProperty"  posn="40 56.5" sizen="168 16" z-index="-5" halign="center"/>
+		<quad style="Bgs1InRace" substyle="BgGlow2"  posn="40 71" sizen="174 8" z-index="1" halign="center"/>	
+		<label id="header" text="Your Medals World Ranking" sizen="189 5" posn="41 62" style="TextTitle3" textsize="2.5" translate="1" halign="center" valign="center"/>
+		<quad style="Bgs1" substyle="BgTitle"  posn="40 67" sizen="168 11" halign="center"/>
+		<quad style="Bgs1" substyle="BgMetalBar"  posn="40 41" sizen="168 1.5" halign="center"/>
+	</frame>
+			
+	<frame id="MedalsMap" hidden="1" z-index="1" pos="0 0">
+		<label pos="-26 62" z-index="0" size="61 9" text="Country" id="Zone_" style="TextRankingsBig" textsize="2" translate="1" valign="center2" textcolor="000000FF"/>
+		<quad pos="-35 66" z-index="5" size="8 8" id="Flag" style="Icons128x128_1" substyle="Vehicles"/>
+		<quad pos="-38 67" z-index="-1" size="75 10" bgcolor="FFFA" style="Bgs1" substyle="BgCardPlayer"/>
+		<quad id="Left" pos="-43 62" z-index="0" size="8 8" halign="center" valign="center" scriptevents="1" style="Icons128x128_1" substyle="BackFocusable"/>
+		<quad id="Right" pos="42 62" z-index="0" size="8 8" halign="center" valign="center" scriptevents="1" style="Icons128x128_1" substyle="BackFocusable" scale="-1"/>
+		<quad style="Bgs1" substyle="BgButtonOff"  posn="40.5 81.7" sizen="189 42" z-index="-2" halign="center" scriptevents="1" id="QQ"/>
+		
+		<frame id="Skillpointsframe" hidden="1">
+			<quad pos="-44 58" z-index="2" size="15 15" style="Icons128x128_1" substyle="SkillPoints"/>
+			<quad style="Bgs1" substyle="BgList"  sizen="50 10" posn="-46 55" z-index="-1"/>				
+			<label pos="-26 49.5" z-index="0" size="25 12" style="TextRaceChrono" textsize="4.5" valign="center2" id="SPMap" text="0"/>		
+		</frame>
+		
+		<label id="header0" text="Official time rankings for this Map" sizen="102 5" posn="1 78" style="TextButtonBig" textsize="2.5" translate="1" halign="center"/>
+		<label pos="6 54" z-index="0" size="16 5" text="Time" translate="1" textsize="2" style="TextCardRaceRank"/>
+		<label pos="6 49" z-index="0" size="20 5" text="Platform" translate="1" textsize="2" style="TextTitle2"/>
+		<label pos="24 54" z-index="50" size="21 5" textsize="2" style="TextRankingsBig" textcolor="0085CCFF" id="TrainingMap" translate="1" text="0:00:00"/>
+		<label pos="24 49" z-index="50" size="35 5" text="No record" translate="1" textsize="2" style="TextRankingsBig" textcolor="0085CCFF" id="PlatformRecordMap"/>
+		
+		<frame hidden="0" pos="1 10" scale=".9">
+			<label scriptevents="1" id="P1"/>
+			<label scriptevents="1" id="P2" pos="69 71"/>
+			<label scriptevents="1" id="P3" pos="69 67"/>
+			<label scriptevents="1" id="P4" pos="69 63"/>			
+			<label scriptevents="1" id="P5" pos="69 59"/>
+			<label scriptevents="1" id="P6" pos="69 55"/>
+			<label scriptevents="1" id="P7" pos="69 51"/>
+			<label scriptevents="1" id="P8" pos="69 47"/>
+			<label scriptevents="1" id="P9" pos="69 43"/>
+			<label scriptevents="1" id="P10" pos="69 39"/>
+		</frame>
+	</frame>			
+	
+	<frame id="FrameMenuButtons" pos="-144 27.5">
+		<frame pos="-2 -14.5" scale=".92">
+			<label id="WhiteBTN" text="White" scriptevents="1" sizen="59 17" posn="3 12" valign="center2" translate="1" textemboss="1"/>
+			<label id="GreenBTN" text="Green" scriptevents="1" sizen="61 17" posn="3 -1" translate="1" valign="center2" textemboss="1"/>
+			<label id="BlueBTN" text="Blue" scriptevents="1" sizen="56 17" pos="3 -14" z-index="0" valign="center2" translate="1" textemboss="1"/>
+			<label id="RedBTN" text="Red" scriptevents="1" sizen="55 17" pos="3 -27" z-index="5" translate="1" valign="center2" textemboss="1"/>
+			<label id="BlackBTN" text="Black" scriptevents="1" sizen="61 16" posn="3 -40" translate="1" valign="center2" textemboss="1"/>
+		</frame>
+		
+		<quad id="aa" style="Icons128x128_1"  sizen="16 16" pos="-2 24" z-index="-0.151" substyle="Solo"/>
+		<quad id="1" pos="59 -3.5" substyle="Beginner"/>
+		<quad id="2" pos="59 -15" substyle="Easy" />
+		<quad id="3" pos="59 -27" substyle="Medium"/>
+		<quad id="4" pos="59 -39" substyle="Hard"/>
+		<quad id="5" pos="59 -51" substyle="Extreme"/>
 	</frame>
 	
 	<frame pos="0 -8">	
-		<frame id="GG" z-index="-25">			
-
+		<frame id="GG" z-index="-25">	
 			<quad pos="32 -71" z-index="0" size="8 8"style="Icons128x128_1" substyle="BackFocusable"  halign="center" valign="center" scriptevents="1" rot="90" id="Up"/>
 			<quad id="Down" pos="48 -71" z-index="0" size="8 8" rot="-90" style="Icons128x128_1" substyle="BackFocusable" halign="center" valign="center" scriptevents="1"/>
 			<quad id="M_Main1" pos="-44 45" scriptevents="1" hidden="1" />				
@@ -125,16 +161,7 @@
 			<quad id="M_Main12" pos="-10 -27" scriptevents="1" hidden="1"/>
 			<quad id="M_Main13" pos="24 -27" scriptevents="1" hidden="1"/>
 			<quad id="M_Main14" pos="58 -27" scriptevents="1" hidden="1"/>
-			<quad id="M_Main15" pos="92 -27" scriptevents="1" hidden="1"/>									
-							
-		</frame>
-		<frame id="LockFrame" z-index="1000" hidden="1">	
-			<quad style="Bgs1" substyle="BgCardProperty"  posn="0 17" sizen="168 25" z-index="-5" halign="center" hidden="0"/>
-			<quad style="Bgs1InRace" substyle="BgGlow2"  posn="0 20" sizen="174 8" z-index="1" halign="center"/>	
-			<quad style="Bgs1" substyle="BgMetalBar"  posn="0 -8" sizen="168 1.5" halign="center"/>		
-			<label  z-index="3" size="157 5" valign="center" pos="-78.5 7" translate="1" autonewline="1" style="TextCardMedium" id="LockR" text="Locked" textsize="2.2"/>
-			<label pos="0 1" z-index="21" size="50.5 5" text="OK" style="CardButtonMediumL" textsize="3" textcolor="222222FF" halign="center" translate="1" id="HideMessageDialog" scriptevents="1"/>
-			<quad pos="0 0" z-index="0" size="400 200" halign="center" valign="center" scriptevents="1" style="Bgs1" substyle="BgEmpty"/>
+			<quad id="M_Main15" pos="92 -27" scriptevents="1" hidden="1"/>					
 		</frame>
 		
 		<frame z-index="-8">
@@ -254,12 +281,9 @@
 			</frame>
 		</frame>
 	</frame>
-	<frame id="BackBTN">
-		<label id="xko" text="Back" scriptevents="1" posn="-160 -72" style="CardMain_Quit" sizen="46.4 6" textsize="3.5" translate="1" z-index="10"/>
-		<quad sizen="13 13" posn="-157 -75" z-index="10" halign="left" style="Icons128x128_1" substyle="BackFocusable" hidden="1"/>	
-	</frame>
+</frame>
 
-	<script><!--
+<script><!--
 
 declare Integer[CMapInfo] MapRecords;
 declare Integer[CMapInfo] MapMedals;
@@ -445,8 +469,22 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 	}		
 }	
 
+Void GoToSolo()	{
+	Page.GetFirstChild("FrameMainMenu").Hide();
+	Page.GetFirstChild("FrameSolo").Show();
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
+}
+
+Void GoToMainMenu()	{
+	Page.GetFirstChild("FrameSolo").Hide();
+	Page.GetFirstChild("FrameMainMenu").Show();
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
+}
+
 
 main() {	
+
+	declare Text MenuPage = "Main";
 	log("the menu is loading...");
 
 	declare UpQuad <=> (Page.MainFrame.GetFirstChild("Up") 	as CMlQuad);
@@ -588,7 +626,23 @@ main() {
 			
 			if (LastClickedId == "xko") {
 				SendCustomEvent("menu_main", [""]);
+				
+				if(MenuPage == "Main")
+					SendCustomEvent("menu_main", [""]);
+				else
+					GoToMainMenu();
+				MenuPage = "Main";
 			}
+			
+			if (LastClickedId == "SoloBTN") {
+				GoToSolo();
+				MenuPage = "Solo";
+			}
+			
+			if (LastClickedId == "EditorsBTN") {
+				ShowMessage("Since this feature is not implemented yet, please use the OpenPlanet's menu to open editors...");
+			}
+			
 			if (LastClickedId == "WhiteBTN" || LastClickedId == "GreenBTN" || LastClickedId == "BlueBTN" || LastClickedId == "RedBTN" || LastClickedId == "BlackBTN")	{
 				Deselect();
 				RefreshRank();
@@ -637,4 +691,3 @@ main() {
 }
 --></script>
 </manialink>
-	
