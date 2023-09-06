@@ -13,51 +13,49 @@
 		<style id="M_Main1 M_Main2 M_Main3 M_Main4 M_Main5 M_Main10 M_Main6 M_Main8 M_Main7 M_Main9 M_Main11 M_Main12 M_Main13 M_Main14 M_Main15" size="32 36" style="Bgs1" substyle="BgButtonSmall"/>
 		<style id="P1 P2 P3 P4 P5 P6 P7 P8 P9 P10" pos="69 75" z-index="5" size="70 4" style="TextChallengeNameSmall" textsize="2.0" valign="center" textcolor="FFFFFFFF"/>
 	
-		<style size="76 12" class="ModernButton" focusareacolor1="FFFFFFD7" scriptevents="1" focusareacolor2="292929B3"/>
+		<style size="76 12" class="ModernButton" focusareacolor1="FFFFFFD7" focusareacolor2="292929B3" style="CardButtonMediumXL" scale="1.46"/>
 		<style size="15 12" class="ModernIcon"/>
-		<style size="76 12" textcolor="000000FF" class="ModernButtonText" pos="20 -6" sizen="80 15" translate="1" z-index="1" style="TextButtonNav" halign="left" valign="center2" textsize="2.5"/>
+		<style size="76 12" textcolor="FFF" opacity="0.8" class="ModernButtonText" pos="20 -6" sizen="80 15" translate="1" z-index="1" style="TextButtonNav" halign="left" valign="center2" textsize="2.5"/>
 	</stylesheet>
 	
 <frame z-index="-1" id="FrameMenuCommon" hidden="">	
 	<quad posn="-160 92" sizen="80 183" z-index="-4" bgcolor="171717FF" opacity=".8"/>
 	<quad id="Titlelogo"  sizen="70 70" pos="-150 90" z-index="-0.151" style="TitleLogos" substyle="Title" image="file://Media/Images/MenuHeader.png" hidden="1"/>
 	
-	<frame pos="-158 -64">
-		<quad class="ModernIcon" style="UICommon64_1" substyle="ArrowLeftSlim_dark" z-index="1"/>
+	<frame pos="-158 -68">
+		<quad class="ModernIcon" style="UICommon64_1" substyle="ArrowLeftSlim_light" z-index="1"/>
 		<label class="ModernButton" text=" " id="xko" scriptevents="1"/>
 		<label class="ModernButtonText" text="Back"/>
 	</frame>
 </frame>
 
 <frame id="LockFrame" z-index="100" hidden="1">	
-	<quad style="Bgs1" substyle="BgCardProperty"  posn="0 17" sizen="168 25" z-index="-5" halign="center" hidden="0"/>
-	<quad style="Bgs1InRace" substyle="BgGlow2"  posn="0 20" sizen="174 8" z-index="1" halign="center"/>	
-	<quad style="Bgs1" substyle="BgMetalBar"  posn="0 -8" sizen="168 1.5" halign="center"/>		
+	<quad style="Bgs1" substyle="BgDialogBlur" posn="0 15" sizen="168 25" z-index="-5" halign="center" hidden=""/>
 	<label  z-index="3" size="157 5" valign="center" pos="-78.5 7" translate="1" autonewline="1" style="TextCardMedium" id="LockR" text="Locked" textsize="2.2"/>
-	<label pos="0 1" z-index="21" size="50.5 5" text="OK" style="CardButtonMediumL" textsize="3" textcolor="222222FF" halign="center" translate="1" id="HideMessageDialog" scriptevents="1"/>
+	<label z-index="21" text="OK" style="CardButtonMediumL" textsize="3" halign="center" translate="1" id="HideMessageDialog" scriptevents="1"/>
 	<quad pos="0 0" z-index="0" size="400 200" halign="center" valign="center" scriptevents="1" style="Bgs1" substyle="BgEmpty"/>
 </frame>
 
 <frame id="FrameMainMenu" hidden="">
-	<frame id="MainPanel" z-index="-4" pos="-130 60">				
-		<quad style="Icons128x128_1"  sizen="16 16" pos="-28 12" z-index="-0.151" substyle="Vehicles"/>
-		<label id="LabelWelcome" text="Welcome" posn="-9 9" sizen="56 8" translate="1"/>
-		<label id="LabelActivity" text="Choose an activity" posn="-9 2" sizen="56 10" translate="1" autonewline="1"/>
+	<frame id="MainPanel" z-index="-4" pos="-130 70">				
+		<quad style="UICommon64_2"  sizen="16 16" pos="-28 12" substyle="Edit_light"/>
+		<label id="LabelWelcome" text="Welcome" posn="-10 9" sizen="56 8" translate="1"/>
+		<label id="LabelActivity" text="Choose an activity" posn="-10 2" sizen="56 10" translate="1" autonewline="1"/>
 	</frame>	
 	
-	<frame id="ModernMenu" pos="-158 30">
+	<frame id="ModernMenu" pos="-158 40">
 		<frame>
-			<quad class="ModernIcon" style="UICommon64_1" substyle="StadiumCar_dark" z-index="1"/>
+			<quad class="ModernIcon" style="UICommon64_2" substyle="Cup_light" z-index="1"/>
 			<label class="ModernButton" text=" " id="SoloBTN" scriptevents="1"/>
 			<label class="ModernButtonText" text="Campaign"/>
 		</frame>
 		<frame pos="0 -16">
-			<quad class="ModernIcon" style="UICommon64_1" substyle="Hill_dark" z-index="1"/>
+			<quad class="ModernIcon" style="UICommon64_2" substyle="MaximizeWindow_light" z-index="1"/>
 			<label class="ModernButton" text=" " id="EditorsBTN" scriptevents="1"/>
 			<label class="ModernButtonText" text="Editors"/>
 		</frame>
 		<frame pos="0 -32">
-			<quad class="ModernIcon" style="UICommon64_1" substyle="Help_dark" z-index="1"/>
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Help_light" z-index="1"/>
 			<label class="ModernButton" text=" " id="AboutBTN" scriptevents="1"/>
 			<label class="ModernButtonText" text="About"/>
 		</frame>
@@ -71,9 +69,9 @@
 	
 <frame id="FrameSolo" hidden="1">
 	<frame id="MainPanel" z-index="-4">
-		<quad style="UICommon64_1"  sizen="16 16" pos="-157 72" substyle="StadiumCar_dark" styleselected="1"/>				
-		<label id="LabelWelcome" text="Play Solo" posn="-140 69" sizen="57 8" translate="1"/>
-		<label id="LabelActivity" text="Choose a difficulty" posn="-139 62" sizen="57 10" translate="1"/>
+		<quad style="UICommon64_2"  sizen="16 16" pos="-157 82" substyle="Cup_light"/>				
+		<label id="LabelWelcome" text="Campaign" posn="-140 79" sizen="57 8" translate="1"/>
+		<label id="LabelActivity" text="Choose a difficulty" posn="-139 72" sizen="57 10" translate="1"/>
 	</frame>	
 	
 	<frame id="nocol" z-index="20" hidden="1">
@@ -127,9 +125,9 @@
 		</frame>
 	</frame>
 	
-	<frame id="ModernMenu" pos="-158 30">
+	<frame id="ModernMenu" pos="-158 40">
 		<frame>
-			<quad class="ModernIcon" style="UICommon64_1" substyle="Beginner" z-index="1"/>
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Flag_light" z-index="1"/>
 			<label class="ModernButton" text=" " id="WhiteBTN" scriptevents="1"/>
 			<label class="ModernButtonText" text="Demo Tracks"/>
 		</frame>
@@ -633,6 +631,7 @@ main() {
 			
 			if (LastClickedId == "EditorsBTN") {
 				ShowMessage("Since this feature is not implemented yet, please use the OpenPlanet's menu to open editors...");
+				SendCustomEvent("menu_editors", [""]);
 			}
 			
 			if (LastClickedId == "WhiteBTN" || LastClickedId == "GreenBTN" || LastClickedId == "BlueBTN" || LastClickedId == "RedBTN" || LastClickedId == "BlackBTN")	{
