@@ -1,42 +1,46 @@
-
-	<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <manialink name="Page_HomePage" version="3">
 	<stylesheet>
-		<style id="LabelWelcome" posn="-128 49" style="TextTitle1" sizen="40 5"/>
-		<style id="LabelActivity" posn="-128 43" style="TextSubTitle1" sizen="44 5"/>		
+		<style id="LabelWelcome" posn="-128 49" style="TextTitle3" textsize="4" sizen="40 5"/>
+		<style id="LabelActivity" posn="-128 43" style="TextTitle2" sizen="44 5"/>		
 		<style id="1 2 3 4 5"  style="Icons128x128_1" sizen="9 9" halign="right" valign="center"/>
-		<style id="M_Medal1 M_Medal2 M_Medal3 M_Medal4 M_Medal5 M_Medal6 M_Medal7 M_Medal8 M_Medal9 M_Medal10 M_Medal11 M_Medal12 M_Medal13 M_Medal14 M_Medal15" style="MedalsBig" substyle="MedalSlot" pos="-38 24" z-index="25" size="10 10"/> 	
-		<style id="Zamocek0" pos="-46 39" z-index="3" size="15 14" style="Icons128x128_1" substyle="Padlock" scriptevents="1" halign="center"/>
-		<style id="M_Name1 M_Name2 M_Name3 M_Name4 M_Name5 M_Name6 M_Name7 M_Name8 M_Name9 M_Name10 M_Name11 M_Name12 M_Name13 M_Name14 M_Name15" posn="-46 15.5" sizen="30 6"  style="TextButtonBig" textsize="0.6" valign="center2" z-index="10" halign="center" textemboss="1"/>		
-		<style id="M_SP1 M_SP2 M_SP3 M_SP4 M_SP5 M_SP6 M_SP7 M_SP8 M_SP9 M_SP10 M_SP11 M_SP12 M_SP13 M_SP14 M_SP15" style="TextRaceChronoOfficial" textsize="2.8" valign="center2" z-index="10"/>		
-		<style id="M_Icon1 M_Icon2 M_Icon3 M_Icon4 M_Icon5 M_Icon6 M_Icon7 M_Icon8 M_Icon9 M_Icon10 M_Icon11 M_Icon12 M_Icon13 M_Icon14 M_Icon15" keepratio="Clip" size="30 30"  hidden="1" bgcolor="FFA"/>
-		<style id="M_Main1 M_Main2 M_Main3 M_Main4 M_Main5 M_Main10 M_Main6 M_Main8 M_Main7 M_Main9 M_Main11 M_Main12 M_Main13 M_Main14 M_Main15" size="32 36" style="Bgs1" substyle="BgButtonSmall"/>
-		<style id="P1 P2 P3 P4 P5 P6 P7 P8 P9 P10" pos="69 75" z-index="5" size="70 4" style="TextChallengeNameSmall" textsize="2.0" valign="center" textcolor="FFFFFFFF"/>
-	
-		<style size="76 12" class="ModernButton" focusareacolor1="FFFFFFD7" focusareacolor2="292929B3" style="CardButtonMediumXL" scale="1.46"/>
-		<style size="15 12" class="ModernIcon"/>
+		<style id="M_Medal1 M_Medal2 M_Medal3 M_Medal4 M_Medal5 M_Medal6 M_Medal7 M_Medal8 M_Medal9 M_Medal10 M_Medal11 M_Medal12 M_Medal13 M_Medal14 M_Medal15" style="MedalsBig" substyle="MedalSlot" pos="88 33" z-index="25" size="10 10"/> 	
+		<style id="M_Name1 M_Name2 M_Name3 M_Name4 M_Name5 M_Name6 M_Name7 M_Name8 M_Name9 M_Name10 M_Name11 M_Name12 M_Name13 M_Name14 M_Name15" sizen="50 6" style="TextTitle2" textsize="3" valign="center2" textemboss="1"/>
+		<style id="M_SP1 M_SP2 M_SP3 M_SP4 M_SP5 M_SP6 M_SP7 M_SP8 M_SP9 M_SP10 M_SP11 M_SP12 M_SP13 M_SP14 M_SP15" style="TextRaceChronoOfficial" textsize="2.8" valign="center2" z-index="10"/>	
+		<style id="M_PlatformRecord1 M_PlatformRecord2 M_PlatformRecord3 M_PlatformRecord4 M_PlatformRecord5" textemboss="1" textsize="2.5" valign="center2" pos="28 27"  z-index="10"/>	
+		<style id="M_Icon1 M_Icon2 M_Icon3 M_Icon4 M_Icon5 M_Icon6 M_Icon7 M_Icon8 M_Icon9 M_Icon10 M_Icon11 M_Icon12 M_Icon13 M_Icon14 M_Icon15" keepratio="Clip" size="18 17.3" bgcolor="000" pos="4 41.6"/>
+		<style id="M_Main1 M_Main2 M_Main3 M_Main4 M_Main5 M_Main10 M_Main6 M_Main8 M_Main7 M_Main9 M_Main11 M_Main12 M_Main13 M_Main14 M_Main15" size="102 24" style="UICommon128_1" substyle="BgFrame1" pos="0 45" z-index="-25" opacity="0.8"/>
+		
+		<style size="76 12" class="ModernButton" style="CardButtonMediumXL" scale="1.46"/>
+		<style size="10 10" z-index="1" pos="1 -1" class="ModernIcon"/>
 		<style size="76 12" textcolor="FFF" opacity="0.8" class="ModernButtonText" pos="20 -6" sizen="80 15" translate="1" z-index="1" style="TextButtonNav" halign="left" valign="center2" textsize="2.5"/>
+		<style class="MapNameBg" pos="19 42" z-index="-2" size="80 8"  opacity="0.7" substyle="BgToolTilted" style="UICommon128_1" modulatecolor="000000FF"/>
+		<style class="MapScoreBg" pos="19 30" z-index="-2" size="20 6"  opacity="0.7" substyle="BgToolTilted" style="UICommon128_1" modulatecolor="4D4D4DFF" />
+		<style id="MapMedal" style="MedalsBig" substyle="MedalSlot" pos="87.75 33.25" z-index="25" size="10.5 10.5"/> 	
+		<style id="Zamocek0" pos="13 42" z-index="3" size="14 14" style="UICommon64_1" substyle="PadlockLocked_light" scriptevents="1" halign="center"/>
+		<style class="MapLockedLabel" pos="13 29" z-index="0" size="18 5" translate="1" textsize="2" halign="center" style="TextTitle2"/>
 	</stylesheet>
 	
-<frame z-index="-1" id="FrameMenuCommon" hidden="">	
-	<quad posn="-160 92" sizen="80 183" z-index="-4" bgcolor="171717FF" opacity=".8"/>
+<frame z-index="-1" id="FrameMenuCommon" >	
+	<quad posn="-160 0.5" sizen="80.7 200" z-index="-5"  substyle=""  valign="center" bgcolor="272727FF" opacity=".6"/>
+	<quad posn="-161 90" sizen="82 30" z-index="-4"  style="UICommon128_1" substyle="BgDialogTitle"  opacity=".8" valign="top"/>
 	<quad id="Titlelogo"  sizen="70 70" pos="-150 90" z-index="-0.151" style="TitleLogos" substyle="Title" image="file://Media/Images/MenuHeader.png" hidden="1"/>
 	
 	<frame pos="-158 -68">
-		<quad class="ModernIcon" style="UICommon64_1" substyle="ArrowLeftSlim_light" z-index="1"/>
+		<quad class="ModernIcon" style="UICommon64_1" substyle="ArrowLeftSlim_light"/>
 		<label class="ModernButton" text=" " id="xko" scriptevents="1"/>
 		<label class="ModernButtonText" text="Back"/>
 	</frame>
 </frame>
 
 <frame id="LockFrame" z-index="100" hidden="1">	
-	<quad style="Bgs1" substyle="BgDialogBlur" posn="0 15" sizen="168 25" z-index="-5" halign="center" hidden=""/>
+	<quad style="UICommon128_1" substyle="BgDialog" posn="0 15" sizen="168 25" z-index="-5" halign="center" />
 	<label  z-index="3" size="157 5" valign="center" pos="-78.5 7" translate="1" autonewline="1" style="TextCardMedium" id="LockR" text="Locked" textsize="2.2"/>
 	<label z-index="21" text="OK" style="CardButtonMediumL" textsize="3" halign="center" translate="1" id="HideMessageDialog" scriptevents="1"/>
 	<quad pos="0 0" z-index="0" size="400 200" halign="center" valign="center" scriptevents="1" style="Bgs1" substyle="BgEmpty"/>
 </frame>
 
-<frame id="FrameMainMenu" hidden="">
+<frame id="FrameMainMenu" >
 	<frame id="MainPanel" z-index="-4" pos="-130 70">				
 		<quad style="UICommon64_2"  sizen="16 16" pos="-28 12" substyle="Edit_light"/>
 		<label id="LabelWelcome" text="Welcome" posn="-10 9" sizen="56 8" translate="1"/>
@@ -45,17 +49,17 @@
 	
 	<frame id="ModernMenu" pos="-158 40">
 		<frame>
-			<quad class="ModernIcon" style="UICommon64_2" substyle="Cup_light" z-index="1"/>
+			<quad class="ModernIcon" style="UICommon64_2" substyle="Cup_light"/>
 			<label class="ModernButton" text=" " id="SoloBTN" scriptevents="1"/>
 			<label class="ModernButtonText" text="Campaign"/>
 		</frame>
 		<frame pos="0 -16">
-			<quad class="ModernIcon" style="UICommon64_2" substyle="MaximizeWindow_light" z-index="1"/>
+			<quad class="ModernIcon" style="UICommon64_2" substyle="MaximizeWindow_light"/>
 			<label class="ModernButton" text=" " id="EditorsBTN" scriptevents="1"/>
 			<label class="ModernButtonText" text="Editors"/>
 		</frame>
 		<frame pos="0 -32">
-			<quad class="ModernIcon" style="UICommon64_1" substyle="Help_light" z-index="1"/>
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Help_light"/>
 			<label class="ModernButton" text=" " id="AboutBTN" scriptevents="1"/>
 			<label class="ModernButtonText" text="About"/>
 		</frame>
@@ -67,209 +71,118 @@
 	
 	
 	
-<frame id="FrameSolo" hidden="1">
+<frame id="FrameSolo" >
 	<frame id="MainPanel" z-index="-4">
-		<quad style="UICommon64_2"  sizen="16 16" pos="-157 82" substyle="Cup_light"/>				
+		<quad style="UICommon64_2"  sizen="16 16" pos="-158 82" substyle="Cup_light"/>				
 		<label id="LabelWelcome" text="Campaign" posn="-140 79" sizen="57 8" translate="1"/>
-		<label id="LabelActivity" text="Choose a difficulty" posn="-139 72" sizen="57 10" translate="1"/>
+		<label id="LabelActivity" text="Choose a difficulty" posn="-140 72" sizen="57 10" translate="1"/>
 	</frame>	
 	
-	<frame id="nocol" z-index="20" hidden="1">
-		<label pos="40 32" z-index="11" size="220 22" text="Choose a difficulty" translate="1" halign="center" valign="center" style="TextTitle3" textsize="6" textcolor="FFFFFFFF" textemboss="1"/>
-		<quad pos="40 -2" z-index="11" size="55 77" bgcolor="FFFA" style="Icons128x128_Blink" substyle="BackFocusable" halign="center" valign="center"/>
-		<quad style="Bgs1InRace" substyle="BgGradRight"  posn="39.9 94.7" sizen="263 189" z-index="10" halign="center" scriptevents="1"/>
-	</frame>
-	
-	<frame id="MedalsTotal" hidden="1" z-index="-2">	
-		<quad style="Bgs1" substyle="BgList"  sizen="38 10" posn="-30 54" z-index="-1"/>	
-		<label id="MedalsLabel" sizen="30 14" posn="-19 49" style="TextRankingsBig" textsize="4" text="0" valign="center" halign="center" z-index="2"/>	
-		<quad pos="-4 54" z-index="2" size="10 10" style="Icons128x128_1" substyle="MedalCount"/>
-		<quad style="UICommon128_1" substyle="BgDialog"  posn="40 67" sizen="168 25" z-index="-5" halign="center"/>
-			
-		<label id="header" text="Your Medals World Ranking" sizen="189 5" pos="41 62" z-index="2" style="TextTitle3" textsize="2.5" translate="1" halign="center" valign="center"/>
-		<quad style="UICommon128_1" substyle="BgDialogTitle" pos="40 67" sizen="168 11" halign="center"/>
-		
-	</frame>
-			
-	<frame id="MedalsMap" hidden="1" z-index="1">
-		<label pos="-26 62" z-index="0" size="61 9" text="Country" id="Zone_" style="TextRankingsBig" textsize="2" translate="1" valign="center2" textcolor="000000FF"/>
-		<quad pos="-35 66" z-index="5" size="8 8" id="Flag" style="Icons128x128_1" substyle="Vehicles"/>
-		<quad pos="-38 67" z-index="-1" size="75 10" bgcolor="FFFA" style="Bgs1" substyle="BgCardPlayer"/>
-		<quad id="Left" pos="-43 62" z-index="0" size="8 8" halign="center" valign="center" scriptevents="1" style="Icons128x128_1" substyle="BackFocusable"/>
-		<quad id="Right" pos="42 62" z-index="0" size="8 8" halign="center" valign="center" scriptevents="1" style="Icons128x128_1" substyle="BackFocusable" scale="-1"/>
-		<quad style="UICommon128_1" substyle="BgDialog" posn="40.5 81.7" sizen="189 42" z-index="-2" halign="center" scriptevents="1" id="QQ"/>
-		
-		<frame id="Skillpointsframe" hidden="1">
-			<quad pos="-44 58" z-index="2" size="15 15" style="Icons128x128_1" substyle="SkillPoints"/>
-			<quad style="Bgs1" substyle="BgList"  sizen="50 10" posn="-46 55" z-index="-1"/>				
-			<label pos="-26 49.5" z-index="0" size="25 12" style="TextRaceChrono" textsize="4.5" valign="center2" id="SPMap" text="0"/>		
-		</frame>
-		
-		<label id="header0" text="Official time rankings for this Map" sizen="102 5" posn="1 78" style="TextButtonBig" textsize="2.5" translate="1" halign="center"/>
-		<label pos="6 54" z-index="0" size="16 5" text="Time" translate="1" textsize="2" style="TextCardRaceRank"/>
-		<label pos="6 49" z-index="0" size="20 5" text="Platform" translate="1" textsize="2" style="TextTitle2"/>
-		<label pos="24 54" z-index="50" size="21 5" textsize="2" style="TextRankingsBig" textcolor="0085CCFF" id="TrainingMap" translate="1" text="0:00:00"/>
-		<label pos="24 49" z-index="50" size="35 5" text="No record" translate="1" textsize="2" style="TextRankingsBig" textcolor="0085CCFF" id="PlatformRecordMap"/>
-		
-		<frame hidden="0" pos="1 10" scale=".9">
-			<label scriptevents="1" id="P1"/>
-			<label scriptevents="1" id="P2" pos="69 71"/>
-			<label scriptevents="1" id="P3" pos="69 67"/>
-			<label scriptevents="1" id="P4" pos="69 63"/>			
-			<label scriptevents="1" id="P5" pos="69 59"/>
-			<label scriptevents="1" id="P6" pos="69 55"/>
-			<label scriptevents="1" id="P7" pos="69 51"/>
-			<label scriptevents="1" id="P8" pos="69 47"/>
-			<label scriptevents="1" id="P9" pos="69 43"/>
-			<label scriptevents="1" id="P10" pos="69 39"/>
-		</frame>
+	<frame id="MedalsInfo"  z-index="-2" pos="120 12" scale="1">	
+		<quad style="Bgs1" substyle="BgList"  sizen="38 10" posn="0 54" z-index="-1" halign="center"/>	
+		<label id="MedalsLabel" size="25 8" pos="-4 49" style="TextRankingsBig" textsize="4" text="0" valign="center" halign="center" z-index="2"/>	
+		<quad pos="7 54" z-index="2" size="10 10" style="UICommon64_1" substyle="Medal_light"/>
+		<label id="header" text="Medals" sizen="50 5" pos="0 62" z-index="2" style="TextTitle3" textsize="2.5" translate="1" halign="center" valign="center"/>
+		<quad style="UICommon128_1" substyle="BgDialogTitle" pos="0 67" sizen="50 11" halign="center"/>
+		<quad style="UICommon128_1" substyle="BgDialog"  posn="0 67" sizen="50 26" z-index="-5" halign="center"/>
+</frame>
+
+<frame id="MapInfo"  z-index="-2" pos="120 -85" scale="1">	
+		<quad style="UICommon128_1" substyle="BgDialogTitle" pos="0 31" sizen="50 11" halign="center"/>
+		<quad style="UICommon128_1" substyle="BgDialog"  posn="0 31" sizen="50 26" z-index="-5" halign="center"/>
+		<label pos="0 27" z-index="0" text="Selected Map" translate="1" style="TextTitle3" textsize="2.5" halign="center"/>
+		<label pos="-20 18" z-index="0" text="Time" translate="1" style="TextButtonBig" textsize="2.5"/>
+		<label pos="20 18" z-index="0" text="???" id="TrainingMap" translate="1" halign="right" textemboss="1"/>
+		<label pos="-20 12" z-index="0" text="Respawns" translate="1" style="TextButtonBig" textsize="2.5"/>
+		<label pos="20 12" z-index="0" size="0" text="???" id="PlatformRecordMap" translate="1" halign="right" textemboss="1"/>
 	</frame>
 	
 	<frame id="ModernMenu" pos="-158 40">
 		<frame>
-			<quad class="ModernIcon" style="UICommon64_1" substyle="Flag_light" z-index="1"/>
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Flag_light"/>
 			<label class="ModernButton" text=" " id="WhiteBTN" scriptevents="1"/>
 			<label class="ModernButtonText" text="Demo Tracks"/>
 		</frame>
 	</frame>
 	
-	<frame pos="0 -8">	
-		<frame id="GG" z-index="-25">	
-			<quad pos="32 -71" z-index="0" size="8 8"style="Icons128x128_1" substyle="BackFocusable"  halign="center" valign="center" scriptevents="1" rot="90" id="Up"/>
-			<quad id="Down" pos="48 -71" z-index="0" size="8 8" rot="-90" style="Icons128x128_1" substyle="BackFocusable" halign="center" valign="center" scriptevents="1"/>
-			<quad id="M_Main1" pos="-44 45" scriptevents="1" hidden="1" />				
-			<quad id="M_Main2" pos="-10 45" scriptevents="1" hidden="1"/>
-			<quad id="M_Main3" pos="24 45" scriptevents="1" hidden="1"/>
-			<quad id="M_Main4" pos="58 45" scriptevents="1" hidden="1"/>
-			<quad id="M_Main5" pos="92 45" scriptevents="1" hidden="1"/>
-			<quad id="M_Main6" pos="-44 9" scriptevents="1" hidden="1"/>				
-			<quad id="M_Main7" pos="-10 9" scriptevents="1" hidden="1"/>
-			<quad id="M_Main8" pos="24 9" scriptevents="1" hidden="1"/>
-			<quad id="M_Main9" pos="58 9" scriptevents="1" hidden="1"/>
-			<quad id="M_Main10" pos="92 9" scriptevents="1" hidden="1"/>	
-			<quad id="M_Main11" pos="-44 -27" scriptevents="1" hidden="1"/>				
-			<quad id="M_Main12" pos="-10 -27" scriptevents="1" hidden="1"/>
-			<quad id="M_Main13" pos="24 -27" scriptevents="1" hidden="1"/>
-			<quad id="M_Main14" pos="58 -27" scriptevents="1" hidden="1"/>
-			<quad id="M_Main15" pos="92 -27" scriptevents="1" hidden="1"/>					
-		</frame>
+	<frame pos="-45 26">	
+		<quad style="UICommon128_1" substyle="BgDialog" opacity="0.8" sizen="120 160" z-index="-35" halign="center" pos="52.1 -27" valign="center" scriptevents="1" id="MapsBg"/>
 		
-		<frame z-index="-8">
-			<quad id="M_Icon1" pos="-43 44" hidden="1"/>
-			<quad id="M_Icon2" pos="-9 44" hidden="1"/>
-			<quad id="M_Icon3" pos="25 44" hidden="1"/>
-			<quad id="M_Icon4" pos="59 44" hidden="1"/>
-			<quad id="M_Icon5" pos="93 44" hidden="1"/>
-			<quad id="M_Icon6"  pos="-43 8" hidden="1"/>
-			<quad id="M_Icon7" pos="-9 8" hidden="1"/>
-			<quad id="M_Icon8" pos="25 8" hidden="1"/>
-			<quad id="M_Icon9" pos="59 8" hidden="1"/>
-			<quad id="M_Icon10" pos="93 8" hidden="1"/>
-			<quad id="M_Icon11" pos="-43 -28" hidden="1"/>
-			<quad id="M_Icon12" pos="-9 -28" hidden="1"/>
-			<quad id="M_Icon13" pos="25 -28" hidden="1"/>
-			<quad id="M_Icon14" pos="59 -28" hidden="1"/>
-			<quad id="M_Icon15" pos="93 -28" hidden="1"/>
-		</frame>
-	
-		<frame id="Str1" hidden="0" z-index="10">	
-			<label id="M_Name1" pos="-28 12"/>
-			<label id="M_Name2" pos="6 12"/>
-			<label id="M_Name3" pos="40 12"/>
-			<label id="M_Name4" pos="74 12"/>
-			<label id="M_Name5" pos="108 12"/>
-			<label id="M_Name6" pos="-28 -24"/>
-			<label id="M_Name7" pos="6 -24"/>
-			<label id="M_Name8" pos="40 -24"/>
-			<label id="M_Name9" pos="74 -24"/>
-			<label id="M_Name10" pos="108 -24"/>
-			<label id="M_Name11" pos="-28 -60"/>
-			<label id="M_Name12" pos="6 -60"/>
-			<label id="M_Name13" pos="40 -60"/>
-			<label id="M_Name14" pos="74 -60"/>
-			<label id="M_Name15" pos="108 -60"/>
-		</frame>
-		<frame pos="-13 7">	
-			<label id="M_PlatformRecord1" textemboss="1" pos="-28 12"/>
-			<label id="M_PlatformRecord2" textemboss="1" pos="6 12"/>
-			<label id="M_PlatformRecord3" textemboss="1" pos="40 12"/>
-			<label id="M_PlatformRecord4" textemboss="1" pos="74 12"/>
-			<label id="M_PlatformRecord5" textemboss="1" pos="108 12"/>
-			<label id="M_PlatformRecord6" textemboss="1" pos="-28 -24"/>
-			<label id="M_PlatformRecord7" textemboss="1" pos="6 -24"/>
-			<label id="M_PlatformRecord8" textemboss="1" pos="40 -24"/>
-			<label id="M_PlatformRecord9" textemboss="1" pos="74 -24"/>
-			<label id="M_PlatformRecord10" textemboss="1" pos="108 -24"/>
-			<label id="M_PlatformRecord11" textemboss="1" pos="-28 -60"/>
-			<label id="M_PlatformRecord12" textemboss="1" pos="6 -60"/>
-			<label id="M_PlatformRecord13" textemboss="1" pos="40 -60"/>
-			<label id="M_PlatformRecord14" textemboss="1" pos="74 -60"/>
-			<label id="M_PlatformRecord15" textemboss="1" pos="108 -60"/>
-		</frame>
-		
-		<frame z-index="0">
-			<quad id="M_Medal1" hidden="1" pos="-23 24"/>
-			<quad id="M_Medal2" hidden="1" pos="11 24"/>
-			<quad id="M_Medal3" hidden="1" pos="45 24"/>
-			<quad id="M_Medal4" hidden="1" pos="79 24"/>
-			<quad id="M_Medal5" hidden="1" pos="113 24"/>
-			<quad id="M_Medal6" hidden="1" pos="-23 -12"/>
-			<quad id="M_Medal7" hidden="1" pos="11 -12"/>
-			<quad id="M_Medal8" hidden="1" pos="45 -12"/>
-			<quad id="M_Medal9" hidden="1" pos="79 -12"/>
-			<quad id="M_Medal10" hidden="1" pos="113 -12"/>
-			<quad id="M_Medal11" hidden="1" pos="-23 -48"/>
-			<quad id="M_Medal12" hidden="1" pos="11 -48"/>
-			<quad id="M_Medal13" hidden="1" pos="45 -48"/>
-			<quad id="M_Medal14" hidden="1" pos="79 -48"/>
-			<quad id="M_Medal15" hidden="1" pos="113 -48"/>
-		
+		<frame id="M_Map1">
+			<quad id="M_Main1" scriptevents="1" />	
+			<quad id="M_Icon1" />
+			<quad class="MapNameBg"/>
+			<quad class="MapScoreBg"/>
+			<label id="M_Name1" pos="27 38" text="PlatformA01"/>	
+			<label id="M_PlatformRecord1" text="???"/>
+			<quad id="M_Medal1"/>
+			<quad id="MapMedal" />
 			<frame id="M_Lock1" hidden="1" z-index="20">
 				<quad id="Zamocek0"/>
-			</frame>
-			<frame id="M_Lock2" hidden="1" z-index="20">
-				<quad id="Zamocek0"/>
-			</frame>
-			<frame id="M_Lock3" hidden="1" z-index="20">
-				<quad id="Zamocek0"/>
-			</frame>
-			<frame id="M_Lock4" hidden="1" z-index="20">
-				<quad id="Zamocek0"/>
-			</frame>
-			<frame id="M_Lock5" hidden="1">
-				<quad id="Zamocek0"/>
-			</frame>
-			<frame id="M_Lock6" hidden="1">
-				<quad id="Zamocek0"/>
-			</frame>
-			<frame id="M_Lock7" hidden="1">
-				<quad id="Zamocek0"/>
-			</frame>
-			<frame id="M_Lock8" hidden="1">
-				<quad id="Zamocek0"/>
-			</frame>
-			<frame id="M_Lock9" hidden="1">
-				<quad id="Zamocek0"/>
-			</frame>
-			<frame id="M_Lock10" hidden="1">
-				<quad id="Zamocek0"/>
-			</frame>		
-			<frame id="M_Lock11" hidden="1">
-				<quad id="Zamocek0"/>
-			</frame>
-			<frame id="M_Lock12" hidden="1">
-				<quad id="Zamocek0"/>
-			</frame>
-			<frame id="M_Lock13" hidden="1">
-				<quad id="Zamocek0"/>
-			</frame>
-			<frame id="M_Lock14" hidden="1">
-				<quad id="Zamocek0"/>
-			</frame>
-			<frame id="M_Lock15" hidden="1">
-				<quad id="Zamocek0"/>
+				<label class="MapLockedLabel" text="Locked" textemboss="1"/>
 			</frame>
 		</frame>
+		
+		<frame id="M_Map2" pos="0 -30">
+			<quad id="M_Main2" scriptevents="1" />	
+			<quad id="M_Icon2" />
+			<quad class="MapNameBg"/>
+			<quad class="MapScoreBg"/>
+			<label id="M_Name2" pos="27 38" text="PlatformA02"/>	
+			<label id="M_PlatformRecord2" text="???"/>
+			<quad id="M_Medal2" />
+			<quad id="MapMedal" />
+			<frame id="M_Lock2" hidden="1" z-index="20">
+				<quad id="Zamocek0"/>
+				<label class="MapLockedLabel" text="Locked" textemboss="1"/>
+			</frame>
+		</frame>
+			
+		<frame id="M_Map3" pos="0 -60">
+			<quad id="M_Main3" scriptevents="1" />	
+			<quad id="M_Icon3" />
+			<quad class="MapNameBg"/>
+			<quad class="MapScoreBg"/>
+			<label id="M_Name3" pos="27 38" text="PlatformA03"/>	
+			<label id="M_PlatformRecord3" text="???"/>
+			<quad id="M_Medal3" />
+			<quad id="MapMedal" />
+			<frame id="M_Lock3" hidden="1" z-index="20">
+				<quad id="Zamocek0"/>
+				<label class="MapLockedLabel" text="Locked" textemboss="1"/>
+			</frame>
+		</frame>
+		
+		<frame id="M_Map4" pos="0 -90">
+			<quad id="M_Main4" scriptevents="1" />	
+			<quad id="M_Icon4" />
+			<quad class="MapNameBg"/>
+			<quad class="MapScoreBg"/>
+			<label id="M_Name4" pos="27 38" text="PlatformA04"/>	
+			<label id="M_PlatformRecord4" text="???"/>
+			<quad id="M_Medal4" />
+			<quad id="MapMedal" />
+			<frame id="M_Lock4" hidden="1" z-index="20">
+				<quad id="Zamocek0"/>
+				<label class="MapLockedLabel" text="Locked" textemboss="1"/>
+			</frame>
+		</frame>
+		
+		<frame id="M_Map5" pos="0 -120">
+			<quad id="M_Main5" scriptevents="1" />	
+			<quad id="M_Icon5" />
+			<quad class="MapNameBg"/>
+			<quad class="MapScoreBg"/>
+			<label id="M_Name5" pos="27 38" text="PlatformA05"/>	
+			<label id="M_PlatformRecord5" text="???"/>
+			<quad id="M_Medal5" />
+			<quad id="MapMedal" />
+			<frame id="M_Lock5" hidden="1" z-index="20">
+				<quad id="Zamocek0"/>
+				<label class="MapLockedLabel" text="Locked" textemboss="1"/>
+			</frame>
+		</frame>
+		
 	</frame>
 </frame>
 
@@ -281,13 +194,9 @@ declare Integer MedalsTotal;
 declare Text CampaignPath;
 
 Void Deselect()	{
-	for (yy, 1, 15) {
+	for (yy, 1, 5) {
 		(Page.GetFirstChild("M_Main"^yy) as CMlQuad).StyleSelected = False;
-	}
-}
-Void RefreshRank()	{
-	for (yy, 1, 10) {
-		(Page.GetFirstChild("P"^yy) as CMlLabel).SetText("");
+		(Page.GetFirstChild("M_Main"^yy) as CMlQuad).ModulateColor = <1., 1., 1.>;
 	}
 }
 
@@ -341,8 +250,8 @@ Void ShowMessage(Text _Text)	{
 }
 
 Void ClearShownMaps()	{
-	for (y, 1, 15)	{
-		(Page.GetFirstChild("M_Main"^y) as CMlQuad).Hide();
+	for (y, 1, 5)	{
+		(Page.GetFirstChild("M_Map"^y) as CMlFrame).Hide();
 		(Page.GetFirstChild("M_Icon"^y) as CMlQuad).Hide();
 		(Page.GetFirstChild("M_Medal"^y) as CMlQuad).Hide();
 		(Page.GetFirstChild("M_Lock"^y) as CMlFrame).Hide();
@@ -412,7 +321,7 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 	
 	declare i = 1;
 	foreach (Map in _MapInfosTask.MapInfos)	{
-		if(i > 15)
+		if(i > 5)
 			continue;			
 	
 	if (Map.Unlocked == False) {
@@ -451,9 +360,8 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 	else
 		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText("");
 
-		
-	(Page.GetFirstChild("M_Main"^i) as CMlQuad).Show();
 	(Page.GetFirstChild("M_Icon"^i) as CMlQuad).Show();
+	(Page.GetFirstChild("M_Map"^i) as CMlFrame).Show();
 	
 	i += 1;
 	}		
@@ -473,14 +381,10 @@ Void GoToMainMenu()	{
 
 
 main() {	
+	ClearShownMaps();
 
 	declare Text MenuPage = "Main";
 	log("the menu is loading...");
-
-	declare UpQuad <=> (Page.MainFrame.GetFirstChild("Up") 	as CMlQuad);
-	declare DownQuad <=> (Page.MainFrame.GetFirstChild("Down") 	as CMlQuad);	
-	declare MedalsTotal_ <=> (Page.MainFrame.GetFirstChild("MedalsTotal") 	as CMlFrame);
-	declare MedalsMap_ <=> (Page.MainFrame.GetFirstChild("MedalsMap") 	as CMlFrame);
 
 	CampaignPath = "PlatformTest";
 
@@ -488,17 +392,13 @@ main() {
 	Audio.ClearAllDelayedSoundsEvents();
 	declare Text ScContext = "";
 	declare Text Color;	//uroven trate
-	
-	UpQuad.Hide();
 
 	wait(LoadMapSound != Null);
-
 	declare CurMapInfosTask = DataFileMgr.Map_GetGameList("", False);
 	declare CurFoldersTask = DataFileMgr.Map_GetGameList(CampaignPath, False);
 	sleep(100);
 	wait(!CurFoldersTask.IsProcessing);
 	log("menu loaded successfully. If you see this console, close it with CTRL + G.");
-	DownQuad.Hide();
 		
 	EnableMenuNavigation(True, True, Page.GetFirstChild("xko"), 1);
 	
@@ -539,18 +439,30 @@ main() {
 		
 		
     	foreach (Event in PendingEvents) {
+			if (Event.Type ==  CMlEvent::Type::MouseOver) {
+				for (y, 1, 5)	{				
+					if(Event.ControlId == "M_Main"^y)	{
+						(Page.GetFirstChild("M_Main"^y) as CMlQuad).Opacity = 0.6;
+					}
+				}
+				if(Event.ControlId == "MapsBg")	{
+					for (y, 1, 5)	{	
+						(Page.GetFirstChild("M_Main"^y) as CMlQuad).Opacity = 0.8;
+					}
+				}
+			}	
+	
 			if (Event.Type ==  CMlEvent::Type::MouseClick) {
 				if(Event.ControlId != "")
 					LastClickedId = Event.ControlId;
-				
+				}	
 			}	
-		}	
 
 		if(LastClickedId != ProceededId)	{
 
 			ProceededId = LastClickedId;
 
-			for (y, 1, 15)	{				
+			for (y, 1, 5)	{				
 				if (LastClickedId == "M_Main"^y) {
 					
 					declare CMapInfo Map;
@@ -558,11 +470,9 @@ main() {
 											
 					if ((Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected == False) 	{
 						Deselect();
-						MedalsTotal_.Hide();
-						MedalsMap_.Show();
 																
 						(Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected = True;
-						(Page.GetFirstChild("header0") as CMlLabel).SetText("Official time rankings for "^Map.Name);
+						(Page.GetFirstChild("M_Main"^y) as CMlQuad).ModulateColor = <0.4, 0.4, 0.4>;
 						
 						declare Integer Record_Time = ScoreMgr.Map_GetRecord(NullId, Map.MapUid, ScContext);
 						declare Integer Record_NbRespawns = MapRecords[Map];					
@@ -603,8 +513,6 @@ main() {
 								ShowMessage("You need a gold medal on all the previous maps to unlock this map.");
 							}
 						}
-						MedalsTotal_.Show();
-						MedalsMap_.Hide();
 					}
 				}
 			}
@@ -636,9 +544,6 @@ main() {
 			
 			if (LastClickedId == "WhiteBTN" || LastClickedId == "GreenBTN" || LastClickedId == "BlueBTN" || LastClickedId == "RedBTN" || LastClickedId == "BlackBTN")	{
 				Deselect();
-				RefreshRank();
-				MedalsTotal_ .Show();
-				MedalsMap_ .Hide();
 				Audio.PlaySoundEvent(CAudioManager::ELibSound::Valid, 0, 1.);
 			}
 			if (LastClickedId == "WhiteBTN" && Color != "A")  {
