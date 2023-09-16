@@ -3,11 +3,11 @@
 	<stylesheet>
 		<style id="LabelWelcome" posn="-10 10"  size="57 8" style="TextTitle3" textfont="GameFontExtraBold" textsize="4" sizen="40 5"/>
 		<style id="LabelActivity" posn="-10 3" sizen="56 10" style="TextTitle2" textfont="GameFontRegular"/>		
-		<style id="1 2 3 4 5"  style="Icons128x128_1" sizen="9 9" halign="right" valign="center"/>
+		<style class="AboutText" style="TextTitle2" size="196 5" textfont="GameFontRegular"/>
 		<style id="M_Medal1 M_Medal2 M_Medal3 M_Medal4 M_Medal5 M_Medal6 M_Medal7 M_Medal8 M_Medal9 M_Medal10 M_Medal11 M_Medal12 M_Medal13 M_Medal14 M_Medal15" style="MedalsBig" substyle="MedalSlot" pos="88 33" z-index="25" size="10 10"/> 	
 		<style id="M_Name1 M_Name2 M_Name3 M_Name4 M_Name5 M_Name6 M_Name7 M_Name8 M_Name9 M_Name10 M_Name11 M_Name12 M_Name13 M_Name14 M_Name15" sizen="50 6" textfont="GameFontSemiBold" textsize="3" valign="center2" textemboss="1" pos="27 37.6"/>
 		<style id="M_SP1 M_SP2 M_SP3 M_SP4 M_SP5 M_SP6 M_SP7 M_SP8 M_SP9 M_SP10 M_SP11 M_SP12 M_SP13 M_SP14 M_SP15" style="TextRaceChronoOfficial" textsize="2.8" valign="center2" z-index="10"/>	
-		<style id="M_PlatformRecord1 M_PlatformRecord2 M_PlatformRecord3 M_PlatformRecord4 M_PlatformRecord5" textemboss="1" textsize="2.5" valign="center2" pos="28 27"  z-index="10" textfont="GameFontRegular"/>	
+		<style id="M_PlatformRecord1 M_PlatformRecord2 M_PlatformRecord3 M_PlatformRecord4 M_PlatformRecord5" textemboss="1" textsize="2.5" valign="center2" pos="28 26.7"  z-index="10" textfont="GameFontRegular"/>	
 		<style id="M_Icon1 M_Icon2 M_Icon3 M_Icon4 M_Icon5 M_Icon6 M_Icon7 M_Icon8 M_Icon9 M_Icon10 M_Icon11 M_Icon12 M_Icon13 M_Icon14 M_Icon15" keepratio="Clip" size="18 17.3" bgcolor="000" pos="4 41.6"/>
 		<style id="M_Main1 M_Main2 M_Main3 M_Main4 M_Main5 M_Main10 M_Main6 M_Main8 M_Main7 M_Main9 M_Main11 M_Main12 M_Main13 M_Main14 M_Main15" size="102 24" style="UICommon128_1" substyle="BgFrame1" pos="0 45" z-index="-25" opacity="0.8"/>
 		
@@ -29,7 +29,7 @@
 	
 	<frame pos="-158 -68.75">
 		<quad class="ModernIcon" style="UICommon64_1" substyle="ArrowLeftSlim_light"/>
-		<label class="ModernButton" text=" " id="xko" scriptevents="1"/>
+		<label class="ModernButton" id="xko" scriptevents="1"/>
 		<label class="ModernButtonText" text="Back" translate="1" />
 	</frame>
 </frame>
@@ -48,6 +48,23 @@
 		<label id="LabelActivity" text="Choose an activity" posn="-10 3" sizen="56 10" translate="1" autonewline="1"/>
 	</frame>	
 	
+	<frame id="FrameAbout" pos="41 10" scale="1.12">
+		<label pos="0 52" z-index="0" size="100 5" text="Information" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
+		<quad z-index="-9" size="200 10" style="UICommon128_1" substyle="BgDialogTitle" halign="center" pos="0 55"/>
+		<label class="AboutText" text= "Welcome to TMNext Platform titlepack!" textfont="GameFontSemiBold"pos="-98 42"/>
+		<label class="AboutText" text= "The classic gamemode from TM1 and TM2 arrives back to TM2020! And it arrives in style - in a full-scaled titlepack."  pos="-98 37" autonewline="1"/>
+		<label class="AboutText" text= "What is Platform?" pos="-98 22" textfont="GameFontSemiBold"/>
+		<label class="AboutText" text= "Platform is a gamemode, where your aim is to successfully finish the map with the least amount of respawns." pos="-98 17" autonewline="1"/>
+		
+		<quad pos="0 6" z-index="0" size="199.4 30" bgcolor="FFF" opacity="0.7" halign="center" image="file://Media/Images/Loadscreen.jpg" keepratio="Clip"/>
+		<label pos="0 -25" z-index="0" size="100 5" text="Credits" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
+		<label class="AboutText" text= "Main: Arkady" pos="-98 -32" autonewline="1"/>
+		<label class="AboutText" text= "Mappers: Zai, Plantathon, skachacha, Arkes, Arkady" pos="-98 -37" autonewline="1"/>
+		<label class="AboutText" text= "Other testers: bmx22c, florenzius, arnoo, tomekdot" pos="-98 -42" autonewline="1"/>
+		
+		<quad z-index="-10" size="200 110" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center" pos="0 0"/>
+	</frame>
+	
 	<frame id="ModernMenu" pos="-158 40">
 		<frame>
 			<quad class="ModernIcon" style="UICommon64_2" substyle="Cup_light"/>
@@ -59,15 +76,16 @@
 			<label class="ModernButton" text=" " id="EditorsBTN" scriptevents="1"/>
 			<label class="ModernButtonText" text="Editors" translate="1" />
 		</frame>
+		
 		<frame pos="0 -32">
-			<quad class="ModernIcon" style="UICommon64_1" substyle="Help_light"/>
-			<label class="ModernButton" text=" " id="AboutBTN" scriptevents="1"/>
-			<label class="ModernButtonText" text="About" translate="1" />
-		</frame>
+			<quad class="ModernIcon" style="UICommon64_1" substyle="User_light"/>
+			<label class="ModernButton" text=" " id="LocalPlayBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Local Play" translate="1" />
+		</frame>	
 	</frame>
 	
 	<frame id="Links" pos="86 -64">
-	<quad pos="-4 4" z-index="-10" size="72.4 20" bgcolor="272727FF" style="UICommon128_1" substyle="BgDialog"/>
+	<quad pos="-4 4" z-index="-10" size="72.4 20" style="UICommon128_1" substyle="BgDialog"/>
 	
 	<quad pos="0 0" size="12 12" image="file://Media/Images/Icon/discord.png" halign="left"/>
 	<label pos="0" textsize="10"size="12 12" url="https://discord.gg/JEHzjy2" z-index="1"/>
@@ -106,7 +124,7 @@
 		<quad pos="0 15" size="40 40" halign="center" bgcolor="13131378" id="SelectedMapImage"/>
 		<label pos="0 -5" z-index="-1" size="20 11.9" text="None" translate="1" halign="center" valign="center" textfont="GameFontRegular"/>
 		
-		<label pos="-20 -30"  text="Race" translate="1" style="TextButtonBig" textsize="2.5"/>
+		<label pos="-20 -30"  text="Best time :" translate="1" style="TextButtonBig" textsize="2.5"/>
 		<label pos="20 -30" textfont="GameFontRegular" text="???" id="TrainingMap" textsize="2.5" translate="1" halign="right" textemboss="1"/>
 		<label pos="-20 -36" text="Platform" translate="1" style="TextButtonBig" textsize="2.5"/>
 		<label pos="20 -36" textfont="GameFontRegular" size="0" text="???" id="PlatformRecordMap" textsize="2.5" translate="1" halign="right" textemboss="1"/>
@@ -116,7 +134,7 @@
 		<frame>
 			<quad class="ModernIcon" style="UICommon64_1" substyle="Flag_light"/>
 			<label class="ModernButton" text=" " id="WhiteBTN" scriptevents="1"/>
-			<label class="ModernButtonText" text="Demo Tracks" translate="1"/>
+			<label class="ModernButtonText" text="Demo Maps" translate="1"/>
 		</frame>
 	</frame>
 	
@@ -389,6 +407,8 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 	}		
 }	
 
+// MENU NAVIGATION
+
 Void GoToSolo()	{
 	Page.GetFirstChild("FrameMainMenu").Hide();
 	Page.GetFirstChild("FrameSolo").Show();
@@ -402,6 +422,7 @@ Void GoToMainMenu()	{
 }
 
 
+// MAIN
 main() {	
 	ClearShownMaps();
 
@@ -576,6 +597,11 @@ main() {
 			if (LastClickedId == "EditorsBTN") {
 				ShowMessage("Since this feature is not implemented yet, please use the OpenPlanet's menu to open editors...");
 				SendCustomEvent("menu_editors", [""]);
+			}
+			
+			if (LastClickedId == "LocalPlayBTN") {
+				ShowMessage("Since this feature is not implemented yet, please use the OpenPlanet's menu to open the local play...");
+				SendCustomEvent("menu_local", [""]);
 			}
 			
 			if (LastClickedId == "WhiteBTN" || LastClickedId == "GreenBTN" || LastClickedId == "BlueBTN" || LastClickedId == "RedBTN" || LastClickedId == "BlackBTN")	{
