@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <manialink name="Page_HomePage" version="3">
 	<stylesheet>
-		<style id="LabelWelcome" posn="-128 49" style="TextTitle3" textsize="4" sizen="40 5"/>
-		<style id="LabelActivity" posn="-128 43" style="TextTitle2" sizen="44 5"/>		
+		<style id="LabelWelcome" posn="-10 10"  size="57 8" style="TextTitle3" textfont="GameFontExtraBold" textsize="4" sizen="40 5"/>
+		<style id="LabelActivity" posn="-10 3" sizen="56 10" style="TextTitle2" textfont="GameFontRegular"/>		
 		<style id="1 2 3 4 5"  style="Icons128x128_1" sizen="9 9" halign="right" valign="center"/>
 		<style id="M_Medal1 M_Medal2 M_Medal3 M_Medal4 M_Medal5 M_Medal6 M_Medal7 M_Medal8 M_Medal9 M_Medal10 M_Medal11 M_Medal12 M_Medal13 M_Medal14 M_Medal15" style="MedalsBig" substyle="MedalSlot" pos="88 33" z-index="25" size="10 10"/> 	
-		<style id="M_Name1 M_Name2 M_Name3 M_Name4 M_Name5 M_Name6 M_Name7 M_Name8 M_Name9 M_Name10 M_Name11 M_Name12 M_Name13 M_Name14 M_Name15" sizen="50 6" style="TextTitle2" textsize="3" valign="center2" textemboss="1"/>
+		<style id="M_Name1 M_Name2 M_Name3 M_Name4 M_Name5 M_Name6 M_Name7 M_Name8 M_Name9 M_Name10 M_Name11 M_Name12 M_Name13 M_Name14 M_Name15" sizen="50 6" textfont="GameFontSemiBold" textsize="3" valign="center2" textemboss="1" pos="27 37.6"/>
 		<style id="M_SP1 M_SP2 M_SP3 M_SP4 M_SP5 M_SP6 M_SP7 M_SP8 M_SP9 M_SP10 M_SP11 M_SP12 M_SP13 M_SP14 M_SP15" style="TextRaceChronoOfficial" textsize="2.8" valign="center2" z-index="10"/>	
-		<style id="M_PlatformRecord1 M_PlatformRecord2 M_PlatformRecord3 M_PlatformRecord4 M_PlatformRecord5" textemboss="1" textsize="2.5" valign="center2" pos="28 27"  z-index="10"/>	
+		<style id="M_PlatformRecord1 M_PlatformRecord2 M_PlatformRecord3 M_PlatformRecord4 M_PlatformRecord5" textemboss="1" textsize="2.5" valign="center2" pos="28 27"  z-index="10" textfont="GameFontRegular"/>	
 		<style id="M_Icon1 M_Icon2 M_Icon3 M_Icon4 M_Icon5 M_Icon6 M_Icon7 M_Icon8 M_Icon9 M_Icon10 M_Icon11 M_Icon12 M_Icon13 M_Icon14 M_Icon15" keepratio="Clip" size="18 17.3" bgcolor="000" pos="4 41.6"/>
 		<style id="M_Main1 M_Main2 M_Main3 M_Main4 M_Main5 M_Main10 M_Main6 M_Main8 M_Main7 M_Main9 M_Main11 M_Main12 M_Main13 M_Main14 M_Main15" size="102 24" style="UICommon128_1" substyle="BgFrame1" pos="0 45" z-index="-25" opacity="0.8"/>
 		
-		<style size="76 12" class="ModernButton" style="CardButtonMediumXL" scale="1.46"/>
-		<style size="10 10" z-index="1" pos="1 -1" class="ModernIcon"/>
-		<style size="76 12" textcolor="FFF" opacity="0.8" class="ModernButtonText" pos="20 -6" sizen="80 15" translate="1" z-index="1" style="TextButtonNav" halign="left" valign="center2" textsize="2.5"/>
-		<style class="MapNameBg" pos="19 42" z-index="-2" size="80 8"  opacity="0.7" substyle="BgToolTilted" style="UICommon128_1" modulatecolor="000000FF"/>
+		<style class="MapNameBg" pos="18 42" z-index="-2" size="80 8"  opacity="0.7" substyle="BgToolTilted" style="UICommon128_1" modulatecolor="000000FF"/>
 		<style class="MapScoreBg" pos="19 30" z-index="-2" size="20 6"  opacity="0.7" substyle="BgToolTilted" style="UICommon128_1" modulatecolor="4D4D4DFF" />
 		<style id="MapMedal" style="MedalsBig" substyle="MedalSlot" pos="87.75 33.25" z-index="25" size="10.5 10.5"/> 	
 		<style id="Zamocek0" pos="13 42" z-index="3" size="14 14" style="UICommon64_1" substyle="PadlockLocked_light" scriptevents="1" halign="center"/>
 		<style class="MapLockedLabel" pos="13 29" z-index="0" size="18 5" translate="1" textsize="2" halign="center" style="TextTitle2"/>
+	
+		<style style="CardButtonMediumXL" size="76 12" class="ModernButton" scale="1.46"/>
+		<style class="ModernIcon" size="10 10" z-index="1" pos="1 -1"/>
+		<style class="ModernButtonText" size="55 12" textcolor="FFF" opacity="0.8"  pos="17 -6" z-index="1" style="TextButtonNav" halign="left" valign="center2" textsize="2.5"/>
 	</stylesheet>
 	
 <frame z-index="-1" id="FrameMenuCommon" >	
-	<quad posn="-160 0.5" sizen="80.7 200" z-index="-5"  substyle=""  valign="center" bgcolor="272727FF" opacity=".6"/>
-	<quad posn="-161 90" sizen="82 30" z-index="-4"  style="UICommon128_1" substyle="BgDialogTitle"  opacity=".8" valign="top"/>
-	<quad id="Titlelogo"  sizen="70 70" pos="-150 90" z-index="-0.151" style="TitleLogos" substyle="Title" image="file://Media/Images/MenuHeader.png" hidden="1"/>
+	<quad posn="-160 0.5" sizen="80.7 200" z-index="-5"  substyle="" valign="center" bgcolor="272727FF" opacity=".6"/>
+	<quad posn="-161 90" sizen="82 34" z-index="-4"  style="UICommon128_1" substyle="BgDialogTitle"  opacity=".8" valign="top" hidden="1"/>
 	
-	<frame pos="-158 -68">
+	
+	<frame pos="-158 -68.75">
 		<quad class="ModernIcon" style="UICommon64_1" substyle="ArrowLeftSlim_light"/>
 		<label class="ModernButton" text=" " id="xko" scriptevents="1"/>
-		<label class="ModernButtonText" text="Back"/>
+		<label class="ModernButtonText" text="Back" translate="1" />
 	</frame>
 </frame>
 
@@ -40,29 +41,39 @@
 	<quad pos="0 0" z-index="0" size="400 200" halign="center" valign="center" scriptevents="1" style="Bgs1" substyle="BgEmpty"/>
 </frame>
 
-<frame id="FrameMainMenu" >
-	<frame id="MainPanel" z-index="-4" pos="-130 70">				
+<frame id="FrameMainMenu"  hidden="">
+	<frame id="MainPanel" z-index="-4" pos="-130 70.5">				
 		<quad style="UICommon64_2"  sizen="16 16" pos="-28 12" substyle="Edit_light"/>
-		<label id="LabelWelcome" text="Welcome" posn="-10 9" sizen="56 8" translate="1"/>
-		<label id="LabelActivity" text="Choose an activity" posn="-10 2" sizen="56 10" translate="1" autonewline="1"/>
+		<label id="LabelWelcome" text="Welcome!" posn="-10 10" sizen="56 8" translate="1"/>
+		<label id="LabelActivity" text="Choose an activity" posn="-10 3" sizen="56 10" translate="1" autonewline="1"/>
 	</frame>	
 	
 	<frame id="ModernMenu" pos="-158 40">
 		<frame>
 			<quad class="ModernIcon" style="UICommon64_2" substyle="Cup_light"/>
 			<label class="ModernButton" text=" " id="SoloBTN" scriptevents="1"/>
-			<label class="ModernButtonText" text="Campaign"/>
+			<label class="ModernButtonText" text="Campaign" translate="1" />
 		</frame>
 		<frame pos="0 -16">
 			<quad class="ModernIcon" style="UICommon64_2" substyle="MaximizeWindow_light"/>
 			<label class="ModernButton" text=" " id="EditorsBTN" scriptevents="1"/>
-			<label class="ModernButtonText" text="Editors"/>
+			<label class="ModernButtonText" text="Editors" translate="1" />
 		</frame>
 		<frame pos="0 -32">
 			<quad class="ModernIcon" style="UICommon64_1" substyle="Help_light"/>
 			<label class="ModernButton" text=" " id="AboutBTN" scriptevents="1"/>
-			<label class="ModernButtonText" text="About"/>
+			<label class="ModernButtonText" text="About" translate="1" />
 		</frame>
+	</frame>
+	
+	<frame id="Links" pos="86 -64">
+	<quad pos="-4 4" z-index="-10" size="72.4 20" bgcolor="272727FF" style="UICommon128_1" substyle="BgDialog"/>
+	
+	<quad pos="0 0" size="12 12" image="file://Media/Images/Icon/discord.png" halign="left"/>
+	<label pos="0" textsize="10"size="12 12" url="https://discord.gg/JEHzjy2" z-index="1"/>
+
+	<quad pos="16 0" z-index="0" size="48 12" bgcolor="FFFFFF94" image="file://Media/Images/Icon/Github.png"/>
+	<label pos="16 0" textsize="10"size="48 12" url="https://github.com/ArkadySK/TMNextPlatform" z-index="1"/>
 	</frame>
 </frame>
 	
@@ -71,41 +82,45 @@
 	
 	
 	
-<frame id="FrameSolo" >
-	<frame id="MainPanel" z-index="-4">
-		<quad style="UICommon64_2"  sizen="16 16" pos="-158 82" substyle="Cup_light"/>				
-		<label id="LabelWelcome" text="Campaign" posn="-140 79" sizen="57 8" translate="1"/>
-		<label id="LabelActivity" text="Choose a difficulty" posn="-140 72" sizen="57 10" translate="1"/>
-	</frame>	
+<frame id="FrameSolo"  hidden="1">
+	<frame id="MainPanel" z-index="-4" pos="-130 70.5">				
+		<quad style="UICommon64_2"  sizen="16 16" pos="-28 12" substyle="Cup_light"/>
+		<label id="LabelWelcome" text="Campaign" translate="1"/>
+		<label id="LabelActivity" text="Choose a difficulty" translate="1"/>
+	</frame>
 	
-	<frame id="MedalsInfo"  z-index="-2" pos="120 12" scale="1">	
-		<quad style="Bgs1" substyle="BgList"  sizen="38 10" posn="0 54" z-index="-1" halign="center"/>	
-		<label id="MedalsLabel" size="25 8" pos="-4 49" style="TextRankingsBig" textsize="4" text="0" valign="center" halign="center" z-index="2"/>	
-		<quad pos="7 54" z-index="2" size="10 10" style="UICommon64_1" substyle="Medal_light"/>
-		<label id="header" text="Medals" sizen="50 5" pos="0 62" z-index="2" style="TextTitle3" textsize="2.5" translate="1" halign="center" valign="center"/>
+	<frame id="MedalsTotalFrame"  z-index="-2" pos="120 13">	
+		<quad style="Bgs1" substyle="BgList"  sizen="40 10" posn="0 54" z-index="-1" halign="center"/>	
+		<label id="MedalsLabel" size="24 8" pos="0 49.5" textfont="GameFontSemiBold" textsize="4" text="0" valign="center" halign="center" z-index="2"/>	
+		<quad pos="10 54" z-index="2" size="10 10" style="UICommon64_1" substyle="Medal_light"/>
+		<label id="header" text="Medals" sizen="50 5" pos="0 62" z-index="2" style="TextTitle3" textsize="2.5" translate="1" halign="center" valign="center" textfont="GameFontExtraBold"/>
 		<quad style="UICommon128_1" substyle="BgDialogTitle" pos="0 67" sizen="50 11" halign="center"/>
-		<quad style="UICommon128_1" substyle="BgDialog"  posn="0 67" sizen="50 26" z-index="-5" halign="center"/>
+		<quad style="UICommon128_1" substyle="BgDialog"  posn="0 67" sizen="50 25.5" z-index="-5" halign="center"/>
 </frame>
 
-<frame id="MapInfo"  z-index="-2" pos="120 -85" scale="1">	
+<frame id="SelectedMapFrame"  z-index="-2" pos="120 -35">	
 		<quad style="UICommon128_1" substyle="BgDialogTitle" pos="0 31" sizen="50 11" halign="center"/>
-		<quad style="UICommon128_1" substyle="BgDialog"  posn="0 31" sizen="50 26" z-index="-5" halign="center"/>
-		<label pos="0 27" z-index="0" text="Selected Map" translate="1" style="TextTitle3" textsize="2.5" halign="center"/>
-		<label pos="-20 18" z-index="0" text="Time" translate="1" style="TextButtonBig" textsize="2.5"/>
-		<label pos="20 18" z-index="0" text="???" id="TrainingMap" translate="1" halign="right" textemboss="1"/>
-		<label pos="-20 12" z-index="0" text="Respawns" translate="1" style="TextButtonBig" textsize="2.5"/>
-		<label pos="20 12" z-index="0" size="0" text="???" id="PlatformRecordMap" translate="1" halign="right" textemboss="1"/>
+		<quad style="UICommon128_1" substyle="BgDialog"  posn="0 31" sizen="50 76" z-index="-5" halign="center"/>
+		<label pos="0 27.5"  text="Selected map" translate="1" style="TextTitle3" textfont="GameFontExtraBold" textsize="2.5" halign="center"/>
+		
+		<quad pos="0 15" size="40 40" halign="center" bgcolor="13131378" id="SelectedMapImage"/>
+		<label pos="0 -5" z-index="-1" size="20 11.9" text="None" translate="1" halign="center" valign="center" textfont="GameFontRegular"/>
+		
+		<label pos="-20 -30"  text="Race" translate="1" style="TextButtonBig" textsize="2.5"/>
+		<label pos="20 -30" textfont="GameFontRegular" text="???" id="TrainingMap" textsize="2.5" translate="1" halign="right" textemboss="1"/>
+		<label pos="-20 -36" text="Platform" translate="1" style="TextButtonBig" textsize="2.5"/>
+		<label pos="20 -36" textfont="GameFontRegular" size="0" text="???" id="PlatformRecordMap" textsize="2.5" translate="1" halign="right" textemboss="1"/>
 	</frame>
 	
 	<frame id="ModernMenu" pos="-158 40">
 		<frame>
 			<quad class="ModernIcon" style="UICommon64_1" substyle="Flag_light"/>
 			<label class="ModernButton" text=" " id="WhiteBTN" scriptevents="1"/>
-			<label class="ModernButtonText" text="Demo Tracks"/>
+			<label class="ModernButtonText" text="Demo Tracks" translate="1"/>
 		</frame>
 	</frame>
 	
-	<frame pos="-45 26">	
+	<frame pos="-45 27">	
 		<quad style="UICommon128_1" substyle="BgDialog" opacity="0.8" sizen="120 160" z-index="-35" halign="center" pos="52.1 -27" valign="center" scriptevents="1" id="MapsBg"/>
 		
 		<frame id="M_Map1">
@@ -113,7 +128,7 @@
 			<quad id="M_Icon1" />
 			<quad class="MapNameBg"/>
 			<quad class="MapScoreBg"/>
-			<label id="M_Name1" pos="27 38" text="PlatformA01"/>	
+			<label id="M_Name1" text="PlatformA01"/>	
 			<label id="M_PlatformRecord1" text="???"/>
 			<quad id="M_Medal1"/>
 			<quad id="MapMedal" />
@@ -128,7 +143,7 @@
 			<quad id="M_Icon2" />
 			<quad class="MapNameBg"/>
 			<quad class="MapScoreBg"/>
-			<label id="M_Name2" pos="27 38" text="PlatformA02"/>	
+			<label id="M_Name2" text="PlatformA02"/>	
 			<label id="M_PlatformRecord2" text="???"/>
 			<quad id="M_Medal2" />
 			<quad id="MapMedal" />
@@ -143,7 +158,7 @@
 			<quad id="M_Icon3" />
 			<quad class="MapNameBg"/>
 			<quad class="MapScoreBg"/>
-			<label id="M_Name3" pos="27 38" text="PlatformA03"/>	
+			<label id="M_Name3" text="PlatformA03"/>	
 			<label id="M_PlatformRecord3" text="???"/>
 			<quad id="M_Medal3" />
 			<quad id="MapMedal" />
@@ -158,7 +173,7 @@
 			<quad id="M_Icon4" />
 			<quad class="MapNameBg"/>
 			<quad class="MapScoreBg"/>
-			<label id="M_Name4" pos="27 38" text="PlatformA04"/>	
+			<label id="M_Name4" text="PlatformA04"/>	
 			<label id="M_PlatformRecord4" text="???"/>
 			<quad id="M_Medal4" />
 			<quad id="MapMedal" />
@@ -173,7 +188,7 @@
 			<quad id="M_Icon5" />
 			<quad class="MapNameBg"/>
 			<quad class="MapScoreBg"/>
-			<label id="M_Name5" pos="27 38" text="PlatformA05"/>	
+			<label id="M_Name5" text="PlatformA05"/>	
 			<label id="M_PlatformRecord5" text="???"/>
 			<quad id="M_Medal5" />
 			<quad id="MapMedal" />
@@ -193,11 +208,18 @@ declare Integer[CMapInfo] MapMedals;
 declare Integer MedalsTotal;
 declare Text CampaignPath;
 
+Void ResetSelectedMap()	{
+	(Page.GetFirstChild("TrainingMap") as CMlLabel).SetText("");
+	(Page.GetFirstChild("PlatformRecordMap") as CMlLabel).SetText("");
+	(Page.GetFirstChild("SelectedMapImage") as CMlQuad).ImageUrl = "";
+}
+
 Void Deselect()	{
 	for (yy, 1, 5) {
 		(Page.GetFirstChild("M_Main"^yy) as CMlQuad).StyleSelected = False;
 		(Page.GetFirstChild("M_Main"^yy) as CMlQuad).ModulateColor = <1., 1., 1.>;
 	}
+	ResetSelectedMap();
 }
 
 Text TimeToText(Integer _score, Boolean _useMS)	{
@@ -384,9 +406,10 @@ main() {
 	ClearShownMaps();
 
 	declare Text MenuPage = "Main";
-	log("the menu is loading...");
-
 	CampaignPath = "PlatformTest";
+
+	declare persistent Boolean Menu_RefreshRecords for LocalUser;
+	Menu_RefreshRecords = False;
 
 	declare LoadMapSound = Audio.CreateSound("https://raw.githubusercontent.com/ArkadySK/TMNextPlatform/main/Audio/MenuStartChallenge.wav");
 	Audio.ClearAllDelayedSoundsEvents();
@@ -404,11 +427,17 @@ main() {
 	
 	declare Text LastClickedId = "";
 	declare Text ProceededId = "";
-
-	
 	ReloadAllRecords();
 
 	while(True){	
+
+		if(Menu_RefreshRecords)	{
+			ReloadAllRecords();
+			UpdateMapSelection(CurMapInfosTask);
+			log("records have been refreshed");
+			Menu_RefreshRecords = False;
+		}
+
 		switch (Color)	{
 			case "A":	{
 				CurMapInfosTask = DataFileMgr.Map_GetGameList(CurFoldersTask.SubFolders[0], False);
@@ -470,6 +499,8 @@ main() {
 											
 					if ((Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected == False) 	{
 						Deselect();
+						
+						(Page.GetFirstChild("SelectedMapImage") as CMlQuad).ImageUrl = "file://Thumbnails/MapUid/"^Map.MapUid;
 																
 						(Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected = True;
 						(Page.GetFirstChild("M_Main"^y) as CMlQuad).ModulateColor = <0.4, 0.4, 0.4>;
@@ -481,12 +512,13 @@ main() {
 						if (Record_Time !=-1)
 							RecordText = TimeToText(Record_Time, True);
 						else
-							RecordText = "Not Played";		
+							RecordText = "???";		
 						if (Record_NbRespawns !=-1)
 							PlatformRecordText = ""^Record_NbRespawns;
-						else
-							PlatformRecordText = "Replay not found!";
-						
+						else	{
+							PlatformRecordText = "";
+							log("Replay for " ^ Map.Name ^ " not found!");
+						}
 						(Page.GetFirstChild("TrainingMap") as CMlLabel).SetText(RecordText);
 						(Page.GetFirstChild("PlatformRecordMap") as CMlLabel).SetText(PlatformRecordText);
 					}
@@ -525,10 +557,14 @@ main() {
 			if (LastClickedId == "xko") {
 				SendCustomEvent("menu_main", [""]);
 				
-				if(MenuPage == "Main")
+				if(MenuPage == "Main"){
 					SendCustomEvent("menu_main", [""]);
-				else
+				}
+				else{
 					GoToMainMenu();
+					ClearShownMaps();
+					Deselect();
+				}
 				MenuPage = "Main";
 			}
 			
