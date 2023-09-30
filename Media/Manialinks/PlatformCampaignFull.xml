@@ -433,7 +433,6 @@ main() {
 	declare Text ScContext = "";
 	declare Text Color;	//uroven trate
 
-	wait(LoadMapSound != Null);
 	declare CurMapInfosTask = DataFileMgr.Map_GetGameList("", False);
 	declare CurFoldersTask = DataFileMgr.Map_GetGameList(CampaignPath, False);
 	sleep(100);
