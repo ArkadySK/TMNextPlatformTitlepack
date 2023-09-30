@@ -1,26 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<manialink name="Page_HomePage" version="3">
-	<stylesheet>
-		<style id="LabelWelcome" posn="-10 10"  size="57 8" style="TextTitle3" textfont="GameFontExtraBold" textsize="4" sizen="40 5"/>
-		<style id="LabelActivity" posn="-10 3" sizen="56 10" style="TextTitle2" textfont="GameFontRegular"/>		
-		<style class="AboutText" style="TextTitle2" size="196 5" textfont="GameFontRegular"/>
-		<style id="M_Medal1 M_Medal2 M_Medal3 M_Medal4 M_Medal5 M_Medal6 M_Medal7 M_Medal8 M_Medal9 M_Medal10 M_Medal11 M_Medal12 M_Medal13 M_Medal14 M_Medal15" style="MedalsBig" substyle="MedalSlot" pos="88 33" z-index="25" size="10 10"/> 	
-		<style id="M_Name1 M_Name2 M_Name3 M_Name4 M_Name5 M_Name6 M_Name7 M_Name8 M_Name9 M_Name10 M_Name11 M_Name12 M_Name13 M_Name14 M_Name15" sizen="50 6" textfont="GameFontSemiBold" textsize="3" valign="center2" textemboss="1" pos="27 37.6"/>
-		<style id="M_SP1 M_SP2 M_SP3 M_SP4 M_SP5 M_SP6 M_SP7 M_SP8 M_SP9 M_SP10 M_SP11 M_SP12 M_SP13 M_SP14 M_SP15" style="TextRaceChronoOfficial" textsize="2.8" valign="center2" z-index="10"/>	
-		<style id="M_PlatformRecord1 M_PlatformRecord2 M_PlatformRecord3 M_PlatformRecord4 M_PlatformRecord5" textemboss="1" textsize="2.5" valign="center2" pos="28 26.7"  z-index="10" textfont="GameFontRegular"/>	
-		<style id="M_Icon1 M_Icon2 M_Icon3 M_Icon4 M_Icon5 M_Icon6 M_Icon7 M_Icon8 M_Icon9 M_Icon10 M_Icon11 M_Icon12 M_Icon13 M_Icon14 M_Icon15" keepratio="Clip" size="18 17.3" bgcolor="000" pos="4 41.6"/>
-		<style id="M_Main1 M_Main2 M_Main3 M_Main4 M_Main5 M_Main10 M_Main6 M_Main8 M_Main7 M_Main9 M_Main11 M_Main12 M_Main13 M_Main14 M_Main15" size="102 24" style="UICommon128_1" substyle="BgFrame1" pos="0 45" z-index="-25" opacity="0.8"/>
-		
-		<style class="MapNameBg" pos="18 42" z-index="-2" size="80 8"  opacity="0.7" substyle="BgToolTilted" style="UICommon128_1" modulatecolor="000000FF"/>
-		<style class="MapScoreBg" pos="19 30" z-index="-2" size="20 6"  opacity="0.7" substyle="BgToolTilted" style="UICommon128_1" modulatecolor="4D4D4DFF" />
-		<style id="MapMedal" style="MedalsBig" substyle="MedalSlot" pos="87.75 33.25" z-index="25" size="10.5 10.5"/> 	
-		<style id="Zamocek0" pos="13 42" z-index="3" size="14 14" style="UICommon64_1" substyle="PadlockLocked_light" scriptevents="1" halign="center"/>
-		<style class="MapLockedLabel" pos="13 29" z-index="0" size="18 5" translate="1" textsize="2" halign="center" style="TextTitle2"/>
+<stylesheet>
+	<style id="LabelWelcome" posn="-10 10"  size="57 8" style="TextTitle3" textfont="GameFontExtraBold" textsize="4" sizen="40 5"/>
+	<style id="LabelActivity" posn="-10 3" sizen="56 10" style="TextTitle2" textfont="GameFontRegular"/>		
+	<style class="AboutText" style="TextTitle2" size="196 5" textfont="GameFontRegular"/>
+	<style id="M_Medal1 M_Medal2 M_Medal3 M_Medal4 M_Medal5 M_Medal6 M_Medal7 M_Medal8 M_Medal9 M_Medal10 M_Medal11 M_Medal12 M_Medal13 M_Medal14 M_Medal15" style="MedalsBig" substyle="MedalSlot" pos="88 33" z-index="25" size="10 10"/> 	
+	<style id="M_Name1 M_Name2 M_Name3 M_Name4 M_Name5 M_Name6 M_Name7 M_Name8 M_Name9 M_Name10 M_Name11 M_Name12 M_Name13 M_Name14 M_Name15" sizen="50 6" textfont="GameFontSemiBold" textsize="3" valign="center2" textemboss="1" pos="27 37.6"/>
+	<style id="M_SP1 M_SP2 M_SP3 M_SP4 M_SP5 M_SP6 M_SP7 M_SP8 M_SP9 M_SP10 M_SP11 M_SP12 M_SP13 M_SP14 M_SP15" style="TextRaceChronoOfficial" textsize="2.8" valign="center2" z-index="10"/>	
+	<style id="M_PlatformRecord1 M_PlatformRecord2 M_PlatformRecord3 M_PlatformRecord4 M_PlatformRecord5" textemboss="1" textsize="2.5" valign="center2" pos="28 26.7"  z-index="10" textfont="GameFontRegular"/>	
+	<style id="M_Icon1 M_Icon2 M_Icon3 M_Icon4 M_Icon5 M_Icon6 M_Icon7 M_Icon8 M_Icon9 M_Icon10 M_Icon11 M_Icon12 M_Icon13 M_Icon14 M_Icon15" keepratio="Clip" size="18 17.3" bgcolor="000" pos="4 41.6"/>
+	<style id="M_Main1 M_Main2 M_Main3 M_Main4 M_Main5 M_Main10 M_Main6 M_Main8 M_Main7 M_Main9 M_Main11 M_Main12 M_Main13 M_Main14 M_Main15" size="102 24" style="UICommon128_1" substyle="BgFrame1" pos="0 45" z-index="-25" opacity="0.8"/>
 	
-		<style style="CardButtonMediumXL" size="76 12" class="ModernButton" scale="1.46"/>
-		<style class="ModernIcon" size="10 10" z-index="1" pos="1 -1"/>
-		<style class="ModernButtonText" size="55 12" textcolor="FFF" opacity="0.8"  pos="17 -6" z-index="1" style="TextButtonNav" halign="left" valign="center2" textsize="2.5"/>
-	</stylesheet>
+	<style class="MapNameBg" pos="18 42" z-index="-2" size="80 8"  opacity="0.7" substyle="BgToolTilted" style="UICommon128_1" modulatecolor="000000FF"/>
+	<style class="MapScoreBg" pos="19 30" z-index="-2" size="20 6"  opacity="0.7" substyle="BgToolTilted" style="UICommon128_1" modulatecolor="4D4D4DFF" />
+	<style id="MapMedal" style="MedalsBig" substyle="MedalSlot" pos="87.75 33.25" z-index="25" size="10.5 10.5"/> 	
+	<style id="Zamocek0" pos="13 42" z-index="3" size="14 14" style="UICommon64_1" substyle="PadlockLocked_light" scriptevents="1" halign="center"/>
+	<style class="MapLockedLabel" pos="13 29" z-index="0" size="18 5" translate="1" textsize="2" halign="center" style="TextTitle2"/>
+
+	<style style="CardButtonMediumXL" size="76 12" class="ModernButton" scale="1.46"/>
+	<style class="ModernIcon" size="10 10" z-index="1" pos="1 -1"/>
+	<style class="ModernButtonText" size="55 12" textcolor="FFF" opacity="0.8"  pos="17 -6" z-index="1" style="TextButtonNav" halign="left" valign="center2" textsize="2.5"/>
+</stylesheet>
 	
 <frame z-index="-1" id="FrameMenuCommon" >	
 	<quad posn="-160 0.5" sizen="80.7 200" z-index="-5"  substyle="" valign="center" bgcolor="272727FF" opacity=".6"/>
@@ -425,14 +423,12 @@ Void GoToMainMenu()	{
 // MAIN
 main() {	
 	ClearShownMaps();
-
 	declare Text MenuPage = "Main";
 	CampaignPath = "PlatformTest";
 
 	declare persistent Boolean Menu_RefreshRecords for LocalUser;
 	Menu_RefreshRecords = False;
 
-	declare LoadMapSound = Audio.CreateSound("https://raw.githubusercontent.com/ArkadySK/TMNextPlatform/main/Audio/MenuStartChallenge.wav");
 	Audio.ClearAllDelayedSoundsEvents();
 	declare Text ScContext = "";
 	declare Text Color;	//uroven trate
@@ -547,7 +543,7 @@ main() {
 						if(Map.Unlocked)	{
 							wait(TitleControl.IsReady);
 							TitleControl.PlayMap(Map.FileName, "Modes\\TrackMania\\LegacyMode.Script.txt", "");
-							Audio.PlaySoundEvent(LoadMapSound, 0.8, 0);
+								Audio.PlaySoundEvent(CAudioManager::ELibSound::Start , 0, 1.);
 						}
 						else {
 							if (Color == "A") {
@@ -576,17 +572,15 @@ main() {
 			}
 			
 			if (LastClickedId == "xko") {
-				SendCustomEvent("menu_main", [""]);
-				
 				if(MenuPage == "Main"){
-					SendCustomEvent("menu_main", [""]);
+					SendCustomEvent("MLHook_menu_action", ["quit_titlepack"]);
 				}
 				else{
 					GoToMainMenu();
 					ClearShownMaps();
 					Deselect();
+					MenuPage = "Main";
 				}
-				MenuPage = "Main";
 			}
 			
 			if (LastClickedId == "SoloBTN") {
@@ -595,13 +589,11 @@ main() {
 			}
 			
 			if (LastClickedId == "EditorsBTN") {
-				ShowMessage("Since this feature is not implemented yet, please use the OpenPlanet's menu to open editors...");
-				SendCustomEvent("menu_editors", [""]);
+				SendCustomEvent("MLHook_menu_action", ["editors"]);
 			}
 			
 			if (LastClickedId == "LocalPlayBTN") {
-				ShowMessage("Since this feature is not implemented yet, please use the OpenPlanet's menu to open the local play...");
-				SendCustomEvent("menu_local", [""]);
+				SendCustomEvent("MLHook_menu_action", ["local"]);
 			}
 			
 			if (LastClickedId == "WhiteBTN" || LastClickedId == "GreenBTN" || LastClickedId == "BlueBTN" || LastClickedId == "RedBTN" || LastClickedId == "BlackBTN")	{
@@ -648,4 +640,3 @@ main() {
 	log("this very page was done by arkady, 2023 :)");	
 }
 --></script>
-</manialink>
