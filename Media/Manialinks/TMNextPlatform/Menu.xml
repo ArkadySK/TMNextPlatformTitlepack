@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<manialink version="3">
 <stylesheet>
 	<style id="LabelWelcome" posn="-10 10"  size="57 8" style="TextTitle3" textfont="GameFontExtraBold" textsize="4" sizen="40 5"/>
 	<style id="LabelActivity" posn="-10 3" sizen="56 10" style="TextTitle2" textfont="GameFontRegular"/>		
 	<style class="AboutText" style="TextTitle2" size="196 5" textfont="GameFontRegular"/>
+	<style class="InfoText" style="TextTitle2" pos="-45 0" size="80 5" textfont="GameFontRegular"/>
 	<style id="M_Medal1 M_Medal2 M_Medal3 M_Medal4 M_Medal5 M_Medal6 M_Medal7 M_Medal8 M_Medal9 M_Medal10 M_Medal11 M_Medal12 M_Medal13 M_Medal14 M_Medal15" style="MedalsBig" substyle="MedalSlot" pos="88 33" z-index="25" size="10 10"/> 	
 	<style id="M_Name1 M_Name2 M_Name3 M_Name4 M_Name5 M_Name6 M_Name7 M_Name8 M_Name9 M_Name10 M_Name11 M_Name12 M_Name13 M_Name14 M_Name15" sizen="50 6" textfont="GameFontSemiBold" textsize="3" valign="center2" textemboss="1" pos="27 37.6"/>
 	<style id="M_SP1 M_SP2 M_SP3 M_SP4 M_SP5 M_SP6 M_SP7 M_SP8 M_SP9 M_SP10 M_SP11 M_SP12 M_SP13 M_SP14 M_SP15" style="TextRaceChronoOfficial" textsize="2.8" valign="center2" z-index="10"/>	
@@ -82,6 +81,12 @@
 			<label class="ModernButton" text=" " id="LocalPlayBTN" scriptevents="1"/>
 			<label class="ModernButtonText" text="Local Play" translate="1" />
 		</frame>	
+		
+		<frame pos="0 -48">
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Settings_light"/>
+			<label class="ModernButton" text=" " id="ProfileBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Settings" translate="1" />
+		</frame>
 	</frame>
 	
 	<frame id="Links" pos="85 -64">
@@ -96,6 +101,63 @@
 </frame>
 	
 
+	
+	
+	
+	<frame id="FrameProfile" hidden="1">
+	<frame id="MainPanel" z-index="-4" pos="-130 70.5">				
+		<quad style="UICommon64_2"  sizen="16 16" pos="-28 12" substyle="Edit_light"/>
+		<label id="LabelWelcome" text="Settings" posn="-10 10" sizen="56 8" translate="1"/>
+		<label id="LabelActivity" text="Personal Settings and Data" posn="-10 3" sizen="56 10" translate="1" autonewline="1"/>
+	</frame>	
+	
+	<frame id="FrameSettings" pos="41 0" scale="1.12">
+		<label pos="0 47" z-index="0" size="90 5" text="Settings" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
+		<quad z-index="-9" size="100 10" style="UICommon128_1" substyle="BgDialogTitle" halign="center" pos="0 50"/>
+		
+		<frame pos="0 30">
+		<label class="InfoText" text="Enable speedometer" translate="1"/>
+		<quad z-index="0" size="10 10" substyle="Import_light" style="UICommon64_1" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
+		</frame>
+		
+		<frame pos="0 20">
+		<label class="InfoText" text="Play custom music" translate="1"/>
+		<quad z-index="0" size="10 10" substyle="Parameters_light" style="UICommon64_1" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
+		</frame>
+		
+		
+		<frame pos="0 -40">
+		<label class="InfoText" text="(???)" translate="1" textsize="3" halign="right" pos="34 0" size="40"/>
+		<label class="InfoText" text="Horn" translate="1" id="HornNameLabel" size="40"/>
+		<quad z-index="0" size="10 10" substyle="Parameters_light" style="UICommon64_1" scriptevents="1" halign="center" valign="center" pos="40 -2" id="HornsBTN"/>
+		</frame>
+		
+		<quad z-index="-10" size="100 100" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center" pos="0 0"/>
+	</frame>
+	
+	<frame id="ModernMenu" pos="-158 40">
+		<frame pos="0 0">
+			<quad class="ModernIcon" style="UICommon64_1" substyle="LightSettings_light"/>
+			<label class="ModernButton" text=" " id="GraphicSettingsBTN"/>
+			<label class="ModernButtonText" text="Graphic Settings" translate="1" />
+		</frame>
+		
+		<frame pos="0 -16">
+			<quad class="ModernIcon" style="UICommon64_1" substyle="SteeringWheel_light"/>
+			<label class="ModernButton" text=" " id="InputSettingsBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Input Settings" translate="1" />
+		</frame>
+		
+		<frame pos="0 -32">
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Mediatracker_light"/>
+			<label class="ModernButton" text=" " id="StereoscopyBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Stereoscopy" translate="1" />
+		</frame>	
+	</frame>
+	
+</frame>
+	
+	
 	
 	
 	
@@ -407,16 +469,27 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 	}		
 }	
 
-// MENU NAVIGATION
+declare Text MenuPage;
 
+// MENU NAVIGATION
 Void GoToSolo()	{
+	MenuPage = "Solo";
 	Page.GetFirstChild("FrameMainMenu").Hide();
 	Page.GetFirstChild("FrameSolo").Show();
 	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
 }
 
+Void GoToProfile()	{
+	MenuPage = "Profile";
+	Page.GetFirstChild("FrameMainMenu").Hide();
+	Page.GetFirstChild("FrameProfile").Show();
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
+}
+
 Void GoToMainMenu()	{
+	MenuPage = "Main";
 	Page.GetFirstChild("FrameSolo").Hide();
+	Page.GetFirstChild("FrameProfile").Hide();
 	Page.GetFirstChild("FrameMainMenu").Show();
 	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
 }
@@ -425,7 +498,7 @@ Void GoToMainMenu()	{
 // MAIN
 main() {	
 	ClearShownMaps();
-	declare Text MenuPage = "Main";
+	MenuPage = "Main";
 	CampaignPath = "TMNextPlatform";
 
 	declare persistent Boolean Menu_RefreshRecords for LocalUser;
@@ -572,6 +645,7 @@ main() {
 				Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
 			}
 			
+			//back button
 			if (LastClickedId == "xko") {
 				if(MenuPage == "Main"){
 					SendCustomEvent("MLHook_menu_action", ["quit_titlepack"]);
@@ -580,23 +654,25 @@ main() {
 					GoToMainMenu();
 					ClearShownMaps();
 					Deselect();
-					MenuPage = "Main";
 				}
 			}
 			
+			//main menu buttons
 			if (LastClickedId == "SoloBTN") {
 				GoToSolo();
-				MenuPage = "Solo";
 			}
-			
 			if (LastClickedId == "EditorsBTN") {
 				SendCustomEvent("MLHook_menu_action", ["editors"]);
 			}
-			
 			if (LastClickedId == "LocalPlayBTN") {
 				SendCustomEvent("MLHook_menu_action", ["local"]);
 			}
+			if (LastClickedId == "ProfileBTN") {
+				GoToProfile();
+				MenuPage = "Profile";
+			}
 			
+			//campaign buttons
 			if (LastClickedId == "WhiteBTN" || LastClickedId == "GreenBTN" || LastClickedId == "BlueBTN" || LastClickedId == "RedBTN" || LastClickedId == "BlackBTN")	{
 				Deselect();
 				Audio.PlaySoundEvent(CAudioManager::ELibSound::Valid, 0, 1.);
@@ -631,6 +707,19 @@ main() {
 				else
 					ShowMessage("Folder not found!");
 			}
+			
+			//profile buttons
+			if (LastClickedId == "InputSettingsBTN") {
+				SendCustomEvent("MLHook_menu_action", ["input_settings"]);
+			}
+			
+			if (LastClickedId == "StereoscopyBTN") {
+				SendCustomEvent("MLHook_menu_action", ["streoscopy_settings"]);
+			}
+			
+			if (LastClickedId == "HornsBTN") {
+				SendCustomEvent("MLHook_menu_action", ["horns"]);
+			}
 
 			LastClickedId = "";
 			ProceededId = "";
@@ -641,4 +730,3 @@ main() {
 	log("this very page was done by arkady, 2023 :)");	
 }
 --></script>
-</manialink>
