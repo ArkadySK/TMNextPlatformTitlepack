@@ -54,7 +54,7 @@
 		<label class="AboutText" text= "What is Platform?" pos="-98 22" textfont="GameFontSemiBold"/>
 		<label class="AboutText" text= "Platform is a gamemode, where your aim is to successfully finish the map with the least amount of respawns." pos="-98 17" autonewline="1"/>
 		
-		<quad pos="0 6" z-index="0" size="199.4 30" bgcolor="FFF" opacity="0.7" halign="center" image="file://Media/Images/Loadscreen.jpg" keepratio="Clip"/>
+		<quad pos="0 6" z-index="0" size="199.4 30" bgcolor="FFF" opacity="0.7" halign="center" image="file://Media/Images/TMNextPlatform/Loadscreen.jpg" keepratio="Clip"/>
 		<label pos="0 -26" z-index="0" size="100 5" text="Credits" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
 		<label class="AboutText" text= "Main: Arkady" pos="-98 -32" autonewline="1"/>
 		<label class="AboutText" text= "Mappers: Zai, Plantathon, skachacha, Arkes, Arkady" pos="-98 -37" autonewline="1"/>
@@ -85,10 +85,10 @@
 	<frame id="Links" pos="85 -64">
 	<quad pos="-4 4" z-index="-10" size="72 20" style="UICommon128_1" substyle="BgDialog"/>
 	
-	<quad pos="0 0" size="12 12" image="file://Media/Images/Icon/discord.png" halign="left"/>
+	<quad pos="0 0" size="12 12" image="file://Media/Images/TMNextPlatform/Icon/discord.png" halign="left"/>
 	<label pos="0" textsize="10"size="12 12" url="https://discord.gg/JEHzjy2" z-index="1"/>
 
-	<quad pos="16 0" z-index="0" size="48 12" bgcolor="FFFFFF94" image="file://Media/Images/Icon/Github.png"/>
+	<quad pos="16 0" z-index="0" size="48 12" bgcolor="FFFFFF94" image="file://Media/Images/TMNextPlatform/Icon/Github.png"/>
 	<label pos="16 0" textsize="10"size="48 12" url="https://github.com/ArkadySK/TMNextPlatform" z-index="1"/>
 	</frame>
 </frame>
@@ -265,7 +265,7 @@ Text TimeToText(Integer _score, Boolean _useMS)	{
 }
 
 CGhost Map_GetRecordGhost(Text MapName)	{
-	declare MapGhosts = DataFileMgr.Replay_Load("PlatformRecords\\AutoSave"^MapName^".Replay.Gbx");
+	declare MapGhosts = DataFileMgr.Replay_Load("TMNextPlatform\\Records\\AutoSave"^MapName^".Replay.Gbx");
 	wait(MapGhosts != Null);
 	if(!MapGhosts.HasSucceeded)
 		return Null;
@@ -424,7 +424,7 @@ Void GoToMainMenu()	{
 main() {	
 	ClearShownMaps();
 	declare Text MenuPage = "Main";
-	CampaignPath = "PlatformTest";
+	CampaignPath = "TMNextPlatform";
 
 	declare persistent Boolean Menu_RefreshRecords for LocalUser;
 	Menu_RefreshRecords = False;
