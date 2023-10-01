@@ -107,7 +107,7 @@ main() {
 			}
 
 			if (LatestClickedControl == "ButtonSolo") {
-				
+				ParentApp.Menu_Solo();
 			}
 			if (LatestClickedControl == "ButtonMulti") {
 				ParentApp.Menu_Internet();
@@ -121,7 +121,7 @@ main() {
 			if (LatestClickedControl == "ButtonProfile") {
 				ParentApp.Menu_Profile();
 			}
-        }
+      }
 	
         yield;
     }    
