@@ -59,7 +59,7 @@
 		<label pos="0 -26" z-index="0" size="100 5" text="Credits" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
 		<label class="AboutText" text= "Main: Arkady" pos="-98 -32" autonewline="1"/>
 		<label class="AboutText" text= "Mappers: Zai, Plantathon, skachacha, Arkes, Arkady" pos="-98 -37" autonewline="1"/>
-		<label class="AboutText" text= "Other testers: bmx22c, florenzius, arnoo, tomekdot" pos="-98 -42" autonewline="1"/>
+		<label class="AboutText" text= "Other testers: bmx22c, florenzius, arnoo" pos="-98 -42" autonewline="1"/>
 		
 		<quad z-index="-10" size="200 110" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center" pos="0 0"/>
 	</frame>
@@ -106,7 +106,7 @@
 	
 	<frame id="FrameProfile" hidden="1">
 	<frame id="MainPanel" z-index="-4" pos="-130 70.5">				
-		<quad style="UICommon64_2"  sizen="16 16" pos="-28 12" substyle="Edit_light"/>
+		<quad style="UICommon64_1"  sizen="16 16" pos="-28 12" substyle="Settings_light"/>
 		<label id="LabelWelcome" text="Settings" posn="-10 10" sizen="56 8" translate="1"/>
 		<label id="LabelActivity" text="Personal Settings and Data" posn="-10 3" sizen="56 10" translate="1" autonewline="1"/>
 	</frame>	
@@ -117,12 +117,12 @@
 		
 		<frame pos="0 30">
 		<label class="InfoText" text="Enable speedometer" translate="1"/>
-		<quad z-index="0" size="10 10" substyle="Import_light" style="UICommon64_1" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
+		<quad z-index="0" size="10 10" style="UICommon64_1" substyle="CheckedCircle_light" scriptevents="1" styleselected="true" halign="center" valign="center" pos="40 -2"/>
 		</frame>
 		
 		<frame pos="0 20">
 		<label class="InfoText" text="Play custom music" translate="1"/>
-		<quad z-index="0" size="10 10" substyle="Parameters_light" style="UICommon64_1" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
+		<quad z-index="0" size="10 10" style="UICommon64_1" substyle="CheckedCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
 		</frame>
 		
 		
