@@ -117,12 +117,12 @@
 		
 		<frame pos="0 30">
 		<label class="InfoText" text="Enable speedometer" translate="1"/>
-		<quad z-index="0" size="10 10" style="UICommon64_1" substyle="CheckedCircle_light" scriptevents="1" styleselected="true" halign="center" valign="center" pos="40 -2"/>
+		<quad z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" styleselected="true" halign="center" valign="center" pos="40 -2"/>
 		</frame>
 		
 		<frame pos="0 20">
 		<label class="InfoText" text="Play custom music" translate="1"/>
-		<quad z-index="0" size="10 10" style="UICommon64_1" substyle="CheckedCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
+		<quad z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
 		</frame>
 		
 		
