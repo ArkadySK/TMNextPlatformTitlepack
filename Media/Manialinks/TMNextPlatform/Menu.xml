@@ -505,6 +505,8 @@ main() {
 	Menu_RefreshRecords = False;
 
 	Audio.ClearAllDelayedSoundsEvents();
+	declare LeaveTPSound = Audio.CreateSound("https://raw.githubusercontent.com/ArkadySK/TMNextPlatform/main/Audio/ManiaPlanetZoomIn.wav");
+
 	declare Text ScContext = "";
 	declare Text Color;	//uroven trate
 
@@ -648,6 +650,9 @@ main() {
 			//back button
 			if (LastClickedId == "xko") {
 				if(MenuPage == "Main"){
+					wait(LeaveTPSound != Null);
+					Audio.PlaySoundEvent(LeaveTPSound, 1.);
+					log("Leaving titlepack...");
 					SendCustomEvent("MLHook_menu_action", ["quit_titlepack"]);
 				}
 				else{
