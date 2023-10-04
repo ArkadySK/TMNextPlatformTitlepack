@@ -117,10 +117,10 @@
 		
 		<frame pos="0 30">
 		<label class="InfoText" text="Enable speedometer" translate="1"/>
-		<quad z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" styleselected="true" halign="center" valign="center" pos="40 -2"/>
+		<quad id="ShowSpeedCheck" z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
 		</frame>
 		
-		<frame pos="0 20">
+		<frame pos="0 20" hidden="1">
 		<label class="InfoText" text="Play custom music" translate="1"/>
 		<quad z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
 		</frame>
@@ -501,6 +501,7 @@ main() {
 	MenuPage = "Main";
 	CampaignPath = "TMNextPlatform";
 
+	declare persistent Boolean Persistent_ShowSpeed for LocalUser;
 	declare persistent Boolean Menu_RefreshRecords for LocalUser;
 	Menu_RefreshRecords = False;
 
@@ -521,6 +522,8 @@ main() {
 	declare Text LastClickedId = "";
 	declare Text ProceededId = "";
 	ReloadAllRecords();
+
+	(Page.GetFirstChild("ShowSpeedCheck") as CMlQuad).StyleSelected = Persistent_ShowSpeed;
 
 	while(True){	
 
@@ -583,6 +586,14 @@ main() {
 		if(LastClickedId != ProceededId)	{
 
 			ProceededId = LastClickedId;
+				if (LastClickedId == "ShowSpeedCheck") {
+					if(Persistent_ShowSpeed)
+						Persistent_ShowSpeed = False;
+					else
+						Persistent_ShowSpeed = True;
+					(Page.GetFirstChild("ShowSpeedCheck") as CMlQuad).StyleSelected = Persistent_ShowSpeed;
+					log("clic: " ^ Persistent_ShowSpeed);
+				}
 
 			for (y, 1, 5)	{				
 				if (LastClickedId == "M_Main"^y) {
