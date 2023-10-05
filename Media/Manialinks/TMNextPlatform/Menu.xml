@@ -55,13 +55,14 @@
 		<label class="AboutText" text= "What is Platform?" pos="-98 22" textfont="GameFontSemiBold"/>
 		<label class="AboutText" text= "Platform is a gamemode, where your aim is to successfully finish the map with the least amount of respawns." pos="-98 17" autonewline="1"/>
 		
-		<quad pos="0 6" z-index="0" size="199.4 30" bgcolor="FFF" opacity="0.7" halign="center" image="file://Media/Images/TMNextPlatform/Loadscreen.jpg" keepratio="Clip"/>
-		<label pos="0 -26" z-index="0" size="100 5" text="Credits" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
-		<label class="AboutText" text= "Main: Arkady" pos="-98 -32" autonewline="1"/>
-		<label class="AboutText" text= "Mappers: Zai, Plantathon, skachacha, Arkes, Arkady" pos="-98 -37" autonewline="1"/>
-		<label class="AboutText" text= "Other testers: bmx22c, florenzius, arnoo" pos="-98 -42" autonewline="1"/>
+		<quad pos="0 2" z-index="0" size="199.4 30" bgcolor="FFF" opacity="0.7" halign="center" image="file://Media/Images/TMNextPlatform/Loadscreen.jpg" keepratio="Clip"/>
+		<label pos="0 -30" z-index="0" size="100 5" text="Credits" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
+		<label class="AboutText" text= "Main: Arkady" pos="-98 -36" autonewline="1"/>
+		<label class="AboutText" text= "Mappers: Zai, Plantathon, skachacha, Arkes, Arkady" pos="-98 -41" autonewline="1"/>
+		<label class="AboutText" text= "Other testers: bmx22c, florenzius, arnoo" pos="-98 -46" autonewline="1"/>
+		<label class="AboutText" text= "Music: Bigbang1112" pos="-98 -51" autonewline="1"/>
 		
-		<quad z-index="-10" size="200 110" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center" pos="0 0"/>
+		<quad z-index="-10" size="200 114" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center" pos="0 -2"/>
 	</frame>
 	
 	<frame id="ModernMenu" pos="-158 40">
