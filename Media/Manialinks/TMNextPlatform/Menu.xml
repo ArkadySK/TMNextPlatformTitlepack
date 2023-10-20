@@ -139,7 +139,7 @@
 	<frame id="ModernMenu" pos="-158 40">
 		<frame pos="0 0">
 			<quad class="ModernIcon" style="UICommon64_1" substyle="LightSettings_light"/>
-			<label class="ModernButton" text=" " id="GraphicSettingsBTN"/>
+			<label class="ModernButton" text=" " id="GraphicSettingsBTN" scriptevents="1"/>
 			<label class="ModernButtonText" text="Graphic Settings" translate="1" />
 		</frame>
 		
@@ -726,6 +726,10 @@ main() {
 			}
 			
 			//profile buttons
+			if (LastClickedId == "GraphicSettingsBTN") {
+				SendCustomEvent("MLHook_menu_action", ["graphic_settings"]);
+			}
+
 			if (LastClickedId == "InputSettingsBTN") {
 				SendCustomEvent("MLHook_menu_action", ["input_settings"]);
 			}
