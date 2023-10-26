@@ -284,8 +284,13 @@
 
 <script><!--
 
-declare Integer[CMapInfo] MapRecords;
-declare Integer[CMapInfo] MapMedals;
+#Struct MapRecord	{
+	Integer Time;
+	Integer NbRespawns;
+	Integer MedalCount;
+}
+
+declare MapRecord[CMapInfo] MapRecords;
 declare Integer MedalsTotal;
 declare Text CampaignPath;
 
@@ -339,13 +344,6 @@ CGhost Map_GetRecordGhost(Text MapName)	{
 	return Null;
 }
 
-Integer Map_GetPlatformRecord(Text MapName)	{
-	declare MapGhost = Map_GetRecordGhost(MapName);
-	if(MapGhost == Null)
-		return -1;
-	return MapGhost.Result.NbRespawns;
-}
-
 Void ShowMessage(Text _Text)	{
 	Audio.PlaySoundEvent(CAudioManager::ELibSound::ShowDialog, 0, 1.);
 	Page.GetFirstChild("LockFrame").Show();
@@ -394,6 +392,7 @@ Void ReloadAllRecords()	{
 	MedalsTotal = 0;
 	declare CurFoldersTask = DataFileMgr.Map_GetGameList(CampaignPath, False);
 	sleep(100);
+	MapRecords.clear();
 	wait(!CurFoldersTask.IsProcessing);
 	declare MaxCol = CurFoldersTask.SubFolders.count - 1;
 	if(MaxCol > 4)
@@ -402,15 +401,28 @@ Void ReloadAllRecords()	{
 		declare CurMapInfosTask = DataFileMgr.Map_GetGameList(CurFoldersTask.SubFolders[Col], False);
 		sleep(50);
 		foreach (Map in CurMapInfosTask.MapInfos) {	
-			declare Integer Record_NbRespawns = Map_GetPlatformRecord(Map.Name);	
-			MapRecords[Map] = Record_NbRespawns;
+			if(Map == Null)
+				continue;
+			declare Integer Record_NbRespawns = -1;
+			declare Integer Record_Time = -1;
+			declare MapGhost = Map_GetRecordGhost(Map.Name);
+
+			if(MapGhost != Null)	{
+				Record_NbRespawns = MapGhost.Result.NbRespawns;
+				Record_Time = MapGhost.Result.Time;
+			}
 			declare NbMedals = Map_GetMedalCount(Map, Record_NbRespawns);
-			MapMedals[Map] = NbMedals;
+	
+			MapRecords[Map] = MapRecord {
+				NbRespawns = Record_NbRespawns,
+				Time = Record_Time,
+				MedalCount = NbMedals
+			};
+
+			log("Map: " ^ Map.Name ^ ", PB: " ^MapRecords[Map]);
 			MedalsTotal += NbMedals;
 		}
 	}
-
-
 
 	(Page.GetFirstChild("MedalsLabel") as CMlLabel).SetText("" ^ MedalsTotal);
 	
@@ -441,7 +453,7 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 		(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Show();
 	}
 	
-	switch (MapMedals[Map])	{
+	switch (MapRecords[Map].MedalCount)	{
 		case 4: {
 			(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Substyle = "MedalNadeo";
 		}				
@@ -458,10 +470,10 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 			(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Substyle = "MedalSlot";
 		}
 	}	
-	if(MapRecords[Map] != -1)
-		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText(""^MapRecords[Map]);
+	if(MapRecords[Map].NbRespawns != -1)
+		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText(""^MapRecords[Map].NbRespawns);
 	else
-		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText("");
+		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText("-");
 
 	(Page.GetFirstChild("M_Icon"^i) as CMlQuad).Show();
 	(Page.GetFirstChild("M_Map"^i) as CMlFrame).Show();
@@ -610,18 +622,18 @@ main() {
 						(Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected = True;
 						(Page.GetFirstChild("M_Main"^y) as CMlQuad).ModulateColor = <0.4, 0.4, 0.4>;
 						
-						declare Integer Record_Time = ScoreMgr.Map_GetRecord(NullId, Map.MapUid, ScContext);
-						declare Integer Record_NbRespawns = MapRecords[Map];					
+						declare Integer Record_Time = MapRecords[Map].Time;
+						declare Integer Record_NbRespawns = MapRecords[Map].NbRespawns;					
 						declare Text RecordText;
 						declare Text PlatformRecordText;
 						if (Record_Time !=-1)
 							RecordText = TimeToText(Record_Time, True);
 						else
-							RecordText = "???";		
+							RecordText = "-";		
 						if (Record_NbRespawns !=-1)
 							PlatformRecordText = ""^Record_NbRespawns;
 						else	{
-							PlatformRecordText = "";
+							PlatformRecordText = "-";
 							log("Replay for " ^ Map.Name ^ " not found!");
 						}
 						(Page.GetFirstChild("TrainingMap") as CMlLabel).SetText(RecordText);
