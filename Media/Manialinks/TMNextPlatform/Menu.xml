@@ -128,8 +128,8 @@
 		
 		
 		<frame pos="0 -40">
-		<label class="InfoText" text="(???)" translate="1" textsize="3" halign="right" pos="34 0" size="40"/>
-		<label class="InfoText" text="Horn" translate="1" id="HornNameLabel" size="40"/>
+		<label class="InfoText" id="HornNameLabel" text="???" translate="1" textsize="3" halign="right" pos="34 0" size="40"/>
+		<label class="InfoText" text="Horn" translate="1" size="40"/>
 		<quad z-index="0" size="10 10" substyle="Parameters_light" style="UICommon64_1" scriptevents="1" halign="center" valign="center" pos="40 -2" id="HornsBTN"/>
 		</frame>
 		
@@ -507,10 +507,17 @@ Void GoToMainMenu()	{
 	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
 }
 
+Void LoadHornName() {
+	declare hornName = LocalUser.HornDisplayName;
+	if(hornName=="")
+		hornName = "default";
+	(Page.GetFirstChild("HornNameLabel") as CMlLabel).SetText(hornName);
+}
 
 // MAIN
 main() {	
 	ClearShownMaps();
+	LoadHornName();
 	MenuPage = "Main";
 	CampaignPath = "TMNextPlatform";
 
@@ -752,6 +759,8 @@ main() {
 			
 			if (LastClickedId == "HornsBTN") {
 				SendCustomEvent("MLHook_menu_action", ["horns"]);
+				sleep(1000);
+				LoadHornName();
 			}
 
 			LastClickedId = "";
