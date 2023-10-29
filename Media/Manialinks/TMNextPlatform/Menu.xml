@@ -116,21 +116,23 @@
 		<label pos="0 47" z-index="0" size="90 5" text="Settings" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
 		<quad z-index="-9" size="100 10" style="UICommon128_1" substyle="BgDialogTitle" halign="center" pos="0 50"/>
 		
-		<frame pos="0 30">
-		<label class="InfoText" text="Enable speedometer" translate="1"/>
-		<quad id="ShowSpeedCheck" z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
+		<label pos="0 36" z-index="0" size="90 5" text="Title settings" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
+	
+		<frame pos="0 28">
+			<label class="InfoText" text="Enable speedometer" translate="1"/>
+			<quad id="ShowSpeedCheck" z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
 		</frame>
-		
-		<frame pos="0 20" hidden="1">
-		<label class="InfoText" text="Play custom music" translate="1"/>
-		<quad z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
+	
+		<frame pos="0 18" hidden="">
+			<label class="InfoText" text="Disable music player" translate="1"/>
+			<quad id="DisableMusicPlayerCheck" z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
 		</frame>
-		
-		
+	
 		<frame pos="0 -40">
-		<label class="InfoText" id="HornNameLabel" text="???" translate="1" textsize="3" halign="right" pos="34 0" size="40"/>
-		<label class="InfoText" text="Horn" translate="1" size="40"/>
-		<quad z-index="0" size="10 10" substyle="Parameters_light" style="UICommon64_1" scriptevents="1" halign="center" valign="center" pos="40 -2" id="HornsBTN"/>
+			<label pos="0 8" z-index="0" size="90 5" text="Vehicle" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>	
+			<label class="InfoText" id="HornNameLabel" text="???" translate="1" textsize="3" halign="right" pos="34 0" size="40"/>
+			<label class="InfoText" text="Horn" translate="1" size="40"/>
+			<quad z-index="0" size="10 10" substyle="Parameters_light" style="UICommon64_1" scriptevents="1" halign="center" valign="center" pos="40 -2" id="HornsBTN"/>
 		</frame>
 		
 		<quad z-index="-10" size="100 100" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center" pos="0 0"/>
@@ -187,8 +189,8 @@
 		<quad pos="0 15" size="40 40" halign="center" bgcolor="13131378" id="SelectedMapImage"/>
 		<label pos="0 -5" z-index="-1" size="20 11.9" text="None" translate="1" halign="center" valign="center" textfont="GameFontRegular"/>
 		
-		<label pos="-20 -30"  text="Best time :" translate="1" style="TextButtonBig" textsize="2.5"/>
-		<label pos="20 -30" textfont="GameFontRegular" text="???" id="TrainingMap" textsize="2.5" translate="1" halign="right" textemboss="1"/>
+		<label pos="-20 -30"  text="Race" translate="1" style="TextButtonBig" textsize="2.5"/>
+		<label pos="20 -30" textfont="GameFontRegular" text="???" id="RaceRecordMap" textsize="2.5" translate="1" halign="right" textemboss="1"/>
 		<label pos="-20 -36" text="Platform" translate="1" style="TextButtonBig" textsize="2.5"/>
 		<label pos="20 -36" textfont="GameFontRegular" size="0" text="???" id="PlatformRecordMap" textsize="2.5" translate="1" halign="right" textemboss="1"/>
 	</frame>
@@ -295,7 +297,7 @@ declare Integer MedalsTotal;
 declare Text CampaignPath;
 
 Void ResetSelectedMap()	{
-	(Page.GetFirstChild("TrainingMap") as CMlLabel).SetText("");
+	(Page.GetFirstChild("RaceRecordMap") as CMlLabel).SetText("");
 	(Page.GetFirstChild("PlatformRecordMap") as CMlLabel).SetText("");
 	(Page.GetFirstChild("SelectedMapImage") as CMlQuad).ImageUrl = "";
 }
@@ -515,35 +517,35 @@ Void LoadHornName() {
 }
 
 // MAIN
-main() {	
-	ClearShownMaps();
-	LoadHornName();
+main() {
+	//init global vars 
 	MenuPage = "Main";
 	CampaignPath = "TMNextPlatform";
 
 	declare persistent Boolean Persistent_ShowSpeed for LocalUser;
+	declare persistent Boolean Persistent_DisableMusicPlayer for LocalUser;
 	declare persistent Boolean Menu_RefreshRecords for LocalUser;
-	Menu_RefreshRecords = False;
 
-	Audio.ClearAllDelayedSoundsEvents();
-	declare LeaveTPSound = Audio.CreateSound("https://raw.githubusercontent.com/ArkadySK/TMNextPlatform/main/Audio/ManiaPlanetZoomIn.wav");
-
+	declare Text LastClickedId = "";
+	declare Text ProceededId = "";
 	declare Text ScContext = "";
-	declare Text Color;	//uroven trate
+	declare Text Color;
 
+	declare LeaveTPSound = Audio.CreateSound("https://raw.githubusercontent.com/ArkadySK/TMNextPlatform/main/Audio/ManiaPlanetZoomIn.wav");
 	declare CurMapInfosTask = DataFileMgr.Map_GetGameList("", False);
 	declare CurFoldersTask = DataFileMgr.Map_GetGameList(CampaignPath, False);
 	sleep(100);
 	wait(!CurFoldersTask.IsProcessing);
-	log("menu loaded successfully. If you see this console, close it with CTRL + G.");
 		
+	Menu_RefreshRecords = False;
 	EnableMenuNavigation(True, True, Page.GetFirstChild("xko"), 1);
-	
-	declare Text LastClickedId = "";
-	declare Text ProceededId = "";
+	ClearShownMaps();
+	LoadHornName();
 	ReloadAllRecords();
-
 	(Page.GetFirstChild("ShowSpeedCheck") as CMlQuad).StyleSelected = Persistent_ShowSpeed;
+	(Page.GetFirstChild("DisableMusicPlayerCheck") as CMlQuad).StyleSelected = Persistent_DisableMusicPlayer;
+
+	log("menu loaded successfully. If you see this console, close it with CTRL + G.");
 
 	while(True){	
 
@@ -612,7 +614,13 @@ main() {
 					else
 						Persistent_ShowSpeed = True;
 					(Page.GetFirstChild("ShowSpeedCheck") as CMlQuad).StyleSelected = Persistent_ShowSpeed;
-					log("clic: " ^ Persistent_ShowSpeed);
+				}
+				else if (LastClickedId == "DisableMusicPlayerCheck") {
+					if(Persistent_DisableMusicPlayer)
+						Persistent_DisableMusicPlayer = False;
+					else
+						Persistent_DisableMusicPlayer = True;
+					(Page.GetFirstChild("DisableMusicPlayerCheck") as CMlQuad).StyleSelected = Persistent_DisableMusicPlayer;
 				}
 
 			for (y, 1, 5)	{				
@@ -643,7 +651,7 @@ main() {
 							PlatformRecordText = "-";
 							log("Replay for " ^ Map.Name ^ " not found!");
 						}
-						(Page.GetFirstChild("TrainingMap") as CMlLabel).SetText(RecordText);
+						(Page.GetFirstChild("RaceRecordMap") as CMlLabel).SetText(RecordText);
 						(Page.GetFirstChild("PlatformRecordMap") as CMlLabel).SetText(PlatformRecordText);
 					}
 					else {
