@@ -122,10 +122,15 @@
 			<label class="InfoText" text="Enable speedometer" translate="1"/>
 			<quad id="ShowSpeedCheck" z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
 		</frame>
-	
+		
 		<frame pos="0 18" hidden="">
 			<label class="InfoText" text="Disable music player" translate="1"/>
 			<quad id="DisableMusicPlayerCheck" z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
+		</frame>
+		
+		<frame pos="0 -2">
+			<label class="InfoText" text="Legacy settings" translate="1"/>
+			<label id="ShowLegacySettingsBTN" pos="11 1" z-index="5" size="20 5" text="Show" style="CardButtonSmallS" translate="1" scriptevents="1" scale="1.2"/>
 		</frame>
 	
 		<frame pos="0 -40">
@@ -139,23 +144,25 @@
 	</frame>
 	
 	<frame id="ModernMenu" pos="-158 40">
-		<frame pos="0 0">
-			<quad class="ModernIcon" style="UICommon64_1" substyle="LightSettings_light"/>
-			<label class="ModernButton" text=" " id="GraphicSettingsBTN" scriptevents="1"/>
-			<label class="ModernButtonText" text="Graphic Settings" translate="1" />
+		<frame id="LegacySettingsFrame" hidden="1">
+			<frame pos="0 0">
+				<quad class="ModernIcon" style="UICommon64_1" substyle="LightSettings_light"/>
+				<label class="ModernButton" text=" " id="GraphicSettingsBTN" scriptevents="1"/>
+				<label class="ModernButtonText" text="Graphic Settings" translate="1" />
+			</frame>
+			
+			<frame pos="0 -16">
+				<quad class="ModernIcon" style="UICommon64_1" substyle="SteeringWheel_light"/>
+				<label class="ModernButton" text=" " id="InputSettingsBTN" scriptevents="1"/>
+				<label class="ModernButtonText" text="Input Settings" translate="1" />
+			</frame>
+			
+			<frame pos="0 -32">
+				<quad class="ModernIcon" style="UICommon64_1" substyle="Mediatracker_light"/>
+				<label class="ModernButton" text=" " id="StereoscopyBTN" scriptevents="1"/>
+				<label class="ModernButtonText" text="Stereoscopy" translate="1" />
+			</frame>	
 		</frame>
-		
-		<frame pos="0 -16">
-			<quad class="ModernIcon" style="UICommon64_1" substyle="SteeringWheel_light"/>
-			<label class="ModernButton" text=" " id="InputSettingsBTN" scriptevents="1"/>
-			<label class="ModernButtonText" text="Input Settings" translate="1" />
-		</frame>
-		
-		<frame pos="0 -32">
-			<quad class="ModernIcon" style="UICommon64_1" substyle="Mediatracker_light"/>
-			<label class="ModernButton" text=" " id="StereoscopyBTN" scriptevents="1"/>
-			<label class="ModernButtonText" text="Stereoscopy" translate="1" />
-		</frame>	
 	</frame>
 	
 </frame>
@@ -615,12 +622,15 @@ main() {
 						Persistent_ShowSpeed = True;
 					(Page.GetFirstChild("ShowSpeedCheck") as CMlQuad).StyleSelected = Persistent_ShowSpeed;
 				}
-				else if (LastClickedId == "DisableMusicPlayerCheck") {
+				if (LastClickedId == "DisableMusicPlayerCheck") {
 					if(Persistent_DisableMusicPlayer)
 						Persistent_DisableMusicPlayer = False;
 					else
 						Persistent_DisableMusicPlayer = True;
 					(Page.GetFirstChild("DisableMusicPlayerCheck") as CMlQuad).StyleSelected = Persistent_DisableMusicPlayer;
+				}
+				if (LastClickedId == "ShowLegacySettingsBTN") {
+					Page.GetFirstChild("LegacySettingsFrame").Show();
 				}
 
 			for (y, 1, 5)	{				
