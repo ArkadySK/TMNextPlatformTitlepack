@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<manialink version="3">
+<quad size="250.75 150"  opacity="0.7" halign="center" style="UICommon128_1" substyle="BgDialog" valign="center"/>
+<quad size="250.75 12"  halign="center" style="UICommon128_1" substyle="BgDialogTitle" pos="0 75"/>
+<quad pos="0 53" z-index="1" size="250 65" image="file://Media/Images/TMNextPlatform/PlatformBackground.jpg" keepratio="Clip" halign="center"/>
+
+<label pos="0 71" z-index="2" size="200 5" text="Want more?" textfont="GameFontExtraBold" halign="center" textsize="4" style="TextTitle3"/>
+
+<label pos="0 60" z-index="0" size="240 5" text="Currently, you are running a DEMO PREVIEW version of the titlepack. There is quite some work to do still. " textfont="GameFontRegular" halign="center"/>
+<label pos="0 -15" z-index="0" size="240 5" text="Mappers needed!" textfont="GameFontExtraBold" halign="center" textsize="4" style="TextTitle3"/>
+
+<label pos="-115 -22" z-index="0" size="230 5" text="We need YOU to build a few maps for the campaign. If you join us you will be able to:" textfont="GameFontRegular"/>
+
+<label pos="-90 -28" z-index="0" size="80 5" text="- Build a platform map" textfont="GameFontRegular"/>
+<label pos="-90 -34" z-index="0" size="80 5" text="- Play any platform map you like" textfont="GameFontRegular"/>
+<label pos="-90 -40" z-index="0" size="80 5" text="- Test new campaign maps" textfont="GameFontRegular"/>
+<label pos="-90 -46" z-index="0" size="80 5" text="- Decide on changes" textfont="GameFontRegular"/>
+
+<frame pos="80 -40">
+<quad pos="0 -3" z-index="2" size="16 16" image="file://Media/Images/TMNextPlatform/Icon/discord.png" halign="center" opacity=".9"/>
+<label pos="0 -22" z-index="2" text="Join our Discord Server" halign="center" scale="1.2" textfont="GameFontSemiBold" style="TextButtonBig"/>
+<quad pos="0 0" z-index="1	" size="70 30" style="UICommon64_2" url="https://discord.gg/6xJwQebZGr" substyle="BgElem" halign="center" hidden="1"/>
+<quad pos="-41 0" z-index="1" size="80 30" substyle="BgPlayerCardBig" style="BgsPlayerCard" url="https://discord.gg/6xJwQebZGr"/>
+</frame>
+
+<label pos="-89 -61" z-index="1" text="Stay in demo" halign="center" style="CardButtonMediumL" scriptevents="1" translate="1" scale="1.2" id="HideDialogButton"/>
+
+<script><!-- 
+main()	{
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::ShowDialog , 1, 1.);
+	while(True)	{
+		yield;
+		foreach(Event, PendingEvents) {
+			if (Event.Type ==  CMlEvent::Type::MouseClick)	{
+				if(Event.ControlId == "HideDialogButton")	{
+					Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog , 1, 1.);
+					SendCustomEvent("MLHook_menu_action", ["hide_demo_dialog"]);
+				}
+			}
+		}
+	}			
+}
+--></script>
+</manialink>
