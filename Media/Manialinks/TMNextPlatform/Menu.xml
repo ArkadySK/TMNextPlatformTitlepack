@@ -1,7 +1,7 @@
 <stylesheet>
 	<style id="LabelWelcome" posn="-10 10"  size="57 8" style="TextTitle3" textfont="GameFontExtraBold" textsize="4" sizen="40 5"/>
 	<style id="LabelActivity" posn="-10 3" sizen="56 10" style="TextTitle2" textfont="GameFontRegular"/>		
-	<style class="AboutText" style="TextTitle2" size="196 5" textfont="GameFontRegular"/>
+	<style class="AboutText" style="TextTitle2" size="190 5" textfont="GameFontRegular"/>
 	<style class="InfoText" style="TextTitle2" pos="-45 0" size="80 5" textfont="GameFontRegular"/>
 	<style id="M_Medal1 M_Medal2 M_Medal3 M_Medal4 M_Medal5 M_Medal6 M_Medal7 M_Medal8 M_Medal9 M_Medal10 M_Medal11 M_Medal12 M_Medal13 M_Medal14 M_Medal15" style="MedalsBig" substyle="MedalSlot" pos="88 33" z-index="25" size="10 10"/> 	
 	<style id="M_Name1 M_Name2 M_Name3 M_Name4 M_Name5 M_Name6 M_Name7 M_Name8 M_Name9 M_Name10 M_Name11 M_Name12 M_Name13 M_Name14 M_Name15" sizen="50 6" textfont="GameFontSemiBold" textsize="3" valign="center2" textemboss="1" pos="27 37.6"/>
@@ -50,17 +50,17 @@
 	<frame id="FrameAbout" pos="41 10" scale="1.12">
 		<label pos="0 52" z-index="0" size="100 5" text="Information" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
 		<quad z-index="-9" size="200 10" style="UICommon128_1" substyle="BgDialogTitle" halign="center" pos="0 55"/>
-		<label class="AboutText" text= "Welcome to TMNext Platform titlepack!" textfont="GameFontSemiBold"pos="-98 42"/>
-		<label class="AboutText" text= "The classic gamemode from TM1 and TM2 arrives back to TM2020! And it arrives in style - in a full-scaled titlepack."  pos="-98 37" autonewline="1"/>
-		<label class="AboutText" text= "What is Platform?" pos="-98 22" textfont="GameFontSemiBold"/>
-		<label class="AboutText" text= "Platform is a gamemode, where your aim is to successfully finish the map with the least amount of respawns." pos="-98 17" autonewline="1"/>
+		<label class="AboutText" text= "Welcome to TMNext Platform titlepack!" textfont="GameFontSemiBold"pos="-95 42"/>
+		<label class="AboutText" text= "The classic gamemode from TM1 and TM2 arrives back to TM2020! And it arrives in style - in a full-scaled titlepack."  pos="-95 37" autonewline="1"/>
+		<label class="AboutText" text= "What is Platform?" pos="-95 22" textfont="GameFontSemiBold"/>
+		<label class="AboutText" text= "Platform is a gamemode, where your aim is to successfully finish the map with the least amount of respawns." pos="-95 17" autonewline="1"/>
 		
 		<quad pos="0 2" z-index="0" size="199.4 30" bgcolor="FFF" opacity="0.7" halign="center" image="file://Media/Images/TMNextPlatform/Loadscreen.jpg" keepratio="Clip"/>
 		<label pos="0 -30" z-index="0" size="100 5" text="Credits" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
-		<label class="AboutText" text= "Main: Arkady" pos="-98 -36" autonewline="1"/>
-		<label class="AboutText" text= "Mappers: Zai, Plantathon, skachacha, Arkes, Arkady" pos="-98 -41" autonewline="1"/>
-		<label class="AboutText" text= "Other testers: bmx22c, florenzius, arnoo" pos="-98 -46" autonewline="1"/>
-		<label class="AboutText" text= "Music: Bigbang1112" pos="-98 -51" autonewline="1"/>
+		<label class="AboutText" text= "Main: Arkady" pos="-95 -36" autonewline="1"/>
+		<label class="AboutText" text= "Mappers: Zai, Plantathon, skachacha, Arkes, Arkady" pos="-95 -41" autonewline="1"/>
+		<label class="AboutText" text= "Other testers: bmx22c, florenzius, arnoo" pos="-95 -46" autonewline="1"/>
+		<label class="AboutText" text= "Music: Bigbang1112" pos="-95 -51" autonewline="1"/>
 		
 		<quad z-index="-10" size="200 114" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center" pos="0 -2"/>
 	</frame>
@@ -128,7 +128,7 @@
 			<quad id="DisableMusicPlayerCheck" z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
 		</frame>
 		
-		<frame pos="0 -2">
+		<frame pos="0 -12">
 			<label class="InfoText" text="Legacy settings" translate="1"/>
 			<label id="ShowLegacySettingsBTN" pos="11 1" z-index="5" size="20 5" text="Show" style="CardButtonSmallS" translate="1" scriptevents="1" scale="1.2"/>
 		</frame>
