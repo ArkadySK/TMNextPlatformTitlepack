@@ -1,28 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<manialink version="3">
-<quad size="250.75 150"  opacity="0.7" halign="center" style="UICommon128_1" substyle="BgDialog" valign="center"/>
-<quad size="250.75 12"  halign="center" style="UICommon128_1" substyle="BgDialogTitle" pos="0 75"/>
-<quad pos="0 53" z-index="1" size="250 65" image="file://Media/Images/TMNextPlatform/PlatformBackground.jpg" keepratio="Clip" halign="center"/>
-
-<label pos="0 71" z-index="2" size="200 5" text="Want more?" textfont="GameFontExtraBold" halign="center" textsize="4" style="TextTitle3"/>
-
-<label pos="0 60" z-index="0" size="240 5" text="Currently, you are running a DEMO PREVIEW version of the titlepack. There is quite some work to do still. " textfont="GameFontRegular" halign="center"/>
-<label pos="0 -15" z-index="0" size="240 5" text="Mappers needed!" textfont="GameFontExtraBold" halign="center" textsize="4" style="TextTitle3"/>
-
-<label pos="-115 -22" z-index="0" size="230 5" text="We need YOU to build a few maps for the campaign. If you join us you will be able to:" textfont="GameFontRegular"/>
-<frame pos="-110 0" >
-<label pos="-0 -28" z-index="0" size="80 5" text="- Build a platform map" textfont="GameFontRegular"/>
-<label pos="-0 -34" z-index="0" size="80 5" text="- Play any platform map you like" textfont="GameFontRegular"/>
-<label pos="-0 -40" z-index="0" size="80 5" text="- Test new campaign maps" textfont="GameFontRegular"/>
-<label pos="-0 -46" z-index="0" size="80 5" text="- Decide on changes" textfont="GameFontRegular"/>
+<frame scale="1.12">
+	<quad size="240.75 140"  opacity="0.7" halign="center" style="UICommon128_1" substyle="BgDialog" valign="center" z-index="-1"/>
+	<quad size="240.75 12"  halign="center" style="UICommon128_1" substyle="BgDialogTitle" pos="0 70"/>
+	<label pos="0 66" z-index="2" size="200 5" text="Want more?" textfont="GameFontExtraBold" halign="center" textsize="4" style="TextTitle3"/>
+	<label pos="0 55" z-index="0" size="230 5" text="Currently, you are running a DEMO PREVIEW version of the titlepack. There is quite some work to do still. " textfont="GameFontRegular" halign="center"/>
+	<quad pos="0 48" z-index="1" size="240 60" image="file://Media/Images/TMNextPlatform/PlatformBackground.jpg" keepratio="Clip" halign="center"/>
+	
+	<label pos="0 -15" z-index="0" size="230 5" text="Mappers needed!" textfont="GameFontExtraBold" halign="center" textsize="4" style="TextTitle3"/>
+	<label pos="-115 -22" z-index="0" size="230 5" text="We need YOU to build a few maps for the campaign. If you join us you will be able to:" textfont="GameFontRegular"/>
+	<frame pos="-110 0" >
+		<label pos="-0 -28" z-index="0" size="80 5" text="- Editors: Build a platform map" textfont="GameFontRegular"/>
+		<label pos="-0 -34" z-index="0" size="80 5" text="- Local: Play any platform map you like" textfont="GameFontRegular"/>
+		<label pos="-0 -40" z-index="0" size="80 5" text="- Campaign: Test new campaign maps" textfont="GameFontRegular"/>
+		<label pos="-0 -46" z-index="0" size="80 5" text="- Decide on changes" textfont="GameFontRegular"/>
+	</frame>
+	<frame pos="0 -48">
+		<quad pos="0 0" z-index="1" size="12 12" image="file://Media/Images/TMNextPlatform/Icon/discord.png" halign="center" opacity=".9"/>
+		<label pos="0 -9" z-index="2" size="80 30" substyle="BgPlayerCardBig" style="CardButtonMediumXXXL" url="https://discord.gg/6xJwQebZGr" text="Join testers on our Discord Server" scale="1.2" halign="center"/>
+	</frame>
+	<label pos="94 -57" z-index="1" text="Close" halign="center" style="CardButtonMedium" scriptevents="1" translate="1" id="HideDialogButton" scale="1.1"/>
 </frame>
-<frame pos="80 -40">
-<quad pos="-19 -10" z-index="1" size="12 12" image="file://Media/Images/TMNextPlatform/Icon/discord.png" halign="center" opacity=".9"/>
-<quad pos="0 0" z-index="1	" size="70 30" style="UICommon64_2" url="https://discord.gg/6xJwQebZGr" substyle="BgElem" halign="center" hidden="1"/>
-<label pos="-19 -19" z-index="2" size="80 30" substyle="BgPlayerCardBig" style="CardButtonMediumXXXL" url="https://discord.gg/6xJwQebZGr" text="Join testers on our Discord Server" scale="1.46" halign="center"/>
-</frame>
-
-<label pos="-94 -61" z-index="1" text="Stay in demo" halign="center" style="CardButtonMediumL" scriptevents="1" translate="1" id="HideDialogButton" scale="1.2"/>
 
 <script><!-- 
 main()	{
@@ -40,4 +36,3 @@ main()	{
 	}			
 }
 --></script>
-</manialink>

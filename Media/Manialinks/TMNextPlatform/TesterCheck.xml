@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<manialink version="3">
+<label pos="150 80" z-index="0" size="80 5" text="Verifying tester..." halign="right" textfont="GameFontRegular" textsize="2" valign="center" style="TextButtonBig" id="StatusLabel" textemboss="1"/>
+<script><!--
+
+Void SetMessage(Text Message) {
+	(Page.GetFirstChild("StatusLabel") as CMlLabel).SetText(Message);
+}
+
+main()	{
+		declare persistent Boolean Persistent_IsPlatformTester for LocalUser;
+		declare Text[] AllowedUsers;
+		declare Loop = True;
+		declare ApiFound = False;
+		
+		Persistent_IsPlatformTester = False;
+		sleep(200);
+		Http.CreateGet("https://raw.githubusercontent.com/ArkadySK/TMNextPlatform/main/whitelist.json", False);
+		while (Loop) {
+			yield;
+			
+			foreach (Hevent in Http.PendingEvents) {
+				declare req <=> Hevent.Request;
+				
+				if (req.IsCompleted) {
+					if (req.StatusCode != 200) {
+						SetMessage("Request failed");
+						Http.Destroy(Hevent.Request);
+						break;
+					}
+						
+					AllowedUsers.fromjson(req.Result);
+					foreach (user in AllowedUsers) {
+						if (LocalUser.Name == user) { 
+							ApiFound = True;
+						}
+					}
+					Http.Destroy(Hevent.Request);
+					Loop=False;
+						
+				}
+			}
+		}
+		
+		if (!ApiFound) {	
+			SetMessage("Welcome demo player!");
+			Persistent_IsPlatformTester = False;
+		}
+		else	{
+			SetMessage("Welcome tester!");
+			Persistent_IsPlatformTester = True;			
+		}
+}
+
+--></script>
+</manialink>

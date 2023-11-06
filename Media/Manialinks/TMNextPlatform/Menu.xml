@@ -208,10 +208,16 @@
 			<label class="ModernButton" text=" " id="WhiteBTN" scriptevents="1"/>
 			<label class="ModernButtonText" text="Demo Maps" translate="1"/>
 		</frame>
+		
+		<frame pos="0 -16">
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Plus_light" modulatecolor="06FF00FF"/>
+			<label class="ModernButton" text=" " id="MoreMapsBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Get more maps" translate="1"/>
+		</frame>
 	</frame>
 	
 	<frame pos="-45 27">	
-		<quad style="UICommon128_1" substyle="BgDialog" opacity="0.8" sizen="120 160" z-index="-35" halign="center" pos="52.1 -27" valign="center" scriptevents="1" id="MapsBg"/>
+		<quad style="UICommon128_1" substyle="BgDialog" opacity="0.7" sizen="120 160" z-index="-35" halign="center" pos="52.1 -27" valign="center" scriptevents="1" id="MapsBg"/>
 		
 		<frame id="M_Map1">
 			<quad id="M_Main1" scriptevents="1" />	
@@ -299,9 +305,12 @@
 	Integer MedalCount;
 }
 
+#Const MENU_ACTION "MLHook_menu_action"
+
 declare MapRecord[CMapInfo] MapRecords;
 declare Integer MedalsTotal;
 declare Text CampaignPath;
+declare Text MenuPage;
 
 Void ResetSelectedMap()	{
 	(Page.GetFirstChild("RaceRecordMap") as CMlLabel).SetText("");
@@ -491,8 +500,6 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 	}		
 }	
 
-declare Text MenuPage;
-
 // MENU NAVIGATION
 Void GoToSolo()	{
 	MenuPage = "Solo";
@@ -532,6 +539,7 @@ main() {
 	declare persistent Boolean Persistent_ShowSpeed for LocalUser;
 	declare persistent Boolean Persistent_DisableMusicPlayer for LocalUser;
 	declare persistent Boolean Menu_RefreshRecords for LocalUser;
+	declare persistent Boolean Persistent_IsPlatformTester for LocalUser;
 
 	declare Text LastClickedId = "";
 	declare Text ProceededId = "";
@@ -702,7 +710,7 @@ main() {
 					wait(LeaveTPSound != Null);
 					Audio.PlaySoundEvent(LeaveTPSound, 1.);
 					log("Leaving titlepack...");
-					SendCustomEvent("MLHook_menu_action", ["quit_titlepack"]);
+					SendCustomEvent(MENU_ACTION, ["quit_titlepack"]);
 				}
 				else{
 					GoToMainMenu();
@@ -716,10 +724,16 @@ main() {
 				GoToSolo();
 			}
 			if (LastClickedId == "EditorsBTN") {
-				SendCustomEvent("MLHook_menu_action", ["editors"]);
+				if(Persistent_IsPlatformTester)
+					SendCustomEvent(MENU_ACTION, ["editors"]);
+				else 
+					SendCustomEvent(MENU_ACTION, ["show_demo_dialog"]);
 			}
 			if (LastClickedId == "LocalPlayBTN") {
-				SendCustomEvent("MLHook_menu_action", ["local"]);
+				if(Persistent_IsPlatformTester)
+					SendCustomEvent(MENU_ACTION, ["local"]);
+				else 
+					SendCustomEvent(MENU_ACTION, ["show_demo_dialog"]);
 			}
 			if (LastClickedId == "ProfileBTN") {
 				GoToProfile();
@@ -762,21 +776,25 @@ main() {
 					ShowMessage("Folder not found!");
 			}
 			
+			if (LastClickedId == "MoreMapsBTN") {
+				SendCustomEvent(MENU_ACTION, ["show_demo_dialog"]);
+			}
+			
 			//profile buttons
 			if (LastClickedId == "GraphicSettingsBTN") {
-				SendCustomEvent("MLHook_menu_action", ["graphic_settings"]);
+				SendCustomEvent(MENU_ACTION, ["graphic_settings"]);
 			}
 
 			if (LastClickedId == "InputSettingsBTN") {
-				SendCustomEvent("MLHook_menu_action", ["input_settings"]);
+				SendCustomEvent(MENU_ACTION, ["input_settings"]);
 			}
 			
 			if (LastClickedId == "StereoscopyBTN") {
-				SendCustomEvent("MLHook_menu_action", ["streoscopy_settings"]);
+				SendCustomEvent(MENU_ACTION, ["streoscopy_settings"]);
 			}
 			
 			if (LastClickedId == "HornsBTN") {
-				SendCustomEvent("MLHook_menu_action", ["horns"]);
+				SendCustomEvent(MENU_ACTION, ["horns"]);
 				sleep(1000);
 				LoadHornName();
 			}
