@@ -47,7 +47,7 @@
 		<label id="LabelActivity" text="Choose an activity" posn="-10 3" sizen="56 10" translate="1" autonewline="1"/>
 	</frame>	
 	
-	<frame id="FrameAbout" pos="41 10" scale="1.12">
+	<frame id="FrameAbout" pos="41 20" scale="1.12">
 		<label pos="0 52" z-index="0" size="100 5" text="Information" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
 		<quad z-index="-9" size="200 10" style="UICommon128_1" substyle="BgDialogTitle" halign="center" pos="0 55"/>
 		<label class="AboutText" text= "Welcome to TMNext Platform titlepack!" textfont="GameFontSemiBold"pos="-95 42"/>
@@ -60,9 +60,10 @@
 		<label class="AboutText" text= "Main: Arkady" pos="-95 -36" autonewline="1"/>
 		<label class="AboutText" text= "Mappers: Zai, Plantathon, skachacha, Arkes, Arkady" pos="-95 -41" autonewline="1"/>
 		<label class="AboutText" text= "Other testers: bmx22c, florenzius, arnoo" pos="-95 -46" autonewline="1"/>
-		<label class="AboutText" text= "Music: Bigbang1112" pos="-95 -51" autonewline="1"/>
+		<label class="AboutText" text= "Music: BigBang1112" pos="-95 -51" autonewline="1"/>
+		<label class="AboutText" text= "Updater: ThaumicTom, Plantathon, Arkady" pos="-95 -56" autonewline="1"/>
 		
-		<quad z-index="-10" size="200 114" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center" pos="0 -2"/>
+		<quad z-index="-10" size="200 120" style="UICommon128_1" substyle="BgDialog" halign="center" pos="0 55"/>
 	</frame>
 	
 	<frame id="ModernMenu" pos="-158 40">
