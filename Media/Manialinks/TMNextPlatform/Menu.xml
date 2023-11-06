@@ -47,7 +47,7 @@
 		<label id="LabelActivity" text="Choose an activity" posn="-10 3" sizen="56 10" translate="1" autonewline="1"/>
 	</frame>	
 	
-	<frame id="FrameAbout" pos="41 20" scale="1.12">
+	<frame id="FrameAbout" pos="41 5" scale="1.12">
 		<label pos="0 52" z-index="0" size="100 5" text="Information" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
 		<quad z-index="-9" size="200 10" style="UICommon128_1" substyle="BgDialogTitle" halign="center" pos="0 55"/>
 		<label class="AboutText" text= "Welcome to TMNext Platform titlepack!" textfont="GameFontSemiBold"pos="-95 42"/>
@@ -91,9 +91,7 @@
 		</frame>
 	</frame>
 	
-	<frame id="Links" pos="85 -64">
-	<quad pos="-4 4" z-index="-10" size="72 20" style="UICommon128_1" substyle="BgDialog"/>
-	
+	<frame id="Links" pos="83 -52">
 	<quad pos="0 0" size="12 12" image="file://Media/Images/TMNextPlatform/Icon/discord.png" halign="left"/>
 	<label pos="0" textsize="10"size="12 12" url="https://discord.gg/JEHzjy2" z-index="1"/>
 
@@ -145,20 +143,26 @@
 	</frame>
 	
 	<frame id="ModernMenu" pos="-158 40">
-		<frame id="LegacySettingsFrame" hidden="1">
-			<frame pos="0 0">
+		<frame pos="0 -0">
+			<quad class="ModernIcon" style="UICommon64_2" substyle="Refresh_light"/>
+			<label class="ModernButton" text=" " id="UpdateBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Update data" translate="1" />
+		</frame>
+		
+		<frame id="LegacySettingsFrame" hidden="1">	
+			<frame pos="0 -16">
 				<quad class="ModernIcon" style="UICommon64_1" substyle="LightSettings_light"/>
 				<label class="ModernButton" text=" " id="GraphicSettingsBTN" scriptevents="1"/>
 				<label class="ModernButtonText" text="Graphic Settings" translate="1" />
 			</frame>
 			
-			<frame pos="0 -16">
+			<frame pos="0 -32">
 				<quad class="ModernIcon" style="UICommon64_1" substyle="SteeringWheel_light"/>
 				<label class="ModernButton" text=" " id="InputSettingsBTN" scriptevents="1"/>
 				<label class="ModernButtonText" text="Input Settings" translate="1" />
 			</frame>
 			
-			<frame pos="0 -32">
+			<frame pos="0 -48">
 				<quad class="ModernIcon" style="UICommon64_1" substyle="Mediatracker_light"/>
 				<label class="ModernButton" text=" " id="StereoscopyBTN" scriptevents="1"/>
 				<label class="ModernButtonText" text="Stereoscopy" translate="1" />
@@ -739,6 +743,9 @@ main() {
 			if (LastClickedId == "ProfileBTN") {
 				GoToProfile();
 				MenuPage = "Profile";
+			}		
+			if (LastClickedId == "UpdateBTN") {
+				SendCustomEvent(MENU_ACTION, ["update_tp"]);
 			}
 			
 			//campaign buttons
