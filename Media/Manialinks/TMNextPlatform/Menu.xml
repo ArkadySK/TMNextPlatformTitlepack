@@ -224,7 +224,7 @@
 	<frame pos="-45 27">	
 		<quad style="UICommon128_1" substyle="BgDialog" opacity="0.7" sizen="120 160" z-index="-35" halign="center" pos="52.1 -27" valign="center" scriptevents="1" id="MapsBg"/>
 		
-		<frame id="M_Map1">
+		<frame id="M_Map1" hidden="1">
 			<quad id="M_Main1" scriptevents="1" />	
 			<quad id="M_Icon1" />
 			<quad class="MapNameBg"/>
@@ -239,7 +239,7 @@
 			</frame>
 		</frame>
 		
-		<frame id="M_Map2" pos="0 -30">
+		<frame id="M_Map2" hidden="1" pos="0 -30">
 			<quad id="M_Main2" scriptevents="1" />	
 			<quad id="M_Icon2" />
 			<quad class="MapNameBg"/>
@@ -254,7 +254,7 @@
 			</frame>
 		</frame>
 			
-		<frame id="M_Map3" pos="0 -60">
+		<frame id="M_Map3" hidden="1" pos="0 -60">
 			<quad id="M_Main3" scriptevents="1" />	
 			<quad id="M_Icon3" />
 			<quad class="MapNameBg"/>
@@ -269,7 +269,7 @@
 			</frame>
 		</frame>
 		
-		<frame id="M_Map4" pos="0 -90">
+		<frame id="M_Map4" hidden="1" pos="0 -90">
 			<quad id="M_Main4" scriptevents="1" />	
 			<quad id="M_Icon4" />
 			<quad class="MapNameBg"/>
@@ -284,7 +284,7 @@
 			</frame>
 		</frame>
 		
-		<frame id="M_Map5" pos="0 -120">
+		<frame id="M_Map5" hidden="1" pos="0 -120">
 			<quad id="M_Main5" scriptevents="1" />	
 			<quad id="M_Icon5" />
 			<quad class="MapNameBg"/>
@@ -303,6 +303,7 @@
 </frame>
 
 <script><!--
+#Include "TextLib" as TextLib
 
 #Struct MapRecord	{
 	Integer Time;
@@ -315,7 +316,11 @@
 declare MapRecord[CMapInfo] MapRecords;
 declare Integer MedalsTotal;
 declare Text CampaignPath;
+
 declare Text MenuPage;
+declare Integer SelectedItemIndex;
+declare Text[] MenuButtonNames;
+declare Text LastClickedId;
 
 Void ResetSelectedMap()	{
 	(Page.GetFirstChild("RaceRecordMap") as CMlLabel).SetText("");
@@ -381,6 +386,12 @@ Void ClearShownMaps()	{
 		(Page.GetFirstChild("M_Lock"^y) as CMlFrame).Hide();
 		(Page.GetFirstChild("M_Name"^y) as CMlLabel).SetText("");
 		(Page.GetFirstChild("M_PlatformRecord"^y) as CMlLabel).SetText("");
+	}
+}
+
+Void DehoverAllMaps()	{
+	for (y, 1, 5)	{	
+		(Page.GetFirstChild("M_Main"^y) as CMlQuad).Opacity = 0.8;
 	}
 }
 
@@ -507,6 +518,8 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 
 // MENU NAVIGATION
 Void GoToSolo()	{
+	SelectedItemIndex = 0;
+	MenuButtonNames = ["WhiteBTN", "MoreMapsBTN", "xko"];
 	MenuPage = "Solo";
 	Page.GetFirstChild("FrameMainMenu").Hide();
 	Page.GetFirstChild("FrameSolo").Show();
@@ -514,6 +527,8 @@ Void GoToSolo()	{
 }
 
 Void GoToProfile()	{
+	SelectedItemIndex = 0;
+	MenuButtonNames = ["UpdateBTN", "xko", "ShowSpeedCheck", "DisableMusicPlayerCheck", "ShowLegacySettingsBTN", "HornsBTN"];
 	MenuPage = "Profile";
 	Page.GetFirstChild("FrameMainMenu").Hide();
 	Page.GetFirstChild("FrameProfile").Show();
@@ -521,11 +536,19 @@ Void GoToProfile()	{
 }
 
 Void GoToMainMenu()	{
+	SelectedItemIndex = 0;
+	MenuButtonNames = ["SoloBTN", "EditorsBTN", "LocalPlayBTN", "ProfileBTN",  "xko"];
 	MenuPage = "Main";
 	Page.GetFirstChild("FrameSolo").Hide();
 	Page.GetFirstChild("FrameProfile").Hide();
 	Page.GetFirstChild("FrameMainMenu").Show();
 	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
+}
+
+Void ShowLegacySettings()	{
+	Page.GetFirstChild("ShowLegacySettingsBTN").Hide();
+	Page.GetFirstChild("LegacySettingsFrame").Show();
+	MenuButtonNames = ["UpdateBTN", "GraphicSettingsBTN", "InputSettingsBTN", "StereoscopyBTN", "xko", "ShowSpeedCheck", "DisableMusicPlayerCheck", "HornsBTN"];
 }
 
 Void LoadHornName() {
@@ -535,10 +558,32 @@ Void LoadHornName() {
 	(Page.GetFirstChild("HornNameLabel") as CMlLabel).SetText(hornName);
 }
 
+// MOVEMENT
+Void UpdateFocus()	{
+	Page.GetFirstChild(MenuButtonNames[SelectedItemIndex]).Focus();
+}
+
+Void MoveDown()	{
+	if(SelectedItemIndex < MenuButtonNames.count - 1)
+		SelectedItemIndex += 1;
+	else
+		SelectedItemIndex = 0;
+}
+
+Void MoveUp()	{
+	if(SelectedItemIndex > 0)
+		SelectedItemIndex -= 1;
+	else
+		SelectedItemIndex = MenuButtonNames.count - 1;
+}
+
+Void PressEnter()	{
+	LastClickedId = MenuButtonNames[SelectedItemIndex];
+}
+
 // MAIN
 main() {
 	//init global vars 
-	MenuPage = "Main";
 	CampaignPath = "TMNextPlatform";
 
 	declare persistent Boolean Persistent_ShowSpeed for LocalUser;
@@ -546,7 +591,6 @@ main() {
 	declare persistent Boolean Menu_RefreshRecords for LocalUser;
 	declare persistent Boolean Persistent_IsPlatformTester for LocalUser;
 
-	declare Text LastClickedId = "";
 	declare Text ProceededId = "";
 	declare Text ScContext = "";
 	declare Text Color;
@@ -559,7 +603,7 @@ main() {
 		
 	Menu_RefreshRecords = False;
 	EnableMenuNavigation(True, True, Page.GetFirstChild("xko"), 1);
-	ClearShownMaps();
+	GoToMainMenu();
 	LoadHornName();
 	ReloadAllRecords();
 	(Page.GetFirstChild("ShowSpeedCheck") as CMlQuad).StyleSelected = Persistent_ShowSpeed;
@@ -606,45 +650,42 @@ main() {
 		
 		
     	foreach (Event in PendingEvents) {
-			if (Event.Type ==  CMlEvent::Type::MouseOver) {
-				for (y, 1, 5)	{				
-					if(Event.ControlId == "M_Main"^y)	{
-						(Page.GetFirstChild("M_Main"^y) as CMlQuad).Opacity = 0.6;
-					}
-				}
-				if(Event.ControlId == "MapsBg")	{
-					for (y, 1, 5)	{	
-						(Page.GetFirstChild("M_Main"^y) as CMlQuad).Opacity = 0.8;
-					}
-				}
-			}	
-	
-			if (Event.Type ==  CMlEvent::Type::MouseClick) {
+			if (Event.Type == CMlEvent::Type::MouseOver) {
+				if(TextLib::StartsWith("M_Main",  Event.ControlId))	
+					(Page.GetFirstChild(Event.ControlId) as CMlQuad).Opacity = 0.6;
+				if(Event.ControlId == "MapsBg")
+					DehoverAllMaps();
+			}
+
+			if (Event.Type == CMlEvent::Type::MouseOut) {
+				if(TextLib::StartsWith("M_Main",  Event.ControlId))
+					(Page.GetFirstChild(Event.ControlId) as CMlQuad).Opacity = 0.8;
+			}
+
+			if (Event.Type == CMlEvent::Type::MouseClick) {
 				if(Event.ControlId != "")
 					LastClickedId = Event.ControlId;
+			}	
+
+			if (Event.Type == CMlEvent::Type::KeyPress) {
+				switch(Event.KeyName)	{
+					case "Down":
+						MoveDown();
+					case "Right":
+						MoveDown();
+					case "Up": 
+						MoveUp();
+					case "Left":
+						MoveUp();
+					case "Return": 
+						PressEnter();				
+				}	
+				UpdateFocus();
 				}	
 			}	
 
 		if(LastClickedId != ProceededId)	{
-
 			ProceededId = LastClickedId;
-				if (LastClickedId == "ShowSpeedCheck") {
-					if(Persistent_ShowSpeed)
-						Persistent_ShowSpeed = False;
-					else
-						Persistent_ShowSpeed = True;
-					(Page.GetFirstChild("ShowSpeedCheck") as CMlQuad).StyleSelected = Persistent_ShowSpeed;
-				}
-				if (LastClickedId == "DisableMusicPlayerCheck") {
-					if(Persistent_DisableMusicPlayer)
-						Persistent_DisableMusicPlayer = False;
-					else
-						Persistent_DisableMusicPlayer = True;
-					(Page.GetFirstChild("DisableMusicPlayerCheck") as CMlQuad).StyleSelected = Persistent_DisableMusicPlayer;
-				}
-				if (LastClickedId == "ShowLegacySettingsBTN") {
-					Page.GetFirstChild("LegacySettingsFrame").Show();
-				}
 
 			for (y, 1, 5)	{				
 				if (LastClickedId == "M_Main"^y) {
@@ -752,6 +793,10 @@ main() {
 			if (LastClickedId == "WhiteBTN" || LastClickedId == "GreenBTN" || LastClickedId == "BlueBTN" || LastClickedId == "RedBTN" || LastClickedId == "BlackBTN")	{
 				Deselect();
 				Audio.PlaySoundEvent(CAudioManager::ELibSound::Valid, 0, 1.);
+				MenuButtonNames = ["WhiteBTN", "MoreMapsBTN", "xko"];
+				for(i, 1, 5)	{
+					MenuButtonNames.add("M_Main" ^ i);
+				}
 			}
 			if (LastClickedId == "WhiteBTN" && Color != "A")  {
 				if(CurFoldersTask.SubFolders.count > 0)
@@ -805,6 +850,23 @@ main() {
 				SendCustomEvent(MENU_ACTION, ["horns"]);
 				sleep(1000);
 				LoadHornName();
+			}
+			if (LastClickedId == "ShowSpeedCheck") {
+				if(Persistent_ShowSpeed)
+					Persistent_ShowSpeed = False;
+				else
+					Persistent_ShowSpeed = True;
+				(Page.GetFirstChild("ShowSpeedCheck") as CMlQuad).StyleSelected = Persistent_ShowSpeed;
+			}
+			if (LastClickedId == "DisableMusicPlayerCheck") {
+				if(Persistent_DisableMusicPlayer)
+					Persistent_DisableMusicPlayer = False;
+				else
+					Persistent_DisableMusicPlayer = True;
+				(Page.GetFirstChild("DisableMusicPlayerCheck") as CMlQuad).StyleSelected = Persistent_DisableMusicPlayer;
+			}
+			if (LastClickedId == "ShowLegacySettingsBTN") {
+				ShowLegacySettings();
 			}
 
 			LastClickedId = "";
