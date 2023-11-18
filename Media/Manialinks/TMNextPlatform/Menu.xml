@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<manialink version="3">
 <stylesheet>
 	<style id="LabelWelcome" posn="-10 10"  size="57 8" style="TextTitle3" textfont="GameFontExtraBold" textsize="4" sizen="40 5"/>
 	<style id="LabelActivity" posn="-10 3" sizen="56 10" style="TextTitle2" textfont="GameFontRegular"/>		
@@ -125,6 +127,11 @@
 		<frame pos="0 18" hidden="">
 			<label class="InfoText" text="Disable music player" translate="1"/>
 			<quad id="DisableMusicPlayerCheck" z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
+		</frame>
+		
+		<frame pos="0 08" hidden="">
+			<label class="InfoText" text="Hide 'Enter Platform!' button" translate="1"/>
+			<quad id="HideEnterPlatformCheck" z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
 		</frame>
 		
 		<frame pos="0 -12">
@@ -588,6 +595,7 @@ main() {
 
 	declare persistent Boolean Persistent_ShowSpeed for LocalUser;
 	declare persistent Boolean Persistent_DisableMusicPlayer for LocalUser;
+	declare persistent Boolean Persistent_HideEnterPlatform for LocalUser;
 	declare persistent Boolean Menu_RefreshRecords for LocalUser;
 	declare persistent Boolean Persistent_IsPlatformTester for LocalUser;
 
@@ -606,10 +614,10 @@ main() {
 	GoToMainMenu();
 	LoadHornName();
 	ReloadAllRecords();
+	
 	(Page.GetFirstChild("ShowSpeedCheck") as CMlQuad).StyleSelected = Persistent_ShowSpeed;
 	(Page.GetFirstChild("DisableMusicPlayerCheck") as CMlQuad).StyleSelected = Persistent_DisableMusicPlayer;
-
-	log("menu loaded successfully. If you see this console, close it with CTRL + G.");
+	(Page.GetFirstChild("HideEnterPlatformCheck") as CMlQuad).StyleSelected = Persistent_HideEnterPlatform;
 
 	while(True){	
 
@@ -865,6 +873,13 @@ main() {
 					Persistent_DisableMusicPlayer = True;
 				(Page.GetFirstChild("DisableMusicPlayerCheck") as CMlQuad).StyleSelected = Persistent_DisableMusicPlayer;
 			}
+			if (LastClickedId == "HideEnterPlatformCheck") {
+				if(Persistent_HideEnterPlatform)
+					Persistent_HideEnterPlatform = False;
+				else
+					Persistent_HideEnterPlatform = True;
+				(Page.GetFirstChild("HideEnterPlatformCheck") as CMlQuad).StyleSelected = Persistent_HideEnterPlatform;
+			}
 			if (LastClickedId == "ShowLegacySettingsBTN") {
 				ShowLegacySettings();
 			}
@@ -878,3 +893,4 @@ main() {
 	log("this very page was done by arkady, 2023 :)");	
 }
 --></script>
+</manialink>
