@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <manialink version="3">
-<manialink version="3">
-
 <stylesheet>
 	<style id="LabelWelcome" posn="-10 10"  size="57 8" style="TextTitle3" textfont="GameFontExtraBold" textsize="4" sizen="40 5"/>
 	<style id="LabelActivity" posn="-10 3" sizen="56 10" style="TextTitle2" textfont="GameFontRegular"/>		
@@ -13,7 +11,7 @@
 <framemodel id="Item">
 	<label pos="-52 0" z-index="2" size="80 5" text="_map_name_" halign="left" textfont="GameFontRegular" textemboss="1"/>
 	<label pos="52 0" z-index="2" size="24 5" text="???" halign="right" textfont="GameFontRegular" textemboss="1"/>
-	<quad class="MapButtonQuad" pos="0 3" z-index="1" size="220 20" scale=".5" Astyle="UICommon128_1" substyle="BgFrameTilted1" scriptevents="1" halign="center" bgcolor="FFFFFFFF" opacity=".8"/>
+	<quad class="MapButtonQuad" pos="0 3" z-index="1" size="220 20" scale=".5" style="UICommon128_1" substyle="BgFrameTilted1" scriptevents="1" halign="center" bgcolor="FFFFFFFF" opacity=".9"/>
 </framemodel>		
 
 <frame z-index="-1" id="FrameMenuCommon" >	
@@ -24,11 +22,25 @@
 		<label id="LabelWelcome" text="Local Play" posn="-10 10" sizen="56 8" translate="1"/>
 		<label id="LabelActivity" text="Select a map" posn="-10 3" sizen="56 10" translate="1" autonewline="1"/>
 	</frame>	
+
 	<frame pos="-158 -68.75">
 		<quad class="ModernIcon" style="UICommon64_1" substyle="ArrowLeftSlim_light"/>
 		<label class="ModernButton" id="xko" scriptevents="1"/>
 		<label class="ModernButtonText" text="Back" translate="1" />
 	</frame>
+</frame>
+
+<frame id="ModernMenu" pos="-158 40">
+    <frame>
+        <quad class="ModernIcon" style="UICommon64_1" substyle="Plus_light"/>
+        <label class="ModernButton" text=" " id="NewMapBTN" scriptevents="1"/>
+        <label class="ModernButtonText" text="New Map" translate="1" />
+    </frame>
+    <frame pos="0 -16">
+        <quad class="ModernIcon" style="UICommon64_1" substyle="SteeringWheel_light"/>
+        <label class="ModernButton" text=" " id="LocalServerBTN" scriptevents="1"/>
+        <label class="ModernButtonText" text="Local Network" translate="1" />
+    </frame>
 </frame>
 
 <frame id="MapListFrame">
@@ -46,22 +58,22 @@
 </frame>
 
 <frame id="SelectedMapFrame" pos="109 15" hidden="">
-	<label pos="0 57" z-index="2" size="70 5" id="MapNameLabel" halign="center" text="_sel_map_" textfont="GameFontBlack"/>
-	<quad pos="0 48" z-index="0" size="70 70" halign="center" id="MapImage" bgcolor="6C6C6C05"/>
-	<label pos="0 -31" z-index="0" size="70 5" text="trackmania/gamemode" id="MapModeLabel" halign="center" textfont="GameFontRegular"/>
-	<label pos="0 -24" z-index="0" size="70 5" text="Author" id="MapAuthorLabel" halign="center" textfont="GameFontRegular"/>
+	<label pos="0 57" z-index="2" size="70 5" id="MapNameLabel" style="TextTitle3" halign="center" text="_sel_map_" textfont="GameFontBlack" translate="1"/>
+	<quad pos="0 46" z-index="0" size="70 70" halign="center" id="MapImage" bgcolor="6C6C6C05"/>
+	<label pos="0 -33" z-index="0" size="70 5" text="trackmania/gamemode" id="MapModeLabel" halign="center" textfont="GameFontRegular"/>
+	<label pos="0 -26" z-index="0" size="70 5" text="Author" id="MapAuthorLabel" halign="center" textfont="GameFontRegular"/>
 	
-	<label pos="-18 -42" z-index="0" size="10 5" text="0" halign="center" id="AuthorTimeLabel" textsize="5" textfont="GameFontRegular"/>
-	<label pos="-6 -42" z-index="0" size="10 5" text="0" halign="center" id="GoldTimeLabel" textsize="5" textfont="GameFontRegular"/>
-	<label pos=" 6 -42" z-index="0" size="10 5" text="0" halign="center" id="SilverTimeLabel" textsize="5" textfont="GameFontRegular"/>
-	<label pos="18 -42" z-index="0" size="10 5" text="0" halign="center" id="BronzeTimeLabel" textsize="5" textfont="GameFontRegular"/>
+	<label pos="-18 -44" z-index="0" size="10 5" text="0" halign="center" id="AuthorTimeLabel" textsize="5" textfont="GameFontRegular"/>
+	<label pos="-6 -44" z-index="0" size="10 5" text="0" halign="center" id="GoldTimeLabel" textsize="5" textfont="GameFontRegular"/>
+	<label pos=" 6 -44" z-index="0" size="10 5" text="0" halign="center" id="SilverTimeLabel" textsize="5" textfont="GameFontRegular"/>
+	<label pos="18 -44" z-index="0" size="10 5" text="0" halign="center" id="BronzeTimeLabel" textsize="5" textfont="GameFontRegular"/>
 
 	<quad pos="0 60" z-index="1" size="80 10" style="UICommon128_1" substyle="BgDialogTitle" halign="center" valign="top"/>
-	<quad pos="0" z-index="0" size="80 120" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center"/>
-	<quad pos="0 -90" z-index="0" size="80 14" style="UICommon128_1" substyle="BgDialog" halign="center" valign="bottom" id="LaunchMapLabel" scriptevents="1"/>
-	<label substyle="Platform" pos="0 -78" z-index="3" size="20 5" text="Launch" style="CardButtonMediumL" halign="center" translate="1" scriptevents="1" scale="1.2"/>
+	<quad pos="0" z-index="-1" size="80 120" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center"/>
+	<quad pos="0 -90" z-index="-1" size="80 24" style="UICommon128_1" substyle="BgDialog" halign="center" valign="bottom" scriptevents="1"/>
+	<label id="LaunchMapLabel" pos="0 -68" z-index="3" size="20 5" text="Play" style="CardButtonMediumL" halign="center" translate="1" scriptevents="1" scale="1.2"/>
+	<label id="EditMapLabel" pos="0 -79" z-index="3" size="20 5" text="Edit" style="CardButtonMediumL" halign="center" translate="1" scriptevents="1" scale="1.2"/>
 </frame>
-
 
 <quad size="120 150" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center"/>
 <label pos="0 67" z-index="3" size="75 10" text="_folder_path_" id="FolderPathLabel" halign="center" valign="center2" textfont="GameFontSemiBold"/>
@@ -76,9 +88,8 @@
 </frame>
 
 <script><!--
-#Const MaxMapsCount 10
-
 #Include "TextLib" as TextLib
+#Const MaxMapsCount 10
 
 declare Integer PageNb;
 declare Boolean ShowAllFolders;
@@ -86,12 +97,12 @@ declare Text[] CurrentPage_AllPaths;
 declare Text SelectedItemPath;
 
 Void ClearSelectedMap() {	
-	declare LabelIds = ["MapModeLabel", "MapNameLabel", "MapAuthorLabel", "AuthorTimeLabel", "GoldTimeLabel", "SilverTimeLabel", "BronzeTimeLabel"];
+	declare LabelIds = ["MapModeLabel", "MapAuthorLabel", "AuthorTimeLabel", "GoldTimeLabel", "SilverTimeLabel", "BronzeTimeLabel"];
 	foreach(L in LabelIds) {
 		log(L);
 		(Page.GetFirstChild(L) as CMlLabel).Value = "";
 	}
-			
+    (Page.GetFirstChild("MapNameLabel") as CMlLabel).Value = "None";
 	(Page.GetFirstChild("MapImage") as CMlQuad).ImageUrl = "";
 }
 
@@ -127,12 +138,17 @@ CTaskResult_MapList LoadMapsFromFolder(Text _Path) {
 	return MapList;
 }
 
+Boolean IsMap(Text FileName) {
+	return TextLib::EndsWith(".map.gbx", FileName, False, False);
+}
+
 Void ClearMaps() {
 	declare MapListFrame <=> (Page.GetFirstChild("MapListFrame") as  CMlFrame);
 	for(i, 0, MaxMapsCount) {
 		declare Frame = (MapListFrame.Controls[i] as CMlFrame);
 		Frame.Hide();
 	}
+	SelectedItemPath = "";
 }
 
 Void DisplayMaps(CTaskResult_MapList _MapList) {
@@ -159,7 +175,7 @@ Void DisplayMaps(CTaskResult_MapList _MapList) {
 		log(SubfolderSplits);
 		(Frame.Controls[0] as CMlLabel).Value =  SubfolderSplits[SubfolderSplits.count - 1];
 		(Frame.Controls[1] as CMlLabel).Value = "";
-		(Frame.Controls[2] as CMlQuad).Substyle = "BgCardFolder";
+		(Frame.Controls[2] as CMlQuad).ModulateColor = <0.7, 0.7, 0.7>;
 		CurrentPage_AllPaths.add(_MapList.SubFolders[index]);
 		//log("Folder: " ^ _MapList.SubFolders[index]);
 	}
@@ -172,7 +188,7 @@ Void DisplayMaps(CTaskResult_MapList _MapList) {
 		Frame.Show();
 		(Frame.Controls[0] as CMlLabel).Value = _MapList.MapInfos[index].Name;
 		(Frame.Controls[1] as CMlLabel).Value = _MapList.MapInfos[index].MapType;
-		(Frame.Controls[2] as CMlQuad).Substyle = "BgCardChallenge";
+		(Frame.Controls[2] as CMlQuad).ModulateColor = <0.99, 0.99, 0.99>;
 		CurrentPage_AllPaths.add(_MapList.MapInfos[index].FileName);
 		//log("Map: " ^ _MapList.MapInfos[index].Name);
 	}
@@ -190,10 +206,21 @@ if(TextLib::Length(Event.Control.ControlId) > 2)	{
 }
 
 if (Event.ControlId == "xko") {
-	//TODO: presny back command
-	SendCustomEvent("back", [""]);
+	SendCustomEvent("MLHook_menu_action", ["main_menu"]);
 }
 ***
+
+***OnMouseOver***
+***
+if (Event.Control.HasClass("MapButtonQuad"))	{
+	for(i, 0, MaxMapsCount) {
+		declare Quad = (((Page.GetFirstChild(""^(i+1)) as CMlFrame).Controls[2]) as CMlQuad);
+		Quad.Opacity = .9;
+	}
+	declare SelQuad = (((Page.GetFirstChild(""^Event.Control.Parent.ControlId) as CMlFrame).Controls[2]) as CMlQuad);
+	SelQuad.Opacity = .7;
+}
+*** 
 
 Void DoNothing(){}
 
@@ -204,6 +231,7 @@ main() {
 	PageNb = 0;
 	declare MapList = LoadMapsFromFolder(Path);
 	declare PageLabel <=> (Page.GetFirstChild("PageLabel") as CMlLabel);
+	EnableMenuNavigation(True, True, Page.GetFirstChild("xko"), 1);
 	DisplayMaps(MapList);
 	
 	while(True) {
@@ -214,10 +242,8 @@ main() {
 			if(TextLib::ToInteger(LastClickedControl) >= 1 && TextLib::ToInteger(LastClickedControl) <= 11)	{
 				declare SelectedItemIndex = TextLib::ToInteger(LastClickedControl) - 1;
 				declare ItemPath = CurrentPage_AllPaths[SelectedItemIndex];
-				declare Boolean IsMap = TextLib::EndsWith(".map.gbx", ItemPath, False, False);
-				log("clicked item path: " ^ ItemPath ^ "; is map? " ^IsMap );
-				
-				if(!IsMap) {
+				Audio.PlaySoundEvent(CAudioManager::ELibSound::Valid, 0, 1.);
+				if(!IsMap(ItemPath)) {
 					PageNb = 0;
 					Path = ItemPath;
 					MapList = LoadMapsFromFolder(Path);
@@ -234,7 +260,6 @@ main() {
 				MapList = LoadMapsFromFolder(Path);
 				DisplayMaps(MapList);
 			}
-			
 			if(LastClickedControl == "RefreshQuad") {
 				ClearMaps();
 				DataFileMgr.Map_RefreshFromDisk();
@@ -249,20 +274,38 @@ main() {
 				DisplayMaps(MapList);
 			}
 			if(LastClickedControl == "PrevPageQuad") {
-				PageNb -= 1;
-				MapList = LoadMapsFromFolder(Path);
-				DisplayMaps(MapList);
-				PageLabel.Value = "" ^ PageNb+1;
+                if(PageNb > 0) {
+				    PageNb -= 1;
+                    MapList = LoadMapsFromFolder(Path);
+                    DisplayMaps(MapList);
+                    PageLabel.Value = "" ^ PageNb+1;
+                }
 			}
 			if(LastClickedControl == "NextPageQuad") {
-				PageNb += 1;
-				MapList = LoadMapsFromFolder(Path);
-				DisplayMaps(MapList);
-				PageLabel.Value = "" ^ PageNb+1;
+				if(CurrentPage_AllPaths.count >= 11) {
+					PageNb += 1;
+					MapList = LoadMapsFromFolder(Path);
+					DisplayMaps(MapList);
+					PageLabel.Value = "" ^ PageNb+1;
+				}
 			}
-			
 			if(LastClickedControl == "LaunchMapLabel") {
-				//TitleControl.PlayMap(SelectedItemPath, "Modes/TrackMania/LegacyMode.Script.txt", "");
+				if(IsMap(SelectedItemPath)) {
+					Audio.PlaySoundEvent(CAudioManager::ELibSound::Start, 0, 1.);
+					TitleControl.PlayMap(SelectedItemPath, "Modes\\TrackMania\\LegacyMode.Script.txt", "");
+				}
+			}
+			if(LastClickedControl == "EditMapLabel") {
+				if(IsMap(SelectedItemPath)) {
+					Audio.PlaySoundEvent(CAudioManager::ELibSound::Start, 0, 1.);
+					TitleControl.EditMap(SelectedItemPath, "", "");
+				}
+			}
+			if(LastClickedControl == "NewMapBTN") {
+				TitleControl.EditNewMap("Stadium", "", "", "", "Trackmania\\Platform", "", "");
+			}
+			if(LastClickedControl == "LocalServerBTN") {
+				SendCustomEvent("MLHook_menu_action", ["local_server"]);
 			}
 			
 			ProceededClick = LastClickedControl;
@@ -272,9 +315,11 @@ main() {
 			if(Event.Type ==CMlScriptEvent::Type::MouseClick)	{
 				+++OnMouseClick+++
 			}
+			if(Event.Type ==CMlScriptEvent::Type::MouseOver)	{
+				+++OnMouseOver+++
+			}
 		}
 	}
 }
 --></script>
-</manialink>
 </manialink>
