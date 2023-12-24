@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<manialink version="3">
 <stylesheet>
 	<style id="LabelWelcome" posn="-10 10"  size="57 8" style="TextTitle3" textfont="GameFontExtraBold" textsize="4" sizen="40 5"/>
 	<style id="LabelActivity" posn="-10 3" sizen="56 10" style="TextTitle2" textfont="GameFontRegular"/>		
@@ -160,6 +158,16 @@ CTaskResult_MapList LoadMapsFromFolder(Text _Path) {
 	return MapList;
 }
 
+Text Mode_GetShortName(Text ModeFullName) {
+	//Mode names: https://docs.google.com/spreadsheets/d/1LQJytHkw71ZMeYBIHcMM2UfS98a9qjmRGDpiifWIQ18/edit#gid=0
+	declare SupportedModes = ["Race", "Platform", "Puzzle", "Stunts", "TMKart"];
+	foreach(Mode in SupportedModes) {
+		if(TextLib::Find(Mode, ModeFullName, False, False)){
+			return Mode;			
+		}
+	}
+}
+
 Boolean IsMap(Text FileName) {
 	return TextLib::EndsWith(".map.gbx", FileName, False, False);
 }
@@ -181,8 +189,6 @@ Void DisplayMaps(CTaskResult_MapList _MapList) {
 	declare MapCount = _MapList.MapInfos.count;
 	declare FolderCount = _MapList.SubFolders.count - PageNb * MaxMapsCount;
 	
-	log("MapCount: " ^ MapCount ^ "FolderCount: " ^ FolderCount);
-	
 	if(ShowAllFolders || FolderCount < 0)
 		FolderCount = 0;
 	
@@ -198,7 +204,6 @@ Void DisplayMaps(CTaskResult_MapList _MapList) {
 		(Frame.Controls[1] as CMlLabel).Value = "";
 		(Frame.Controls[2] as CMlQuad).ModulateColor = <0.7, 0.7, 0.7>;
 		CurrentPage_AllPaths.add(_MapList.SubFolders[index]);
-		//log("Folder: " ^ _MapList.SubFolders[index]);
 	}
 	
 	for(i, FolderCount, MaxMapsCount) {
@@ -206,17 +211,17 @@ Void DisplayMaps(CTaskResult_MapList _MapList) {
 		if(index >= MapCount)
 			break;
 		declare MapInfo <=>  _MapList.MapInfos[index];
-		if(ShowOnlyPlatformMaps) {
-			if(!TextLib::Find("Platform", MapInfo.MapType, False, False))
-				continue;
+
+		declare MapType = Mode_GetShortName(MapInfo.MapType);
+		if(ShowOnlyPlatformMaps && MapType != "Platform")
+			continue;
 		}
 		declare Frame = (MapListFrame.Controls[i] as CMlFrame);	
 		Frame.Show();
 		(Frame.Controls[0] as CMlLabel).Value = MapInfo.Name;
-		(Frame.Controls[1] as CMlLabel).Value = MapInfo.MapType;
+		(Frame.Controls[1] as CMlLabel).Value = MapType;
 		(Frame.Controls[2] as CMlQuad).ModulateColor = <0.99, 0.99, 0.99>;
 		CurrentPage_AllPaths.add(MapInfo.FileName);
-		//log("Map: " ^ _MapList.MapInfos[index].Name);
 	}
 }
 
@@ -338,6 +343,11 @@ main() {
 					ShowOnlyPlatformMaps = True;
 				else
 					ShowOnlyPlatformMaps = False;
+				ClearMaps();
+				DataFileMgr.Map_RefreshFromDisk();
+				sleep(100);
+				MapList = LoadMapsFromFolder(Path);
+				DisplayMaps(MapList);
 				HideOptions();
 			}
 			if(LastClickedControl == "HideOptionsLabel") {
@@ -360,4 +370,3 @@ main() {
 	}
 }
 --></script>
-</manialink>
