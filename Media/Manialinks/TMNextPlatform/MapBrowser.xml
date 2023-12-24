@@ -78,13 +78,23 @@
 <quad size="120 150" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center"/>
 <label pos="0 67" z-index="3" size="75 10" text="_folder_path_" id="FolderPathLabel" halign="center" valign="center2" textfont="GameFontSemiBold"/>
 <quad pos="-51 72" z-index="4" size="10 10" style="UIConstruction_Buttons" substyle="Up" halign="center" valign="top" scriptevents="1" id="GoToParentFolderQuad"/>
+<quad pos="-41 72" z-index="4" size="10 10" style="UICommon64_1" substyle="Parameters_light" halign="center" valign="top" scriptevents="1" id="ShowOptionsQuad"/>
 <quad pos="41 72" z-index="4" size="10 10" style="Icons64x64_1" substyle="ToolTree" halign="center" valign="top" scriptevents="1" id="ShowAllSubfoldersQuad"/>
 <quad pos="51 72" z-index="4" size="10 10" style="UIConstruction_Buttons" substyle="Reload" halign="center" valign="top" scriptevents="1" id="RefreshQuad"/>
 
 <frame z-index="2" pos="0 -60">
-	<quad pos="-10 -3" z-index="2" size="10 10" style="UIConstruction_Buttons" substyle="Left" scriptevents="1" halign="center" id="PrevPageQuad"/>
+	<quad pos="-15 -3" z-index="2" size="10 10" style="UIConstruction_Buttons" substyle="Left" scriptevents="1" id="PrevPageQuad"/>
 	<label pos="0 -7.5" z-index="2" size="14 5" text="1" halign="center" valign="center" id="PageLabel" textfont="GameFontRegular"/>
-	<quad pos="10 -8" z-index="2" size="10 10" bgcolor="FFFA" style="UIConstruction_Buttons" substyle="Right" scriptevents="1" halign="center" valign="center" id="NextPageQuad"/>
+	<quad pos="5 -3" z-index="2" size="10 10" style="UIConstruction_Buttons" substyle="Right" scriptevents="1" id="NextPageQuad"/>
+</frame>
+
+<frame id="OptionsFrame" z-index="20" hidden="1">
+	<label pos="0 20" z-index="2" size="100 5" style="TextTitle3" halign="center" text="Options" textfont="GameFontBlack" translate="1"/>
+	<quad size="130 45" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center" z-index="-1"/>
+	<quad size="130 10" style="UICommon128_1" substyle="BgDialogTitle" pos="0 23" halign="center"/>
+	<label id="ShowOnlyPlatformMapsLabel" pos="0 11" z-index="2" size="20 5" text="Hide all non Platform maps" style="CardButtonMediumXXXL" scale="1.2" scriptevents="1" halign="center"/>
+	<label pos="0 0" z-index="2" size="20 5" text="Force Platform mode" id="" style="CardButtonMediumXXXL" scale="1.2" halign="center"/>
+	<label id="HideOptionsLabel" pos="0 -11" z-index="2" size="20 5" text="Close" style="CardButtonMediumXXXL" scale="1.2" halign="center" scriptevents="1"/>
 </frame>
 
 <script><!--
@@ -95,11 +105,23 @@ declare Integer PageNb;
 declare Boolean ShowAllFolders;
 declare Text[] CurrentPage_AllPaths;
 declare Text SelectedItemPath;
+declare Boolean ShowOnlyPlatformMaps;
+
+Void HideOptions() {
+	declare OptionsFrame <=> (Page.GetFirstChild("OptionsFrame") as CMlFrame);
+	OptionsFrame.Hide();
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideMenu, 0, 1.);
+}
+
+Void ShowOptions() {
+	declare OptionsFrame <=> (Page.GetFirstChild("OptionsFrame") as CMlFrame);
+	OptionsFrame.Show();
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::ShowMenu, 0, 1.);
+}
 
 Void ClearSelectedMap() {	
 	declare LabelIds = ["MapModeLabel", "MapAuthorLabel", "AuthorTimeLabel", "GoldTimeLabel", "SilverTimeLabel", "BronzeTimeLabel"];
 	foreach(L in LabelIds) {
-		log(L);
 		(Page.GetFirstChild(L) as CMlLabel).Value = "";
 	}
     (Page.GetFirstChild("MapNameLabel") as CMlLabel).Value = "None";
@@ -172,7 +194,6 @@ Void DisplayMaps(CTaskResult_MapList _MapList) {
 		declare Frame = (MapListFrame.Controls[i] as CMlFrame);
 		Frame.Show();
 		declare SubfolderSplits = TextLib::Split("\\", _MapList.SubFolders[index]);
-		log(SubfolderSplits);
 		(Frame.Controls[0] as CMlLabel).Value =  SubfolderSplits[SubfolderSplits.count - 1];
 		(Frame.Controls[1] as CMlLabel).Value = "";
 		(Frame.Controls[2] as CMlQuad).ModulateColor = <0.7, 0.7, 0.7>;
@@ -184,12 +205,17 @@ Void DisplayMaps(CTaskResult_MapList _MapList) {
 		declare index = i + PageNb * MaxMapsCount - FolderCount;
 		if(index >= MapCount)
 			break;
+		declare MapInfo <=>  _MapList.MapInfos[index];
+		if(ShowOnlyPlatformMaps) {
+			if(!TextLib::Find("Platform", MapInfo.MapType, False, False))
+				continue;
+		}
 		declare Frame = (MapListFrame.Controls[i] as CMlFrame);	
 		Frame.Show();
-		(Frame.Controls[0] as CMlLabel).Value = _MapList.MapInfos[index].Name;
-		(Frame.Controls[1] as CMlLabel).Value = _MapList.MapInfos[index].MapType;
+		(Frame.Controls[0] as CMlLabel).Value = MapInfo.Name;
+		(Frame.Controls[1] as CMlLabel).Value = MapInfo.MapType;
 		(Frame.Controls[2] as CMlQuad).ModulateColor = <0.99, 0.99, 0.99>;
-		CurrentPage_AllPaths.add(_MapList.MapInfos[index].FileName);
+		CurrentPage_AllPaths.add(MapInfo.FileName);
 		//log("Map: " ^ _MapList.MapInfos[index].Name);
 	}
 }
@@ -307,7 +333,19 @@ main() {
 			if(LastClickedControl == "LocalServerBTN") {
 				SendCustomEvent("MLHook_menu_action", ["local_server"]);
 			}
-			
+			if(LastClickedControl == "ShowOnlyPlatformMapsLabel") {
+				if(!ShowOnlyPlatformMaps)
+					ShowOnlyPlatformMaps = True;
+				else
+					ShowOnlyPlatformMaps = False;
+				HideOptions();
+			}
+			if(LastClickedControl == "HideOptionsLabel") {
+				HideOptions();
+			}
+			if(LastClickedControl == "ShowOptionsQuad") {
+				ShowOptions();
+			}
 			ProceededClick = LastClickedControl;
 		}
 		
