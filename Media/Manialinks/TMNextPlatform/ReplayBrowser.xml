@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<manialink version="3">
+<stylesheet>
+	<style id="LabelWelcome" posn="-10 10"  size="57 8" style="TextTitle3" textfont="GameFontExtraBold" textsize="4" sizen="40 5"/>
+	<style id="LabelActivity" posn="-10 3" sizen="56 10" style="TextTitle2" textfont="GameFontRegular"/>		
+	<style class="ModernButton" style="CardButtonMediumXL" size="76 12" scale="1.46"/>
+	<style class="ModernIcon" size="10 10" z-index="1" pos="1 -1"/>
+	<style class="ModernButtonText" size="55 12" textcolor="FFF" opacity="0.8"  pos="17 -6" z-index="1" style="TextButtonNav" halign="left" valign="center2" textsize="2.5"/>
+</stylesheet>
+
+<framemodel id="Item">
+	<label pos="-52 0" z-index="2" size="80 5" text="_replay_name_" halign="left" textfont="GameFontRegular" textemboss="1"/>
+	<label pos="52 0" z-index="2" size="24 5" text="???" halign="right" textfont="GameFontRegular" textemboss="1"/>
+	<quad class="ItemButtonQuad" pos="0 3" z-index="1" size="220 20" scale=".5" scriptevents="1" halign="center" bgcolor="FFFFFFFF" opacity=".9"/>
+	<quad class="ItemButtonQuadTM2020" hidden="1" pos="0 3" z-index="1" size="220 20" scale=".5" style="UICommon128_1" substyle="BgFrameTilted1" scriptevents="1" halign="center" bgcolor="FFFFFFFF" opacity=".9"/>
+</framemodel>		
+
+<frame z-index="-1" id="FrameMenuCommon" >	
+	<quad posn="-160 0.5" sizen="80.7 200" z-index="-5"  substyle="" valign="center" bgcolor="272727FF" opacity=".6"/>
+	<quad posn="-161 90" sizen="82 34" z-index="-4"  style="UICommon128_1" substyle="BgDialogTitle"  opacity=".8" valign="top" hidden="1"/>
+	<frame id="MainPanel" z-index="-4" pos="-130 70.5">				
+		<quad style="UICommon64_2"  sizen="16 16" pos="-28 12" substyle="Edit_light"/>
+		<label id="LabelWelcome" text="Replay" posn="-10 10" sizen="56 8" translate="1"/>
+		<label id="LabelActivity" text="Select a replay" posn="-10 3" sizen="56 10" translate="1" autonewline="1"/>
+	</frame>	
+
+	<frame pos="-158 -68.75">
+		<quad class="ModernIcon" style="UICommon64_1" substyle="ArrowLeftSlim_light"/>
+		<label class="ModernButton" id="xko" scriptevents="1"/>
+		<label class="ModernButtonText" text="Back" translate="1" />
+	</frame>
+</frame>
+
+<frame id="ItemListFrame">
+			<frameinstance id="1" modelid="Item" pos="0 55" z-index="5" hidden=""/>
+			<frameinstance id="2" modelid="Item" pos="0 44" z-index="5" hidden="1"/>
+			<frameinstance id="3" modelid="Item" pos="0 33" z-index="5" hidden="1"/>
+			<frameinstance id="4" modelid="Item" pos="0 22" z-index="5" hidden="1"/>
+			<frameinstance id="5" modelid="Item" pos="0 11" z-index="5" hidden="1"/>
+			<frameinstance id="6" modelid="Item" pos="0 0"   z-index="5" hidden="1"/>
+			<frameinstance id="7" modelid="Item" pos="0 -11" z-index="5" hidden="1"/>
+			<frameinstance id="8" modelid="Item" pos="0 -22" z-index="5" hidden="1"/>
+			<frameinstance id="9" modelid="Item" pos="0 -33" z-index="5" hidden="1"/>
+			<frameinstance id="10" modelid="Item" pos="0 -44" z-index="5" hidden="1"/>
+			<frameinstance id="11" modelid="Item" pos="0 -55" z-index="5" hidden="1"/>
+</frame>
+
+<frame id="SelectedItemFrame" pos="109 15" hidden="">
+	<label pos="-1 29" z-index="0" size="90 100" text="None" id="ItemNamesLabel" translate="1" halign="center" textemboss="1" textsize="2.5"/>
+	<quad pos="0 -90" z-index="-1" size="80 24" style="UICommon128_1" substyle="BgDialog" halign="center" valign="bottom" scriptevents="1"/>
+	<label id="LaunchItemLabel" pos="0 -74" z-index="3" size="20 5" text="Launch" style="CardButtonMediumL" halign="center" translate="1" scriptevents="1" scale="1.2"/>
+	</frame>
+
+<quad size="120 150" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center"/>
+<label pos="0 67" z-index="3" size="75 10" text="_folder_path_" id="FolderPathLabel" halign="center" valign="center2" textfont="GameFontSemiBold"/>
+<quad pos="-51 72" z-index="4" size="10 10" style="UIConstruction_Buttons" substyle="Up" halign="center" valign="top" scriptevents="1" id="GoToParentFolderQuad"/>
+<quad pos="-41 72" z-index="4" size="10 10" style="UICommon64_1" substyle="Parameters_light" halign="center" valign="top" scriptevents="1" id="ShowOptionsQuad"/>
+<quad pos="41 72" z-index="4" size="10 10" style="Icons64x64_1" substyle="ToolTree" halign="center" valign="top" scriptevents="1" id="ShowAllSubfoldersQuad"/>
+<quad pos="51 72" z-index="4" size="10 10" style="UIConstruction_Buttons" substyle="Reload" halign="center" valign="top" scriptevents="1" id="RefreshQuad"/>
+
+<frame z-index="2" pos="0 -60">
+	<quad pos="-15 -3" z-index="2" size="10 10" style="UIConstruction_Buttons" substyle="Left" scriptevents="1" id="PrevPageQuad"/>
+	<label pos="0 -7.5" z-index="2" size="14 5" text="1" halign="center" valign="center" id="PageLabel" textfont="GameFontRegular"/>
+	<quad pos="5 -3" z-index="2" size="10 10" style="UIConstruction_Buttons" substyle="Right" scriptevents="1" id="NextPageQuad"/>
+</frame>
+
+<frame id="OptionsFrame" z-index="20" hidden="1">
+	<label pos="0 20" z-index="2" size="100 5" style="TextTitle3" halign="center" text="Options" textfont="GameFontBlack" translate="1"/>
+	<quad size="130 45" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center" z-index="-1"/>
+	<quad size="130 10" style="UICommon128_1" substyle="BgDialogTitle" pos="0 23" halign="center"/>
+	<label pos="0 0" z-index="2" size="20 5" text="Force Platform mode" id="" style="CardButtonMediumXXXL" scale="1.2" halign="center"/>
+	<label id="HideOptionsLabel" pos="0 -11" z-index="2" size="20 5" text="Close" style="CardButtonMediumXXXL" scale="1.2" halign="center" scriptevents="1"/>
+</frame>
+
+<script><!--
+#Include "TextLib" as TextLib
+#Const MaxItemsCount 10
+
+declare Integer PageNb;
+declare Boolean ShowAllFolders;
+declare Text[] CurrentPage_AllPaths;
+declare Text[] SelectedItemsPaths;
+
+Void HideOptions() {
+	declare OptionsFrame <=> (Page.GetFirstChild("OptionsFrame") as CMlFrame);
+	OptionsFrame.Hide();
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideMenu, 0, 1.);
+}
+
+Void ShowOptions() {
+	declare OptionsFrame <=> (Page.GetFirstChild("OptionsFrame") as CMlFrame);
+	OptionsFrame.Show();
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::ShowMenu, 0, 1.);
+}
+
+Void ClearSelectedItem() {	
+	SelectedItemsPaths.clear();
+	(Page.GetFirstChild("ItemNamesLabel") as CMlLabel).Value = "None";
+}
+
+CTaskResult_ReplayList  LoadItemsFromFolder(Text _Path) {
+	(Page.GetFirstChild("FolderPathLabel") as CMlLabel).Value = _Path;
+	declare ItemList <=> DataFileMgr.Replay_GetGameList(_Path, ShowAllFolders);
+	wait(!ItemList.IsProcessing);
+	return ItemList;
+}
+
+Boolean IsReplay(Text _FileName) {
+	return TextLib::EndsWith(".Replay.gbx", _FileName, False, False);
+}
+
+Void SelectItem(Text _FileName) {
+	if(!SelectedItemsPaths.exists(_FileName))
+		SelectedItemsPaths.add(_FileName);
+	else 
+		SelectedItemsPaths.remove(_FileName);
+	
+
+	declare ItemNamesLabel <=> (Page.GetFirstChild("ItemNamesLabel") as CMlLabel);
+	ItemNamesLabel.Value = "";
+	declare isFirst = True;
+	foreach(fileName in SelectedItemsPaths)	{
+		if(isFirst){
+			isFirst = False;
+			ItemNamesLabel.SetText(fileName);
+		}
+		else
+			ItemNamesLabel.Value ^= "\n$h" ^ fileName;
+	}
+}
+
+Void ClearItems() {
+	declare ItemListFrame <=> (Page.GetFirstChild("ItemListFrame") as  CMlFrame);
+	for(i, 0, MaxItemsCount) {
+		declare Frame = (ItemListFrame.Controls[i] as CMlFrame);
+		Frame.Hide();
+	}
+}
+
+Void DisplayItems(CTaskResult_ReplayList _ItemList) {
+	ClearItems();
+	CurrentPage_AllPaths.clear();
+	declare ItemListFrame <=> (Page.GetFirstChild("ItemListFrame") as  CMlFrame);
+	declare ItemCount = _ItemList.ReplayInfos.count;
+	declare FolderCount = _ItemList.SubFolders.count - PageNb * MaxItemsCount;
+	
+	if(ShowAllFolders || FolderCount < 0)
+		FolderCount = 0;
+	
+	// Sort subfolders first, then Items
+	for(i, 0, MaxItemsCount) {
+		declare index = i + PageNb * MaxItemsCount;
+		if(index >= FolderCount)
+			break;
+		declare Frame = (ItemListFrame.Controls[i] as CMlFrame);
+		Frame.Show();
+		declare SubfolderSplits = TextLib::Split("\\", _ItemList.SubFolders[index]);
+		(Frame.Controls[0] as CMlLabel).Value =  SubfolderSplits[SubfolderSplits.count - 1];
+		(Frame.Controls[0] as CMlLabel).TextColor = <0.15, 0.15, 0.15>;
+		(Frame.Controls[1] as CMlLabel).Value = "";
+		(Frame.Controls[2] as CMlQuad).ModulateColor = <0.7, 0.7, 0.7>;
+		CurrentPage_AllPaths.add(_ItemList.SubFolders[index]);
+	}
+	
+	for(i, FolderCount, MaxItemsCount) {
+		declare index = i + PageNb * MaxItemsCount - FolderCount;
+		if(index >= ItemCount)
+			break;
+		declare ItemInfo <=>  _ItemList.ReplayInfos[index];
+		declare Frame = (ItemListFrame.Controls[i] as CMlFrame);	
+		Frame.Show();
+		(Frame.Controls[0] as CMlLabel).Value = ItemInfo.Name;
+		if(SelectedItemsPaths.exists(ItemInfo.FileName))
+			(Frame.Controls[0] as CMlLabel).TextColor = <0.75, 0.75, 0.75>;
+		else
+			(Frame.Controls[0] as CMlLabel).TextColor = <0.15, 0.15, 0.15>;
+		(Frame.Controls[2] as CMlQuad).ModulateColor = <0.99, 0.99, 0.99>;
+		CurrentPage_AllPaths.add(ItemInfo.FileName);
+	}
+}
+
+***OnMouseClick***
+***
+if (Event.Control.HasClass("ItemButtonQuad")) {
+	LastClickedControl = Event.Control.Parent.ControlId;
+	ProceededClick = "";
+}
+if(TextLib::Length(Event.Control.ControlId) > 2)	{
+	LastClickedControl = Event.Control.ControlId;
+	ProceededClick = "";
+}
+
+if (Event.ControlId == "xko") {
+	SendCustomEvent("MLHook_menu_action", ["main_menu"]);
+}
+***
+
+***OnMouseOver***
+***
+if (Event.Control.HasClass("ItemButtonQuad"))	{
+	for(i, 0, MaxItemsCount) {
+		declare Quad = (((Page.GetFirstChild(""^(i+1)) as CMlFrame).Controls[2]) as CMlQuad);
+		Quad.Opacity = .9;
+	}
+	declare SelQuad = (((Page.GetFirstChild(""^Event.Control.Parent.ControlId) as CMlFrame).Controls[2]) as CMlQuad);
+	SelQuad.Opacity = .7;
+}
+*** 
+
+Void DoNothing(){}
+
+main() {
+	declare LastClickedControl = "";
+	declare ProceededClick = "";
+	declare Path = "";
+	PageNb = 0;
+	declare ItemList = LoadItemsFromFolder(Path);
+	declare PageLabel <=> (Page.GetFirstChild("PageLabel") as CMlLabel);
+	EnableMenuNavigation(True, True, Page.GetFirstChild("xko"), 1);
+	DisplayItems(ItemList);
+	
+	while(True) {
+		yield;
+		
+		if(LastClickedControl != ProceededClick) {
+		
+			if(TextLib::ToInteger(LastClickedControl) >= 1 && TextLib::ToInteger(LastClickedControl) <= 11)	{
+				declare SelectedItemIndex = TextLib::ToInteger(LastClickedControl) - 1;
+				declare ItemPath = CurrentPage_AllPaths[SelectedItemIndex];
+				Audio.PlaySoundEvent(CAudioManager::ELibSound::Valid, 0, 1.);
+				if(!IsReplay(ItemPath)) {
+					PageNb = 0;
+					Path = ItemPath;
+					ItemList = LoadItemsFromFolder(Path);
+				}
+				else {
+					SelectItem(ItemPath);
+				}
+				DisplayItems(ItemList);
+			}
+			if(LastClickedControl == "GoToParentFolderQuad") {
+				PageNb = 0;
+				PageLabel.Value = "" ^ PageNb+1;
+				Path = ItemList.ParentPath;
+				ItemList = LoadItemsFromFolder(Path);
+				DisplayItems(ItemList);
+			}
+			if(LastClickedControl == "RefreshQuad") {
+				ClearSelectedItem();
+				ClearItems();
+				DataFileMgr.Replay_RefreshFromDisk();
+				sleep(100);
+				ItemList = LoadItemsFromFolder(Path);
+				DisplayItems(ItemList);
+			}
+			if(LastClickedControl == "ShowAllSubfoldersQuad") {
+				ShowAllFolders = !ShowAllFolders;
+				(Page.GetFirstChild("ShowAllSubfoldersQuad") as CMlQuad).StyleSelected = ShowAllFolders;
+				ItemList = LoadItemsFromFolder(Path);
+				DisplayItems(ItemList);
+			}
+			if(LastClickedControl == "PrevPageQuad") {
+                if(PageNb > 0) {
+				    PageNb -= 1;
+                    ItemList = LoadItemsFromFolder(Path);
+                    DisplayItems(ItemList);
+                    PageLabel.Value = "" ^ PageNb+1;
+                }
+			}
+			if(LastClickedControl == "NextPageQuad") {
+				if(CurrentPage_AllPaths.count >= 11) {
+					PageNb += 1;
+					ItemList = LoadItemsFromFolder(Path);
+					DisplayItems(ItemList);
+					PageLabel.Value = "" ^ PageNb+1;
+				}
+			}
+			if(LastClickedControl == "LaunchItemLabel") {
+				Audio.PlaySoundEvent(CAudioManager::ELibSound::Start, 0, 1.);
+				//TitleControl.EditReplay(SelectedItemsPaths);
+			}
+			if(LastClickedControl == "HideOptionsLabel") {
+				HideOptions();
+			}
+			if(LastClickedControl == "ShowOptionsQuad") {
+				ShowOptions();
+			}
+			ProceededClick = LastClickedControl;
+		}
+		
+		foreach (Event in PendingEvents) {
+			if(Event.Type ==CMlScriptEvent::Type::MouseClick)	{
+				+++OnMouseClick+++
+			}
+			if(Event.Type ==CMlScriptEvent::Type::MouseOver)	{
+				+++OnMouseOver+++
+			}
+		}
+	}
+}
+--></script>
+</manialink>
