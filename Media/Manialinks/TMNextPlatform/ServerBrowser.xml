@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<manialink version="3">
+
+<stylesheet>
+	<style id="LabelWelcome" posn="-128 49" style="TextRankingsBig" sizen="40 5"/>
+	<style id="LabelActivity" posn="-128 43" style="TextSubTitle1" sizen="44 5"/>
+	<style id="FrameAllMenu0" posn="-144 27.5"/>
+	<style id="BgsPlayerCard" posn="-144 -45"/>
+	<style id="EditorsBgsPlayerCard" posn="-144 -45"/>
+	<style id="FrameMulti" posn="0 -14"/>
+	<style id="EditorsBTN1" posn="0 -14"/>
+	<style id="EditorsBTN2" posn="0 -58"/>
+	<style id="FrameLocalPlay" posn="0 -58"/>
+	<style class="servertext" z-index="1" size="120 5" textsize="3"/>
+	<style class="servermode" z-index="1" pos="145 0" halign="center" textsize="2.5"/>
+	<style class="serverbg" bgcolor="36323099" pos="-5" size="185 8" opacity="0.7"/>
+	<style class="infotext" halign="center" pos="-83 5" textsize="2.5"/>
+	<style class="serverlock" pos="-5" size="4 4" image="file://Media/Images/Icon/padlockmodern.png"/>
+</stylesheet>
+	
+<frame id="EditorsML">
+	<quad posn="-157 -44" sizen="13 13" style="Icons128x128_1" substyle="Advanced" image="file://Media/Images/Icon/cube.png"/>
+	<frame id="FrameMenuButtons1" posn="-144 27.5">
+
+		<frame id="MainPanelEditors" z-index="-4" pos="144 -28">		
+			<quad style="Bgs1" substyle="BgCardList" posn="-161 92" sizen="70 183" z-index="-4"/>	
+			<label id="LabelWelcome" text="Multiplayer" posn="-154 85" sizen="50 8" translate="1"/>
+			<label id="LabelActivity" text="Choose an activity" posn="-156 77" sizen="39 10" translate="1"/>
+		</frame>
+	</frame>	
+</frame>
+
+<label id="ButtonBack" text="Back" scriptevents="1" posn="-142 -79" style="TextCardSmallScores2" sizen="58 7" textsize="3.5" translate="1" z-index="10"/>
+<quad sizen="14 11" posn="-157 -75" image="file://Media/Images/Icon/back.png" z-index="10"/>
+
+	<frame id="MenuButtons" pos="0 -.5">
+		
+		<label z-index="0" text="Create" translate="1" id="ButtonCreate" pos="-30 -64" scriptevents="1" hidden="1"/>
+		
+	</frame>
+	
+	<frame id="PlayerInfo" pos="35 5" scale=".9">
+	
+	<label  z-index="6" size="180 10" text="Position" halign="center" textsize="4" translate="1" valign="center2" pos="0 84" textfont="GameFontExtraBold"/>
+	<label pos="-71 70" z-index="0" size="32 10" text="???" id="LP" valign="center" textsize="4.5" style="TextRankingsBig" halign="center"/>
+	<label pos="87 74" z-index="0" size="77 10" text="Loading..." id="CurrentZone" halign="right" textsize="3" translate="1" valign="center" style="TextRankingsBig"/>	
+	<label pos="87 66" z-index="0" size="77 10" text="???" id="Position" halign="right" textsize="3" translate="1" valign="center2" style="TextInfoMedium"/>	
+	<quad pos="100 70" z-index="0" size="20 18" id="ZoneImage" halign="center" style="Icons128x128_1" substyle="Vehicles" valign="center"/>
+	<quad pos="-100 80" z-index="1" size="20 20" text="" style="Icons128x128_1" substyle="LadderPoints" halign="center"/>
+	<quad pos="0 89" z-index="0" size="230 30" halign="center" id="bginfo" style="Bgs1" substyle="BgCardList"/>
+	<quad pos="-82 76" z-index="0" size="60 12" halign="center" id="bginfo" opacity="0.7" style="Bgs1" substyle="BgCardList"/>
+	
+	</frame>
+	
+<frame pos="38.5 29" scale="1.15" id="ServerList">
+	<quad pos="84 18" z-index="10" size="8 8" bgcolor="FFFA" style="Icons64x64_1" substyle="Refresh" scriptevents="1" id="RefreshServersButton"/>
+	
+	<label pos="-3 14" z-index="6" size="180 8" text="Servers" halign="center" textsize="3" translate="1" valign="center2" textfont="GameFontExtraBold"/>
+	<quad pos="-3 18" z-index="-5" size="190 108" halign="center" id="bgservers" style="Bgs1" substyle="BgDialogBlur"/>
+	
+	<frame id="InfoTexts" z-index="1">
+		<label class="infotext" text="Name" translate="1" pos="-83 7"/>
+		<label class="infotext" text="Mode" translate="1" pos="55 7"/>
+		<label class="infotext" text="Players" translate="1" pos="82 7"/>
+	</frame>
+	
+	<frame pos="-90">
+		<label id="Server0" class="servertext"/>
+		<label id="Server1" class="servertext"/>
+		<label id="Server2" class="servertext"/>
+		<label id="Server3" class="servertext"/>
+		<label id="Server4" class="servertext"/>
+		<label id="Server5" class="servertext"/>
+		<label id="Server6" class="servertext"/>
+		<label id="Server7" class="servertext"/>
+		<label id="Server8" class="servertext"/>
+		<label id="Server9" class="servertext"/>
+		<label id="ServerMode0" class="servermode"/>
+		<label id="ServerMode1" class="servermode"/>
+		<label id="ServerMode2" class="servermode"/>
+		<label id="ServerMode3" class="servermode"/>
+		<label id="ServerMode4" class="servermode"/>
+		<label id="ServerMode5" class="servermode"/>
+		<label id="ServerMode6" class="servermode"/>
+		<label id="ServerMode7" class="servermode"/>
+		<label id="ServerMode8" class="servermode"/>
+		<label id="ServerMode9" class="servermode"/>
+		<label id="ServerPlayers0" class="servermode" pos="172"/>
+		<label id="ServerPlayers1" class="servermode" pos="172"/>
+		<label id="ServerPlayers2" class="servermode" pos="172"/>
+		<label id="ServerPlayers3" class="servermode" pos="172"/>
+		<label id="ServerPlayers4" class="servermode" pos="172"/>
+		<label id="ServerPlayers5" class="servermode" pos="172"/>
+		<label id="ServerPlayers6" class="servermode" pos="172"/>
+		<label id="ServerPlayers7" class="servermode" pos="172"/>
+		<label id="ServerPlayers8" class="servermode" pos="172"/>
+		<label id="ServerPlayers9" class="servermode" pos="172"/>
+		<quad id="ServerLock0" class="serverlock" scriptevents="1" />
+		<quad id="ServerLock1" class="serverlock" scriptevents="1"/>
+		<quad id="ServerLock2" class="serverlock" scriptevents="1"/>
+		<quad id="ServerLock3" class="serverlock" scriptevents="1"/>
+		<quad id="ServerLock4" class="serverlock" scriptevents="1"/>
+		<quad id="ServerLock5" class="serverlock" scriptevents="1"/>
+		<quad id="ServerLock6" class="serverlock" scriptevents="1"/>
+		<quad id="ServerLock7" class="serverlock" scriptevents="1"/>
+		<quad id="ServerLock8" class="serverlock" scriptevents="1"/>
+		<quad id="ServerLock9" class="serverlock" scriptevents="1"/>
+		<quad id="Serverbg0" class="serverbg" scriptevents="1"/>
+		<quad id="Serverbg1" class="serverbg" scriptevents="1"/>
+		<quad id="Serverbg2" class="serverbg" scriptevents="1"/>
+		<quad id="Serverbg3" class="serverbg" scriptevents="1"/>
+		<quad id="Serverbg4" class="serverbg" scriptevents="1"/>
+		<quad id="Serverbg5" class="serverbg" scriptevents="1"/>
+		<quad id="Serverbg6" class="serverbg" scriptevents="1"/>
+		<quad id="Serverbg7" class="serverbg" scriptevents="1"/>
+		<quad id="Serverbg8" class="serverbg" scriptevents="1"/>
+		<quad id="Serverbg9" class="serverbg" scriptevents="1"/>
+	</frame>
+</frame>
+
+<script><!--
+#Include "TextLib" as TextLib
+#Include "MathLib" as MathLib
+
+#Struct SServer {	
+	Text name;
+	Text description;
+	Text title;
+	Text login;
+	Text zone;
+	Integer ladder_limit_min;
+	Integer ladder_limit_max;
+	Boolean is_private;
+	Boolean is_spectator_private;
+	Text script_name;	
+	Integer player_count;
+	Integer player_max;   
+}
+
+declare Text[] Zones;
+
+Void ResetDisplayedServers()	{
+	for(y, 0, 9)	{
+		foreach(label in ["Server", "ServerMode", "ServerPlayers"])
+		(Page.GetFirstChild(label^y) as CMlLabel).SetText("");
+		(Page.GetFirstChild("ServerLock"^y) as CMlQuad).Visible = False;
+		(Page.GetFirstChild("Serverbg"^y) as CMlQuad).Visible = False;	
+	}
+}
+
+Void DeselectDisplayedServers()	{
+	for(y, 0, 9)	{
+		foreach(label in ["Server", "ServerMode", "ServerPlayers"])
+		(Page.GetFirstChild(label^y) as CMlLabel).Opacity = 0.7;
+		(Page.GetFirstChild("Serverbg"^y) as CMlQuad).Opacity = 0.7;
+	}
+}
+
+Void HoverServer(Integer _i)	{
+	DeselectDisplayedServers();
+	foreach(label in ["Server", "ServerMode", "ServerPlayers"])
+	(Page.GetFirstChild(label^_i) as CMlLabel).Opacity = 1.;
+	(Page.GetFirstChild("Serverbg"^_i) as CMlQuad).Opacity = 1.;
+}
+
+***OnKeyNav***
+***
+log("keynav");	
+
+***
+
+***OnMouseOver***
+***
+//if(TitleFlow.IsReady)	{
+	if(MenuButtons.exists(Event.ControlId))	{
+		DeselectDisplayedServers();
+	}
+	for (yy ,0, 9)	{
+		if(Event.ControlId == "Serverbg"^yy)	{
+			HoverServer(yy);
+		}
+	}
+//}
+***
+
+***OnMouseClick***
+***
+//if(TitleFlow.IsReady)	{
+	for (yy ,0, 9)	{
+		if(Event.ControlId == "Serverbg"^yy)	{
+			LatestClickedControl = Event.ControlId;
+		}
+	}
+	
+	if(Event.ControlId == "RefreshServersButton")	{
+		ResetDisplayedServers();
+		LoadServerInfo = True;	
+	}
+	if(Event.ControlId == "ButtonBack")
+		SendCustomEvent("BackToMainMenu", [""]);
+	if(Event.ControlId == "ButtonLegacy")
+		SendCustomEvent("Multi_Legacy", [""]);
+//}
+***
+
+***LatestClickedControl***
+***
+if(LatestClickedControl != ProcededClick)
+for (yy ,0, 9)	{
+	if(LatestClickedControl == "Serverbg"^yy)	{
+		OpenLink("#join="^Servery[yy].login, CMlScript::LinkType::ManialinkBrowser);
+	}
+}
+ProcededClick = "";
+LatestClickedControl = ProcededClick;
+***
+
+
+Void PreLoadPositions()	{
+	declare space_y = - 9.;
+	for(y, 0, 9)	{
+		(Page.GetFirstChild("Server"^y) as CMlLabel).RelativePosition.Y = y * space_y;
+		(Page.GetFirstChild("ServerMode"^y) as CMlLabel).RelativePosition.Y = y * space_y;
+		(Page.GetFirstChild("ServerPlayers"^y) as CMlLabel).RelativePosition.Y = y * space_y;	
+		(Page.GetFirstChild("Serverbg"^y) as CMlQuad).RelativePosition.Y = 2.1 +y * space_y;
+		(Page.GetFirstChild("ServerLock"^y) as CMlQuad).RelativePosition.Y = y * space_y;
+	}
+}
+
+Void RankingsInfo(Integer _ZoneVariant)	{
+	/*declare Zone0 = Zones[_ZoneVariant];
+	declare CurrentZoneLabel = (Page.GetFirstChild("CurrentZone")as CMlLabel);
+	declare CurrentZoneFlag = (Page.GetFirstChild("ZoneImage")as CMlQuad);
+	(Page.GetFirstChild("LP") as CMlLabel).SetText(""^MathLib::NearestInteger(LocalUser.LadderPoints));
+	declare PositionInZoneInteger = ScoreMgr.MultiplayerLeaderBoard_GetPlayerRanking(NullId, Zone0);
+	declare NbPlayersInZoneInteger = ScoreMgr.MultiplayerLeaderBoard_GetPlayerCount(Zone0);
+	(Page.GetFirstChild("Position") as CMlLabel).SetText(""^PositionInZoneInteger^" / "^NbPlayersInZoneInteger);
+	CurrentZoneLabel.SetText(Zones[_ZoneVariant]);
+	if (_ZoneVariant == 2)
+	CurrentZoneFlag.ImageUrl = LocalUser.CountryFlagUrl;
+	else if (_ZoneVariant == 1)
+	CurrentZoneFlag.ImageUrl = LocalUser.LadderZoneFlagUrl;
+	else
+	CurrentZoneFlag.ImageUrl = "";	*/
+}
+
+main()	{
+	ResetDisplayedServers();
+	PreLoadPositions();
+	DeselectDisplayedServers();
+	declare LatestClickedControl = "";
+	declare ProcededClick = "";
+	Zones = TextLib::Split("|", LocalUser.ZonePath);
+	declare MaxZoneVariant = Zones.count;
+	declare ZoneVariant = 0;
+	//declare Request = Http.CreateGet("https://maniaplanet.com/webservices/servers/online?titleUids[]=TMStadium@nadeo");
+	declare SServer[] Servery;
+	declare TimeToUpdateZoneVariant = 3000;
+	declare LastTime = Now + TimeToUpdateZoneVariant;
+	declare MenuButtons = ["ButtonBack", "ButtonCreate"];
+	EnableMenuNavigation(True, True, Page.GetFirstChild("ButtonBack"), 1);
+	declare IsSpectator = False;
+	
+	declare Boolean LoadServerInfo = True;
+	
+	RankingsInfo(ZoneVariant);
+	while(True)	{
+		
+		if(LoadServerInfo)	{
+			declare Request = Http.CreateGet("https://maniaplanet.com/webservices/servers/online?titleUids[]=TMStadium@nadeo");	
+			wait(Request.IsCompleted);
+			Servery.fromjson(Request.Result);
+			
+			declare DisplayedServery = 9;
+			if(Servery.count < 10)
+				DisplayedServery = Servery.count -1;
+		
+			for(y, 0, DisplayedServery)	{
+				(Page.GetFirstChild("Server"^y) as CMlLabel).SetText(Servery[y].name);
+				(Page.GetFirstChild("ServerMode"^y) as CMlLabel).SetText(Servery[y].script_name);
+				(Page.GetFirstChild("ServerPlayers"^y) as CMlLabel).SetText(Servery[y].player_count^"/"^Servery[y].player_max);	
+				(Page.GetFirstChild("ServerLock"^y) as CMlQuad).Visible = Servery[y].is_private;
+				(Page.GetFirstChild("Serverbg"^y) as CMlQuad).Visible = True;	
+			}
+			LoadServerInfo = False;
+		}
+	
+	
+		if(LastTime < Now)	{
+			if(ZoneVariant < MaxZoneVariant-1)
+				ZoneVariant += 1;
+			else
+				ZoneVariant = 0;
+			LastTime = Now + TimeToUpdateZoneVariant;
+			RankingsInfo(ZoneVariant);
+		}
+
+
+		+++LatestClickedControl+++
+		
+		foreach(Event in PendingEvents)	{
+			/*if(Event.Type == CMlScriptEvent::Type::MenuNavigation)	{
+				+++OnKeyNav+++	
+			}*/
+			if (Event.Type ==  CMlScriptEvent::Type::MouseOver) {
+				+++OnMouseOver+++	
+			}
+			if (Event.Type ==  CMlScriptEvent::Type::MouseClick) {
+				+++OnMouseClick+++	
+			}
+		}
+	yield;
+	}
+}
+--></script>
+
+</manialink>
