@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<frame pos="0 0" z-index="1">
         <frame z-index="1">
 						<label pos="-60 4" z-index="0" size="120 10" text="You're currently running an old version of the titlepack. You should update to enjoy all the new features. Update?" halign="left" autonewline="1" textsize="2" textfont="GameFontRegular"/>
             <label pos="0 12" z-index=".1" size="130 7" halign="center" valign="center" style="TextTitle3"
@@ -7,12 +6,10 @@
             <label id="UpdateButton" pos="-60 -11" z-index=".2" size="35 7" valign="center" style="CardButtonMedium"
                    scriptevents="1" text="Update"/>
 						<label id="ContinueButton" pos="0 -11" z-index=".2" size="35 7" valign="center" style="CardButtonMedium"
-                   scriptevents="1" text="Continue" halign="center"/>
+                   scriptevents="1" text="Ignore" halign="center"/>
         <label id="CloseButton" pos="60 -11" z-index=".2" size="35 7" halign="right" valign="center" style="CardButtonMedium"
                    scriptevents="1" text="Close"/>
         </frame>
-        <quad size="130 10" halign="center" valign="center" style="Bgs1" substyle="BgTitle" pos="0 12" z-index="1"/>
-				<quad size="130 36" halign="center" valign="center" style="Bgs1" substyle="BgWindow2" pos="0"/>
-        <quad size="136.5 8" pos="0 13.5" z-index="3" halign="center" valign="bottom" style="Bgs1" substyle="BgGlow2"/>
-        <quad size="130 1.5" pos="0 -18" z-index="3" style="Bgs1" substyle="BgMetalBar" halign="center"/>
-    </frame>
+        <quad size="130 10" halign="center" valign="center" style="UICommon128_1" substyle="BgDialogTitle" pos="0 12" z-index="1"/>
+				<quad size="130 34" halign="center" valign="center" style="UICommon128_1" substyle="BgDialog" pos="0"/>
+        
