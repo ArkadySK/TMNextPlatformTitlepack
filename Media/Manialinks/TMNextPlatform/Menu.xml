@@ -74,16 +74,17 @@
 			<label class="ModernButton" text=" " id="SoloBTN" scriptevents="1"/>
 			<label class="ModernButtonText" text="Campaign" translate="1" />
 		</frame>
+		
 		<frame pos="0 -16">
-			<quad class="ModernIcon" style="UICommon64_2" substyle="MaximizeWindow_light"/>
-			<label class="ModernButton" text=" " id="EditorsBTN" scriptevents="1"/>
-			<label class="ModernButtonText" text="Editors" translate="1" />
+			<quad class="ModernIcon" style="UICommon64_2" substyle="Track2_light"/>
+			<label class="ModernButton" text=" " id="LocalPlayBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Tracks" translate="1" />
 		</frame>
 		
 		<frame pos="0 -32">
-			<quad class="ModernIcon" style="UICommon64_1" substyle="User_light"/>
-			<label class="ModernButton" text=" " id="LocalPlayBTN" scriptevents="1"/>
-			<label class="ModernButtonText" text="Local Play" translate="1" />
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Breakpoint_light"/>
+			<label class="ModernButton" text=" " id="ReplaysBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Replays" translate="1" />
 		</frame>	
 		
 		<frame pos="0 -48">
@@ -546,7 +547,7 @@ Void GoToProfile()	{
 
 Void GoToMainMenu()	{
 	SelectedItemIndex = 0;
-	MenuButtonNames = ["SoloBTN", "EditorsBTN", "LocalPlayBTN", "ProfileBTN",  "xko"];
+	MenuButtonNames = ["SoloBTN", "LocalPlayBTN", "ReplaysBTN", "ProfileBTN",  "xko"];
 	MenuPage = "Main";
 	Page.GetFirstChild("FrameSolo").Hide();
 	Page.GetFirstChild("FrameProfile").Hide();
@@ -780,9 +781,9 @@ main() {
 			if (LastClickedId == "SoloBTN") {
 				GoToSolo();
 			}
-			if (LastClickedId == "EditorsBTN") {
+			if (LastClickedId == "ReplaysBTN") {
 				if(Persistent_IsPlatformTester)
-					SendCustomEvent(MENU_ACTION, ["editors"]);
+					SendCustomEvent(MENU_ACTION, ["replays"]);
 				else 
 					SendCustomEvent(MENU_ACTION, ["show_demo_dialog"]);
 			}
