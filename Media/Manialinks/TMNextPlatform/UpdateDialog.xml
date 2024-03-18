@@ -1,15 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-        <frame z-index="1">
-						<label pos="-60 4" z-index="0" size="120 10" text="You're currently running an old version of the titlepack. You should update to enjoy all the new features. Update?" halign="left" autonewline="1" textsize="2" textfont="GameFontRegular"/>
-            <label pos="0 12" z-index=".1" size="130 7" halign="center" valign="center" style="TextTitle3"
-                   text="TM2020 - Platform: Update Available" translate="1"/>
-            <label id="UpdateButton" pos="-60 -11" z-index=".2" size="35 7" valign="center" style="CardButtonMedium"
-                   scriptevents="1" text="Update"/>
-						<label id="ContinueButton" pos="0 -11" z-index=".2" size="35 7" valign="center" style="CardButtonMedium"
-                   scriptevents="1" text="Ignore" halign="center"/>
-        <label id="CloseButton" pos="60 -11" z-index=".2" size="35 7" halign="right" valign="center" style="CardButtonMedium"
-                   scriptevents="1" text="Close"/>
-        </frame>
-        <quad size="130 10" halign="center" valign="center" style="UICommon128_1" substyle="BgDialogTitle" pos="0 12" z-index="1"/>
-				<quad size="130 34" halign="center" valign="center" style="UICommon128_1" substyle="BgDialog" pos="0"/>
+<frame z-index="1">
+       <label pos="-60 4" z-index="0" size="120 10" text="You're currently running an old version of the titlepack. You should update to enjoy all the new features. Update?" halign="left" autonewline="1" textsize="2" textfont="GameFontRegular"/>
+       <label pos="0 12" z-index=".1" size="130 7" halign="center" valign="center" style="TextTitle3"
+              text="TM2020 - Platform: Update Available" translate="1"/>
+       <label id="UpdateButton" pos="-60 -11" z-index=".2" size="35 7" valign="center" style="CardButtonMedium"
+              scriptevents="1" text="Update"/>
+       <label id="IgnoreButton" pos="0 -11" z-index=".2" size="35 7" valign="center" style="CardButtonMedium"
+              scriptevents="1" text="Ignore" halign="center"/>
+       <label id="ExitButton" pos="60 -11" z-index=".2" size="35 7" halign="right" valign="center" style="CardButtonMedium"
+              scriptevents="1" text="Exit"/>
+</frame>
+<quad size="130 10" halign="center" valign="center" style="UICommon128_1" substyle="BgDialogTitle" pos="0 12" z-index="1"/>
+<quad size="130 34" halign="center" valign="center" style="UICommon128_1" substyle="BgDialog" pos="0"/>
+
+<script><!-- 
+main()	{
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::ShowDialog , 1, 1.);
+	while(True)	{
+		yield;
+		foreach(Event, PendingEvents) {
+			if (Event.Type ==  CMlEvent::Type::MouseClick)	{
+				if(Event.ControlId != "") {
+					Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog , 1, 1.);
+                            }
+                            if(Event.ControlId == "UpdateButton")	{
+					SendCustomEvent("MLHook_menu_action", ["update_dialog_update"]);
+				}
+				else if(Event.ControlId == "IgnoreeButton")	{
+					SendCustomEvent("MLHook_menu_action", ["update_dialog_ignore"]);
+				}
+				else if(Event.ControlId == "ExitButton")	{
+					SendCustomEvent("MLHook_menu_action", ["hide_demo_exit"]);
+				}
+			}
+		}
+	}			
+}
+--></script>
         
