@@ -21,11 +21,11 @@ main()	{
 			if (Event.Type ==  CMlEvent::Type::MouseClick)	{
 				if(Event.ControlId != "") {
 					Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog , 1, 1.);
-                            }
-                            if(Event.ControlId == "UpdateButton")	{
+                }
+                if(Event.ControlId == "UpdateButton")	{
 					SendCustomEvent("MLHook_menu_action", ["update_dialog_update"]);
 				}
-				else if(Event.ControlId == "IgnoreeButton")	{
+				else if(Event.ControlId == "IgnoreButton")	{
 					SendCustomEvent("MLHook_menu_action", ["update_dialog_ignore"]);
 				}
 				else if(Event.ControlId == "ExitButton")	{
