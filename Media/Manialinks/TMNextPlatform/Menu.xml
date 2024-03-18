@@ -211,6 +211,7 @@
 		<label pos="-20 -30"  text="Race" translate="1" style="TextButtonBig" textsize="2.5"/>
 		<label pos="20 -30" textfont="GameFontRegular" text="???" id="RaceRecordMap" textsize="2.5" translate="1" halign="right" textemboss="1"/>
 		<label pos="-20 -36" text="Platform" translate="1" style="TextButtonBig" textsize="2.5"/>
+		<label pos="19 -20" textfont="GameFontRegular" size="38 4" text="Author" id="MapAuthor" textsize="2" translate="1" textemboss="1" halign="right"/>
 		<label pos="20 -36" textfont="GameFontRegular" size="0" text="???" id="PlatformRecordMap" textsize="2.5" translate="1" halign="right" textemboss="1"/>
 	</frame>
 	
@@ -330,6 +331,7 @@ declare Text[] MenuButtonNames;
 declare Text LastClickedId;
 
 Void ResetSelectedMap()	{
+	(Page.GetFirstChild("MapAuthor") as CMlLabel).SetText("");
 	(Page.GetFirstChild("RaceRecordMap") as CMlLabel).SetText("");
 	(Page.GetFirstChild("PlatformRecordMap") as CMlLabel).SetText("");
 	(Page.GetFirstChild("SelectedMapImage") as CMlQuad).ImageUrl = "";
@@ -704,6 +706,7 @@ main() {
 					if ((Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected == False) 	{
 						Deselect();
 						
+						(Page.GetFirstChild("MapAuthor") as CMlLabel).SetText(Map.AuthorNickName);
 						(Page.GetFirstChild("SelectedMapImage") as CMlQuad).ImageUrl = "file://Thumbnails/MapUid/"^Map.MapUid;
 																
 						(Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected = True;
