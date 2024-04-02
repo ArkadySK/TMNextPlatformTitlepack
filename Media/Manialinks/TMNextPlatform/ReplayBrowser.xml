@@ -277,7 +277,9 @@ main() {
 			}
 			if(LastClickedControl == "LaunchItemLabel") {
 				Audio.PlaySoundEvent(CAudioManager::ELibSound::Start, 0, 1.);
-				//TitleControl.EditReplay(SelectedItemsPaths);
+				if(SelectedItemsPaths.count > 0) {
+					//TitleControl.EditReplay(SelectedItemsPaths);
+				}
 			}
 			if(LastClickedControl == "HideOptionsLabel") {
 				HideOptions();
