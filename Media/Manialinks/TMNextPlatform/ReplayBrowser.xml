@@ -11,8 +11,8 @@
 <framemodel id="Item">
 	<label pos="-52 0" z-index="2" size="80 5" text="_replay_name_" halign="left" textfont="GameFontRegular" textemboss="1"/>
 	<label pos="52 0" z-index="2" size="24 5" text="???" halign="right" textfont="GameFontRegular" textemboss="1"/>
-	<quad class="ItemButtonQuad" pos="0 3" z-index="1" size="220 20" scale=".5" scriptevents="1" halign="center" bgcolor="FFFFFFFF" opacity=".9"/>
-	<quad class="ItemButtonQuadTM2020" hidden="1" pos="0 3" z-index="1" size="220 20" scale=".5" style="UICommon128_1" substyle="BgFrameTilted1" scriptevents="1" halign="center" bgcolor="FFFFFFFF" opacity=".9"/>
+	<quad class="ItemButtonQuad" pos="0 3" z-index="1" size="220 20" scale=".5" style="UICommon128_1" substyle="BgFrameTilted1" scriptevents="1" halign="center" bgcolor="FFFFFFFF" opacity=".9"/>
+	<quad class="ItemButtonQuadMP" hidden="1" pos="0 3" z-index="1" size="220 20" scale=".5" scriptevents="1" halign="center" bgcolor="FFFFFFFF" opacity=".9"/>
 </framemodel>		
 
 <frame z-index="-1" id="FrameMenuCommon" >	
@@ -46,10 +46,10 @@
 </frame>
 
 <frame id="SelectedItemFrame" pos="109 15" hidden="">
-	<label pos="-1 29" z-index="0" size="90 100" text="None" id="ItemNamesLabel" translate="1" halign="center" textemboss="1" textsize="2.5"/>
+	<label pos="-1 29" hidden="1" z-index="0" size="90 100" text="None" id="ItemNamesLabel" translate="1" halign="center" textemboss="1" textsize="2.5"/>
 	<quad pos="0 -90" z-index="-1" size="80 24" style="UICommon128_1" substyle="BgDialog" halign="center" valign="bottom" scriptevents="1"/>
 	<label id="LaunchItemLabel" pos="0 -74" z-index="3" size="20 5" text="Launch" style="CardButtonMediumL" halign="center" translate="1" scriptevents="1" scale="1.2"/>
-	</frame>
+</frame>
 
 <quad size="120 150" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center"/>
 <label pos="0 67" z-index="3" size="75 10" text="_folder_path_" id="FolderPathLabel" halign="center" valign="center2" textfont="GameFontSemiBold"/>
@@ -156,7 +156,7 @@ Void DisplayItems(CTaskResult_ReplayList _ItemList) {
 		Frame.Show();
 		declare SubfolderSplits = TextLib::Split("\\", _ItemList.SubFolders[index]);
 		(Frame.Controls[0] as CMlLabel).Value =  SubfolderSplits[SubfolderSplits.count - 1];
-		(Frame.Controls[0] as CMlLabel).TextColor = <0.15, 0.15, 0.15>;
+		(Frame.Controls[0] as CMlLabel).TextColor = <0.95, 0.95, 0.95>;
 		(Frame.Controls[1] as CMlLabel).Value = "";
 		(Frame.Controls[2] as CMlQuad).ModulateColor = <0.7, 0.7, 0.7>;
 		CurrentPage_AllPaths.add(_ItemList.SubFolders[index]);
@@ -171,9 +171,9 @@ Void DisplayItems(CTaskResult_ReplayList _ItemList) {
 		Frame.Show();
 		(Frame.Controls[0] as CMlLabel).Value = ItemInfo.Name;
 		if(SelectedItemsPaths.exists(ItemInfo.FileName))
-			(Frame.Controls[0] as CMlLabel).TextColor = <0.75, 0.75, 0.75>;
+			(Frame.Controls[0] as CMlLabel).TextColor = <0.4, 0.9, 0.4>;
 		else
-			(Frame.Controls[0] as CMlLabel).TextColor = <0.15, 0.15, 0.15>;
+			(Frame.Controls[0] as CMlLabel).TextColor = <0.25, 0.25, 0.25>;
 		(Frame.Controls[2] as CMlQuad).ModulateColor = <0.99, 0.99, 0.99>;
 		CurrentPage_AllPaths.add(ItemInfo.FileName);
 	}
@@ -278,7 +278,7 @@ main() {
 			if(LastClickedControl == "LaunchItemLabel") {
 				Audio.PlaySoundEvent(CAudioManager::ELibSound::Start, 0, 1.);
 				if(SelectedItemsPaths.count > 0) {
-					//TitleControl.EditReplay(SelectedItemsPaths);
+					TitleControl.EditReplay(SelectedItemsPaths);
 				}
 			}
 			if(LastClickedControl == "HideOptionsLabel") {
@@ -301,4 +301,4 @@ main() {
 	}
 }
 --></script>
-</manialink>
+    </manialink>
