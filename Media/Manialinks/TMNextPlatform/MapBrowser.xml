@@ -256,6 +256,9 @@ if (Event.Control.HasClass("MapButtonQuad"))	{
 Void DoNothing(){}
 
 main() {
+	// Page loaded sound
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
+		
 	declare LastClickedControl = "";
 	declare ProceededClick = "";
 	declare Path = "";

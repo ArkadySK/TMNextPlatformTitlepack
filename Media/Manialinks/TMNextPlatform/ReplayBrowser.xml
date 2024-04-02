@@ -208,6 +208,9 @@ if (Event.Control.HasClass("ItemButtonQuad"))	{
 Void DoNothing(){}
 
 main() {
+	// Page loaded sound
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
+		
 	declare LastClickedControl = "";
 	declare ProceededClick = "";
 	declare Path = "";
@@ -274,10 +277,10 @@ main() {
 				}
 			}
 			if(LastClickedControl == "LaunchItemLabel") {
-				Audio.PlaySoundEvent(CAudioManager::ELibSound::Start, 0, 1.);
-				if(SelectedItemsPaths.count > 0) {
+				if(SelectedItemsPaths.count > 0) 
 					TitleControl.EditReplay(SelectedItemsPaths);
-				}
+				else
+					Audio.PlaySoundEvent(CAudioManager::ELibSound::HideMenu, 0, 1.);
 			}
 			if(LastClickedControl == "HideOptionsLabel") {
 				HideOptions();
