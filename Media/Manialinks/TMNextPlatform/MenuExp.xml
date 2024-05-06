@@ -1,0 +1,995 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<manialink version="3">
+<stylesheet>
+	<style id="LabelWelcome" posn="-10 10"  size="57 8" style="TextTitle3" textfont="GameFontExtraBold" textsize="4" sizen="40 5"/>
+	<style id="LabelActivity" posn="-10 3" sizen="56 10" style="TextTitle2" textfont="GameFontRegular"/>		
+	<style class="AboutText" style="TextTitle2" size="190 5" textfont="GameFontRegular"/>
+	<style class="InfoText" style="TextTitle2" pos="-45 0" size="80 5" textfont="GameFontRegular"/>
+	<style id="M_Medal1 M_Medal2 M_Medal3 M_Medal4 M_Medal5 M_Medal6 M_Medal7 M_Medal8 M_Medal9 M_Medal10 M_Medal11 M_Medal12 M_Medal13 M_Medal14 M_Medal15" style="MedalsBig" substyle="MedalSlot" pos="88 44" z-index="25" size="10 10"/> 	
+	<style id="M_Name1 M_Name2 M_Name3 M_Name4 M_Name5 M_Name6 M_Name7 M_Name8 M_Name9 M_Name10 M_Name11 M_Name12 M_Name13 M_Name14 M_Name15" sizen="50 6" textfont="GameFontSemiBold" textsize="3" valign="center2" textemboss="1" pos="4 39"/>
+	<style id="M_SP1 M_SP2 M_SP3 M_SP4 M_SP5 M_SP6 M_SP7 M_SP8 M_SP9 M_SP10 M_SP11 M_SP12 M_SP13 M_SP14 M_SP15" style="TextRaceChronoOfficial" textsize="2.8" valign="center2" z-index="10"/>	
+	<style id="M_PlatformRecord1 M_PlatformRecord2 M_PlatformRecord3 M_PlatformRecord4 M_PlatformRecord5 M_PlatformRecord6 M_PlatformRecord7 M_PlatformRecord8 M_PlatformRecord9 M_PlatformRecord10" textemboss="1" textsize="2.5" valign="center2" pos="72 38.7"  z-index="10" textfont="GameFontRegular"/>	
+	<style id="M_Main1 M_Main2 M_Main3 M_Main4 M_Main5 M_Main10 M_Main6 M_Main8 M_Main7 M_Main9 M_Main11 M_Main12 M_Main13 M_Main14 M_Main15" 
+	size="102 10" style="UICommon128_1" substyle="BgFrame1" pos="0 44" z-index="-25" opacity="0.8"/>
+	
+	<style class="MapScoreBg" pos="65 42" z-index="-2" size="20 6"  opacity="0.6" substyle="BgToolTilted" style="UICommon128_1" modulatecolor="4D4D4DFF" />
+	<style id="MapMedal" style="MedalsBig" substyle="MedalSlot" pos="87.75 44.25" z-index="25" size="10.5 10.5"/> 	
+	<style id="Zamocek0" pos="13 42" z-index="3" size="14 14" style="UICommon64_1" substyle="PadlockLocked_light" scriptevents="1" halign="center"/>
+	<style class="MapLockedLabel" pos="13 29" z-index="0" size="18 5" translate="1" textsize="2" halign="center" style="TextTitle2"/>
+
+	<style style="CardButtonMediumXL" size="76 12" class="ModernButton" scale="1.46"/>
+	<style class="ModernIcon" size="10 10" z-index="1" pos="1 -1"/>
+	<style class="ModernButtonText" size="55 12" textcolor="FFF" opacity="0.8"  pos="17 -6" z-index="1" style="TextButtonNav" halign="left" valign="center2" textsize="2.5"/>
+</stylesheet>
+	
+<frame z-index="-1" id="FrameMenuCommon" >	
+	<quad posn="-160 0.5" sizen="80.7 200" z-index="-5"  substyle="" valign="center" bgcolor="272727FF" opacity=".6"/>
+	<quad posn="-161 90" sizen="82 34" z-index="-4"  style="UICommon128_1" substyle="BgDialogTitle"  opacity=".8" valign="top" hidden="1"/>
+	
+	
+	<frame pos="-158 -68.75">
+		<quad class="ModernIcon" style="UICommon64_1" substyle="ArrowLeftSlim_light"/>
+		<label class="ModernButton" id="xko" scriptevents="1"/>
+		<label class="ModernButtonText" text="Back" translate="1" />
+	</frame>
+</frame>
+
+<frame id="LockFrame" z-index="100" hidden="1">	
+	<quad style="UICommon128_1" substyle="BgDialog" posn="0 15" sizen="168 25" z-index="-5" halign="center" />
+	<label  z-index="3" size="157 5" valign="center" pos="-78.5 7" translate="1" autonewline="1" style="TextCardMedium" id="LockR" text="Locked" textsize="2.2"/>
+	<label z-index="21" text="OK" style="CardButtonMediumL" textsize="3" halign="center" translate="1" id="HideMessageDialog" scriptevents="1"/>
+	<quad pos="0 0" z-index="0" size="400 200" halign="center" valign="center" scriptevents="1" style="Bgs1" substyle="BgEmpty"/>
+</frame>
+
+<frame id="FrameMainMenu"  hidden="1">
+	<frame id="MainPanel" z-index="-4" pos="-130 70.5">				
+		<quad style="UICommon64_2"  sizen="16 16" pos="-28 12" substyle="Edit_light"/>
+		<label id="LabelWelcome" text="Welcome!" posn="-10 10" sizen="56 8" translate="1"/>
+		<label id="LabelActivity" text="Choose an activity" posn="-10 3" sizen="56 10" translate="1" autonewline="1"/>
+	</frame>	
+	
+	<frame id="FrameAbout" pos="41 5" scale="1.12">
+		<label pos="0 52" z-index="0" size="100 5" text="Information" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
+		<quad z-index="-9" size="200 10" style="UICommon128_1" substyle="BgDialogTitle" halign="center" pos="0 55"/>
+		<label class="AboutText" text= "Welcome to TMNext Platform titlepack!" textfont="GameFontSemiBold"pos="-95 42"/>
+		<label class="AboutText" text= "The classic gamemode from TM1 and TM2 arrives back to TM2020! And it arrives in style - in a full-scaled titlepack."  pos="-95 37" autonewline="1"/>
+		<label class="AboutText" text= "What is Platform?" pos="-95 22" textfont="GameFontSemiBold"/>
+		<label class="AboutText" text= "Platform is a gamemode, where your aim is to successfully finish the map with the least amount of respawns." pos="-95 17" autonewline="1"/>
+		
+		<quad pos="0 2" z-index="0" size="199.4 30" bgcolor="FFF" opacity="0.7" halign="center" image="file://Media/Images/TMNextPlatform/Loadscreen.jpg" keepratio="Clip"/>
+		<label pos="0 -30" z-index="0" size="100 5" text="Credits" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
+		<label class="AboutText" text= "Main: Arkady" pos="-95 -36" autonewline="1"/>
+		<label class="AboutText" text= "Mappers: Zai, Plantathon, skachacha, Arkes, Arkady" pos="-95 -41" autonewline="1"/>
+		<label class="AboutText" text= "Other testers: bmx22c, florenzius, arnoo" pos="-95 -46" autonewline="1"/>
+		<label class="AboutText" text= "Music: BigBang1112" pos="-95 -51" autonewline="1"/>
+		<label class="AboutText" text= "Updater: ThaumicTom, Plantathon, Arkady" pos="-95 -56" autonewline="1"/>
+		
+		<quad z-index="-10" size="200 120" style="UICommon128_1" substyle="BgDialog" halign="center" pos="0 55"/>
+	</frame>
+	
+	<frame id="ModernMenu" pos="-158 40">
+		<frame>
+			<quad class="ModernIcon" style="UICommon64_2" substyle="Cup_light"/>
+			<label class="ModernButton" text=" " id="SoloBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Campaign" translate="1" />
+		</frame>
+		
+		<frame pos="0 -16">
+			<quad class="ModernIcon" style="UICommon64_2" substyle="Track2_light"/>
+			<label class="ModernButton" text=" " id="LocalPlayBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Tracks" translate="1" />
+		</frame>
+		
+		<frame pos="0 -32">
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Breakpoint_light"/>
+			<label class="ModernButton" text=" " id="ReplaysBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Replays" translate="1" />
+		</frame>	
+		
+		<frame pos="0 -48">
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Settings_light"/>
+			<label class="ModernButton" text=" " id="ProfileBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Settings" translate="1" />
+		</frame>
+	</frame>
+	
+	<frame id="Links" pos="83 -52">
+	<quad pos="0 0" size="12 12" image="file://Media/Images/TMNextPlatform/Icon/discord.png" halign="left"/>
+	<label pos="0" textsize="10"size="12 12" url="https://discord.gg/JEHzjy2" z-index="1"/>
+
+	<quad pos="16 0" z-index="0" size="48 12" bgcolor="FFFFFF94" image="file://Media/Images/TMNextPlatform/Icon/Github.png"/>
+	<label pos="16 0" textsize="10"size="48 12" url="https://github.com/ArkadySK/TMNextPlatform" z-index="1"/>
+	</frame>
+</frame>
+	
+
+	
+	
+	
+	<frame id="FrameProfile" hidden="1">
+	<frame id="MainPanel" z-index="-4" pos="-130 70.5">				
+		<quad style="UICommon64_1"  sizen="16 16" pos="-28 12" substyle="Settings_light"/>
+		<label id="LabelWelcome" text="Settings" posn="-10 10" sizen="56 8" translate="1"/>
+		<label id="LabelActivity" text="Personal Settings and Data" posn="-10 3" sizen="56 10" translate="1" autonewline="1"/>
+	</frame>	
+	
+	<frame id="FrameSettings" pos="41 0" scale="1.12">
+		<label pos="0 47" z-index="0" size="90 5" text="Settings" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
+		<quad z-index="-9" size="100 10" style="UICommon128_1" substyle="BgDialogTitle" halign="center" pos="0 50"/>
+		
+		<label pos="0 36" z-index="0" size="90 5" text="Title settings" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
+	
+		<frame pos="0 28">
+			<label class="InfoText" text="Enable speedometer" translate="1"/>
+			<quad id="ShowSpeedCheck" z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
+		</frame>
+		
+		<frame pos="0 18" hidden="">
+			<label class="InfoText" text="Disable music player" translate="1"/>
+			<quad id="DisableMusicPlayerCheck" z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
+		</frame>
+		
+		<frame pos="0 08" hidden="">
+			<label class="InfoText" text="Hide 'Enter Platform!' button" translate="1"/>
+			<quad id="HideEnterPlatformCheck" z-index="0" size="10 10" style="UICommon64_1" substyle="CheckboxCircle_light" scriptevents="1" halign="center" valign="center" pos="40 -2"/>
+		</frame>
+		
+		<frame pos="0 -12">
+			<label class="InfoText" text="Legacy settings" translate="1"/>
+			<label id="ShowLegacySettingsBTN" pos="11 1" z-index="5" size="20 5" text="Show" style="CardButtonSmallS" translate="1" scriptevents="1" scale="1.2"/>
+		</frame>
+	
+		<frame pos="0 -40">
+			<label pos="0 8" z-index="0" size="90 5" text="Vehicle" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>	
+			<label class="InfoText" id="HornNameLabel" text="???" translate="1" textsize="3" halign="right" pos="34 0" size="40"/>
+			<label class="InfoText" text="Horn" translate="1" size="40"/>
+			<quad z-index="0" size="10 10" substyle="Parameters_light" style="UICommon64_1" scriptevents="1" halign="center" valign="center" pos="40 -2" id="HornsBTN"/>
+		</frame>
+		
+		<quad z-index="-10" size="100 100" style="UICommon128_1" substyle="BgDialog" halign="center" valign="center" pos="0 0"/>
+	</frame>
+	
+	<frame id="ModernMenu" pos="-158 40">
+		<frame pos="0 -0">
+			<quad class="ModernIcon" style="UICommon64_2" substyle="Refresh_light"/>
+			<label class="ModernButton" text=" " id="UpdateBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Update data" translate="1" />
+		</frame>
+		
+		<frame id="LegacySettingsFrame" hidden="1">	
+			<frame pos="0 -16">
+				<quad class="ModernIcon" style="UICommon64_1" substyle="LightSettings_light"/>
+				<label class="ModernButton" text=" " id="GraphicSettingsBTN" scriptevents="1"/>
+				<label class="ModernButtonText" text="Graphic Settings" translate="1" />
+			</frame>
+			
+			<frame pos="0 -32">
+				<quad class="ModernIcon" style="UICommon64_1" substyle="SteeringWheel_light"/>
+				<label class="ModernButton" text=" " id="InputSettingsBTN" scriptevents="1"/>
+				<label class="ModernButtonText" text="Input Settings" translate="1" />
+			</frame>
+			
+			<frame pos="0 -48">
+				<quad class="ModernIcon" style="UICommon64_1" substyle="Mediatracker_light"/>
+				<label class="ModernButton" text=" " id="StereoscopyBTN" scriptevents="1"/>
+				<label class="ModernButtonText" text="Stereoscopy" translate="1" />
+			</frame>	
+		</frame>
+	</frame>
+	
+</frame>
+	
+	
+	
+	
+	
+	
+<frame id="FrameSolo"  hidden="">
+	<frame id="MainPanel" z-index="-4" pos="-130 70.5">				
+		<quad style="UICommon64_2"  sizen="16 16" pos="-28 12" substyle="Cup_light"/>
+		<label id="LabelWelcome" text="Campaign" translate="1"/>
+		<label id="LabelActivity" text="Choose a difficulty" translate="1"/>
+	</frame>
+	
+	<frame id="MedalsTotalFrame"  z-index="-2" pos="120 13">	
+		<quad style="Bgs1" substyle="BgList"  sizen="40 10" posn="0 54" z-index="-1" halign="center"/>	
+		<label id="MedalsLabel" size="24 8" pos="0 49.5" textfont="GameFontSemiBold" textsize="4" text="0" valign="center" halign="center" z-index="2"/>	
+		<quad pos="10 54" z-index="2" size="10 10" style="UICommon64_1" substyle="Medal_light"/>
+		<label id="header" text="Medals" sizen="50 5" pos="0 62" z-index="2" style="TextTitle3" textsize="2.5" translate="1" halign="center" valign="center" textfont="GameFontExtraBold" hidden="1"/>
+		<quad style="UICommon128_1" substyle="BgDialogTitle" pos="0 67" sizen="50 11" halign="center" hidden="1"/>
+		<quad style="UICommon128_1" substyle="BgDialog"  posn="0 57" sizen="50 15.5" z-index="-5" halign="center"/>
+</frame>
+
+<frame id="SelectedMapFrame"  z-index="-2" pos="120 -23.5">	
+		<quad style="UICommon128_1" substyle="BgDialogTitle" pos="0 31" sizen="50 11" halign="center"/>
+		<quad style="UICommon128_1" substyle="BgDialog"  posn="0 31" sizen="50 76" z-index="-5" halign="center"/>
+		<label pos="0 27.5"  text="Selected map" translate="1" style="TextTitle3" textfont="GameFontExtraBold" textsize="2.5" halign="center"/>
+		
+		<quad pos="0 15" size="40 40" halign="center" bgcolor="13131378" id="SelectedMapImage"/>
+		<label pos="0 -5" z-index="-1" size="20 11.9" text="None" translate="1" halign="center" valign="center" textfont="GameFontRegular"/>
+		
+		<label pos="-20 -30"  text="Race" translate="1" style="TextButtonBig" textsize="2.5"/>
+		<label pos="20 -30" textfont="GameFontRegular" text="???" id="RaceRecordMap" textsize="2.5" translate="1" halign="right" textemboss="1"/>
+		<label pos="-20 -36" text="Platform" translate="1" style="TextButtonBig" textsize="2.5"/>
+		<label pos="19 -20" textfont="GameFontRegular" size="38 4" text="Author" id="MapAuthor" textsize="2" translate="1" textemboss="1" halign="right"/>
+		<label pos="20 -36" textfont="GameFontRegular" size="0" text="???" id="PlatformRecordMap" textsize="2.5" translate="1" halign="right" textemboss="1"/>
+	</frame>
+	
+	<frame id="ModernMenu" pos="-158 40">
+		<frame>
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Flag_light"/>
+			<label class="ModernButton" text=" " id="WhiteBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Easy" translate="1"/>
+		</frame>
+		
+		<frame pos="0 -16">
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Flag_light" modulatecolor="00F556FF"/>
+			<label class="ModernButton" text=" " id="GreenBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Normal" translate="1"/>
+		</frame>
+		
+		<frame pos="0 -32">
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Flag_light" modulatecolor="00ACFFFF"/>
+			<label class="ModernButton" text=" " id="BlueBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Hard" translate="1"/>
+		</frame>
+		
+		<frame pos="0 -48">
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Flag_light" modulatecolor="FF0000FF"/>
+			<label class="ModernButton" text=" " id="RedBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Extreme" translate="1"/>
+		</frame>
+		
+		<frame pos="0 -64" hidden="1">
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Flag_light" modulatecolor="000000FF"/>
+			<label class="ModernButton" text=" " id="BlackBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Finals" translate="1"/>
+		</frame>
+		
+		<frame pos="0 -80" hidden="1">
+			<quad class="ModernIcon" style="UICommon64_1" substyle="Plus_light"/>
+			<label class="ModernButton" text=" " id="MoreMapsBTN" scriptevents="1"/>
+			<label class="ModernButtonText" text="Get more maps" translate="1"/>
+		</frame>
+	</frame>
+	
+	<frame pos="-40 23" scale=".95">	
+					<quad style="UICommon128_1" substyle="BgDialog" opacity="0.7" sizen="110 144" z-index="-35" halign="center" valign="center" scriptevents="1" id="MapsBg" pos="51 -24"/>
+		<frame id="M_Map1" hidden="1">
+			<quad id="M_Main1" scriptevents="1" />	
+			<quad id="M_Icon1" />
+			<quad class="MapScoreBg"/>
+			<label id="M_Name1" text="PlatformA01"/>	
+			<label id="M_PlatformRecord1" text="???"/>
+			<quad id="M_Medal1"/>
+			<quad id="MapMedal" />
+			<frame id="M_Lock1" hidden="1" z-index="20">
+				<quad id="Zamocek0"/>
+				<label class="MapLockedLabel" text="Locked" textemboss="1"/>
+			</frame>
+		</frame>
+		
+		<frame id="M_Map2" hidden="1" pos="0 -14">
+			<quad id="M_Main2" scriptevents="1" />	
+			<quad id="M_Icon2" />
+			<quad class="MapNameBg"/>
+			<quad class="MapScoreBg"/>
+			<label id="M_Name2" text="PlatformA02"/>	
+			<label id="M_PlatformRecord2" text="???"/>
+			<quad id="M_Medal2" />
+			<quad id="MapMedal" />
+			<frame id="M_Lock2" hidden="1" z-index="20">
+				<quad id="Zamocek0"/>
+				<label class="MapLockedLabel" text="Locked" textemboss="1"/>
+			</frame>
+		</frame>
+			
+		<frame id="M_Map3" hidden="1" pos="0 -28">
+			<quad id="M_Main3" scriptevents="1" />	
+			<quad id="M_Icon3" />
+			<quad class="MapNameBg"/>
+			<quad class="MapScoreBg"/>
+			<label id="M_Name3" text="PlatformA03"/>	
+			<label id="M_PlatformRecord3" text="???"/>
+			<quad id="M_Medal3" />
+			<quad id="MapMedal" />
+			<frame id="M_Lock3" hidden="1" z-index="20">
+				<quad id="Zamocek0"/>
+				<label class="MapLockedLabel" text="Locked" textemboss="1"/>
+			</frame>
+		</frame>
+		
+		<frame id="M_Map4" hidden="1" pos="0 -42">
+			<quad id="M_Main4" scriptevents="1" />	
+			<quad id="M_Icon4" />
+			<quad class="MapNameBg"/>
+			<quad class="MapScoreBg"/>
+			<label id="M_Name4" text="PlatformA04"/>	
+			<label id="M_PlatformRecord4" text="???"/>
+			<quad id="M_Medal4" />
+			<quad id="MapMedal" />
+			<frame id="M_Lock4" hidden="1" z-index="20">
+				<quad id="Zamocek0"/>
+				<label class="MapLockedLabel" text="Locked" textemboss="1"/>
+			</frame>
+		</frame>
+		
+		<frame id="M_Map5" hidden="1" pos="0 -56">
+			<quad id="M_Main5" scriptevents="1" />	
+			<quad id="M_Icon5" />
+			<quad class="MapNameBg"/>
+			<quad class="MapScoreBg"/>
+			<label id="M_Name5" text="PlatformA05"/>	
+			<label id="M_PlatformRecord5" text="???"/>
+			<quad id="M_Medal5" />
+			<quad id="MapMedal" />
+			<frame id="M_Lock5" hidden="1" z-index="20">
+				<quad id="Zamocek0"/>
+				<label class="MapLockedLabel" text="Locked" textemboss="1"/>
+			</frame>
+		</frame>
+			
+		<frame id="M_Map6" hidden="1" pos="0 -70">
+			<quad id="M_Main6" scriptevents="1" />	
+			<quad id="M_Icon6" />
+			<quad class="MapNameBg"/>
+			<quad class="MapScoreBg"/>
+			<label id="M_Name6" text="PlatformA06"/>	
+			<label id="M_PlatformRecord6" text="???"/>
+			<quad id="M_Medal6" />
+			<quad id="MapMedal" />
+			<frame id="M_Lock6" hidden="1" z-index="20">
+				<quad id="Zamocek0"/>
+				<label class="MapLockedLabel" text="Locked" textemboss="1"/>
+			</frame>
+		</frame>
+		
+		<frame id="M_Map7" hidden="1" pos="0 -84">
+			<quad id="M_Main7" scriptevents="1" />	
+			<quad id="M_Icon7" />
+			<quad class="MapNameBg"/>
+			<quad class="MapScoreBg"/>
+			<label id="M_Name7" text="PlatformA07"/>	
+			<label id="M_PlatformRecord7" text="???"/>
+			<quad id="M_Medal7" />
+			<quad id="MapMedal" />
+			<frame id="M_Lock7" hidden="1" z-index="20">
+				<quad id="Zamocek0"/>
+				<label class="MapLockedLabel" text="Locked" textemboss="1"/>
+			</frame>
+		</frame>
+		
+		<frame id="M_Map8" hidden="1" pos="0 -98">
+			<quad id="M_Main8" scriptevents="1" />	
+			<quad id="M_Icon8" />
+			<quad class="MapNameBg"/>
+			<quad class="MapScoreBg"/>
+			<label id="M_Name8" text="PlatformA08"/>	
+			<label id="M_PlatformRecord8" text="???"/>
+			<quad id="M_Medal8" />
+			<quad id="MapMedal" />
+			<frame id="M_Lock8" hidden="1" z-index="20">
+				<quad id="Zamocek0"/>
+				<label class="MapLockedLabel" text="Locked" textemboss="1"/>
+			</frame>
+		</frame>
+		
+		<frame id="M_Map9" hidden="1" pos="0 -112">
+			<quad id="M_Main9" scriptevents="1" />	
+			<quad id="M_Icon9" />
+			<quad class="MapNameBg"/>
+			<quad class="MapScoreBg"/>
+			<label id="M_Name9" text="PlatformA09"/>	
+			<label id="M_PlatformRecord9" text="???"/>
+			<quad id="M_Medal9" />
+			<quad id="MapMedal" />
+			<frame id="M_Lock9" hidden="1" z-index="20">
+				<quad id="Zamocek0"/>
+				<label class="MapLockedLabel" text="Locked" textemboss="1"/>
+			</frame>
+		</frame>
+		
+		<frame id="M_Map10" hidden="1" pos="0 -126">
+			<quad id="M_Main10" scriptevents="1" />	
+			<quad id="M_Icon10" />
+			<quad class="MapNameBg"/>
+			<quad class="MapScoreBg"/>
+			<label id="M_Name10" text="PlatformA10"/>	
+			<label id="M_PlatformRecord10" text="???"/>
+			<quad id="M_Medal10" />
+			<quad id="MapMedal" />
+			<frame id="M_Lock10" hidden="1" z-index="20">
+				<quad id="Zamocek0"/>
+				<label class="MapLockedLabel" text="Locked" textemboss="1"/>
+			</frame>
+		</frame>
+	</frame>
+</frame>
+
+<script><!--
+#Include "TextLib" as TextLib
+
+#Struct MapRecord	{
+	Integer Time;
+	Integer NbRespawns;
+	Integer MedalCount;
+}
+
+#Const MENU_ACTION "MLHook_menu_action"
+
+declare MapRecord[CMapInfo] MapRecords;
+declare Integer MedalsTotal;
+declare Text CampaignPath;
+
+declare Text MenuPage;
+declare Integer SelectedItemIndex;
+declare Text[] MenuButtonNames;
+declare Text LastClickedId;
+
+Void ResetSelectedMap()	{
+	(Page.GetFirstChild("MapAuthor") as CMlLabel).SetText("");
+	(Page.GetFirstChild("RaceRecordMap") as CMlLabel).SetText("");
+	(Page.GetFirstChild("PlatformRecordMap") as CMlLabel).SetText("");
+	(Page.GetFirstChild("SelectedMapImage") as CMlQuad).ImageUrl = "";
+}
+
+Void Deselect()	{
+	for (yy, 1, 10) {
+		(Page.GetFirstChild("M_Main"^yy) as CMlQuad).StyleSelected = False;
+		(Page.GetFirstChild("M_Main"^yy) as CMlQuad).ModulateColor = <1., 1., 1.>;
+	}
+	ResetSelectedMap();
+}
+
+Text TimeToText(Integer _score, Boolean _useMS)	{
+	// Dirty as hell, I would rather use TL but it crashes the scripts so...
+	declare hours = _score / (60000 * 60);
+	declare minutes = _score / 60000 - hours * 60;
+	declare seconds = _score / 1000 - minutes * 60;
+	declare ms = (_score - seconds * 1000 - minutes * 60000) / 10;
+	
+	declare secondsText = ":"^seconds;
+	if (seconds < 10)
+		secondsText = ":0"^seconds;
+	
+	declare Text msText;
+
+	if(_useMS)	{
+		msText = "."^ms;
+		if (ms < 10)
+			msText = ".0"^ms;
+	}
+
+	if(hours == 0)
+		return minutes ^ secondsText ^ msText;
+	else
+		return hours ^ ":" ^ minutes ^ secondsText ^ msText;
+	return "";
+}
+
+CGhost Map_GetRecordGhost(Text MapName)	{
+	declare MapGhosts = DataFileMgr.Replay_Load("TMNextPlatform\\Records\\AutoSave"^MapName^".Replay.Gbx");
+	wait(MapGhosts != Null);
+	if(!MapGhosts.HasSucceeded)
+		return Null;
+	if(MapGhosts.Ghosts.count > 0)
+		return MapGhosts.Ghosts[0];
+	return Null;
+}
+
+Void ShowMessage(Text _Text)	{
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::ShowDialog, 0, 1.);
+	Page.GetFirstChild("LockFrame").Show();
+	(Page.GetFirstChild("LockR") as CMlLabel).SetText(_Text);
+}
+
+Void ClearShownMaps()	{
+	for (y, 1, 10)	{
+		(Page.GetFirstChild("M_Map"^y) as CMlFrame).Hide();
+		(Page.GetFirstChild("M_Icon"^y) as CMlQuad).Hide();
+		(Page.GetFirstChild("M_Medal"^y) as CMlQuad).Hide();
+		(Page.GetFirstChild("M_Lock"^y) as CMlFrame).Hide();
+		(Page.GetFirstChild("M_Name"^y) as CMlLabel).SetText("");
+		(Page.GetFirstChild("M_PlatformRecord"^y) as CMlLabel).SetText("");
+	}
+}
+
+Void DehoverAllMaps()	{
+	for (y, 1, 10)	{	
+		(Page.GetFirstChild("M_Main"^y) as CMlQuad).Opacity = 0.8;
+	}
+}
+
+Integer Map_GetMedalCount(CMapInfo Map, Integer Record_NbRespawns)	{
+	if(Record_NbRespawns == -1)
+		return 0;
+
+	declare Integer Author = 0;
+	declare Integer Gold = 1;
+	declare Integer Silver = 3;
+	declare Integer Bronze = 10;
+	
+	if(Map.TMObjective_AuthorTime > 0 && Map.TMObjective_AuthorTime < 100)	{
+		Author = Map.TMObjective_AuthorTime;
+		Gold = Map.TMObjective_GoldTime;
+		Silver = Map.TMObjective_SilverTime;
+		Bronze = Map.TMObjective_BronzeTime;
+	}
+	
+	if(Record_NbRespawns <= Author && Author != Gold)
+		return 4;
+	else if(Record_NbRespawns <= Gold)
+		return 3;
+	else if(Record_NbRespawns <= Silver)
+		return 2;
+	else if(Record_NbRespawns <= Bronze)
+		return 1;
+	return 0;
+}
+
+Void ReloadAllRecords()	{
+	MedalsTotal = 0;
+	declare CurFoldersTask = DataFileMgr.Map_GetGameList(CampaignPath, False);
+	sleep(100);
+	MapRecords.clear();
+	wait(!CurFoldersTask.IsProcessing);
+	declare MaxCol = CurFoldersTask.SubFolders.count - 1;
+	if(MaxCol > 4)
+		MaxCol = 4;
+	for (Col, 0, MaxCol) {
+		declare CurMapInfosTask = DataFileMgr.Map_GetGameList(CurFoldersTask.SubFolders[Col], False);
+		sleep(50);
+		foreach (Map in CurMapInfosTask.MapInfos) {	
+			if(Map == Null)
+				continue;
+			declare Integer Record_NbRespawns = -1;
+			declare Integer Record_Time = -1;
+			declare MapGhost = Map_GetRecordGhost(Map.Name);
+
+			if(MapGhost != Null)	{
+				Record_NbRespawns = MapGhost.Result.NbRespawns;
+				Record_Time = MapGhost.Result.Time;
+			}
+			declare NbMedals = Map_GetMedalCount(Map, Record_NbRespawns);
+	
+			MapRecords[Map] = MapRecord {
+				NbRespawns = Record_NbRespawns,
+				Time = Record_Time,
+				MedalCount = NbMedals
+			};
+
+			log("Map: " ^ Map.Name ^ ", PB: " ^MapRecords[Map]);
+			MedalsTotal += NbMedals;
+		}
+	}
+
+	(Page.GetFirstChild("MedalsLabel") as CMlLabel).SetText("" ^ MedalsTotal);
+	
+}
+
+Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
+
+	declare Text ScContext = "";
+	wait(!_MapInfosTask.IsProcessing);	
+	ClearShownMaps();
+	
+	declare i = 1;
+	foreach (Map in _MapInfosTask.MapInfos)	{
+		if(i > 10)
+			continue;			
+	
+	if (Map.Unlocked == False) {
+		(Page.GetFirstChild("M_Lock"^i) as CMlFrame).Show();
+		(Page.GetFirstChild("M_Name"^i) as CMlLabel).SetText("");
+		(Page.GetFirstChild("M_Icon"^i) as CMlQuad).ImageUrl = "";
+		(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Hide();
+		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText("");
+	}
+	else	{
+		(Page.GetFirstChild("M_Icon"^i) as CMlQuad).ImageUrl = "file://Thumbnails/MapUid/"^Map.MapUid;
+		(Page.GetFirstChild("M_Lock"^i) as CMlFrame).Hide();
+		(Page.GetFirstChild("M_Name"^i) as CMlLabel).SetText(Map.Name);
+		(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Show();
+	}
+	
+	switch (MapRecords[Map].MedalCount)	{
+		case 4: {
+			(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Substyle = "MedalNadeo";
+		}				
+		case 3: {
+			(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Substyle = "MedalGold";
+			}
+		case 2: {
+			(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Substyle = "MedalSilver";
+		}
+		case 1: {
+			(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Substyle = "MedalBronze";
+		}
+		case 0: {
+			(Page.GetFirstChild("M_Medal"^i) as CMlQuad).Substyle = "MedalSlot";
+		}
+	}	
+	if(MapRecords[Map].NbRespawns != -1)
+		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText(""^MapRecords[Map].NbRespawns);
+	else
+		(Page.GetFirstChild("M_PlatformRecord"^i) as CMlLabel).SetText("-");
+
+	(Page.GetFirstChild("M_Icon"^i) as CMlQuad).Show();
+	(Page.GetFirstChild("M_Map"^i) as CMlFrame).Show();
+	
+	i += 1;
+	}		
+}	
+
+// MENU NAVIGATION
+Void GoToSolo()	{
+	SelectedItemIndex = 0;
+	MenuButtonNames = ["WhiteBTN", "GreenBTN", "BlueBTN", "RedBTN", "BlackBTN", "xko"];
+	MenuPage = "Solo";
+	Page.GetFirstChild("FrameMainMenu").Hide();
+	Page.GetFirstChild("FrameSolo").Show();
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
+}
+
+Void GoToProfile()	{
+	SelectedItemIndex = 0;
+	MenuButtonNames = ["UpdateBTN", "xko", "ShowSpeedCheck", "DisableMusicPlayerCheck", "ShowLegacySettingsBTN", "HornsBTN"];
+	MenuPage = "Profile";
+	Page.GetFirstChild("FrameMainMenu").Hide();
+	Page.GetFirstChild("FrameProfile").Show();
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
+}
+
+Void GoToMainMenu()	{
+	SelectedItemIndex = 0;
+	MenuButtonNames = ["SoloBTN", "LocalPlayBTN", "ReplaysBTN", "ProfileBTN",  "xko"];
+	MenuPage = "Main";
+	Page.GetFirstChild("FrameSolo").Hide();
+	Page.GetFirstChild("FrameProfile").Hide();
+	Page.GetFirstChild("FrameMainMenu").Show();
+	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
+}
+
+Void ShowLegacySettings()	{
+	Page.GetFirstChild("ShowLegacySettingsBTN").Hide();
+	Page.GetFirstChild("LegacySettingsFrame").Show();
+	MenuButtonNames = ["UpdateBTN", "GraphicSettingsBTN", "InputSettingsBTN", "StereoscopyBTN", "xko", "ShowSpeedCheck", "DisableMusicPlayerCheck", "HornsBTN"];
+}
+
+Void LoadHornName() {
+	declare hornName = LocalUser.HornDisplayName;
+	if(hornName=="")
+		hornName = "default";
+	(Page.GetFirstChild("HornNameLabel") as CMlLabel).SetText(hornName);
+}
+
+// MOVEMENT
+Void UpdateFocus()	{
+	Page.GetFirstChild(MenuButtonNames[SelectedItemIndex]).Focus();
+}
+
+Void MoveDown()	{
+	if(SelectedItemIndex < MenuButtonNames.count - 1)
+		SelectedItemIndex += 1;
+	else
+		SelectedItemIndex = 0;
+}
+
+Void MoveUp()	{
+	if(SelectedItemIndex > 0)
+		SelectedItemIndex -= 1;
+	else
+		SelectedItemIndex = MenuButtonNames.count - 1;
+}
+
+Void PressEnter()	{
+	LastClickedId = MenuButtonNames[SelectedItemIndex];
+}
+
+// MAIN
+main() {
+	//init global vars 
+	CampaignPath = "PlatformTest";
+
+	declare persistent Boolean Persistent_ShowSpeed for LocalUser;
+	declare persistent Boolean Persistent_DisableMusicPlayer for LocalUser;
+	declare persistent Boolean Persistent_HideEnterPlatform for LocalUser;
+	declare persistent Boolean Menu_RefreshRecords for LocalUser;
+	declare persistent Boolean Persistent_IsPlatformTester for LocalUser;
+
+	declare Text ProceededId = "";
+	declare Text ScContext = "";
+	declare Text Color;
+
+	declare LeaveTPSound = Audio.CreateSound("https://raw.githubusercontent.com/ArkadySK/TMNextPlatform/main/Audio/ManiaPlanetZoomIn.wav");
+	declare CurMapInfosTask = DataFileMgr.Map_GetGameList("", False);
+	declare CurFoldersTask = DataFileMgr.Map_GetGameList(CampaignPath, False);
+	sleep(100);
+	wait(!CurFoldersTask.IsProcessing);
+		
+	Menu_RefreshRecords = False;
+	EnableMenuNavigation(True, True, Page.GetFirstChild("xko"), 1);
+	GoToMainMenu();
+	LoadHornName();
+	ReloadAllRecords();
+	
+	(Page.GetFirstChild("ShowSpeedCheck") as CMlQuad).StyleSelected = Persistent_ShowSpeed;
+	(Page.GetFirstChild("DisableMusicPlayerCheck") as CMlQuad).StyleSelected = Persistent_DisableMusicPlayer;
+	(Page.GetFirstChild("HideEnterPlatformCheck") as CMlQuad).StyleSelected = Persistent_HideEnterPlatform;
+
+	while(True){	
+
+		if(Menu_RefreshRecords)	{
+			ReloadAllRecords();
+			UpdateMapSelection(CurMapInfosTask);
+			log("records have been refreshed");
+			Menu_RefreshRecords = False;
+		}
+
+		switch (Color)	{
+			case "A":	{
+				CurMapInfosTask = DataFileMgr.Map_GetGameList(CurFoldersTask.SubFolders[0], False);
+				UpdateMapSelection(CurMapInfosTask);
+				Color = "";
+			}
+			case "B":	{
+				CurMapInfosTask = DataFileMgr.Map_GetGameList(CurFoldersTask.SubFolders[1], False);
+				UpdateMapSelection(CurMapInfosTask);
+				Color = "";
+			}
+			case "C":	{
+				CurMapInfosTask = DataFileMgr.Map_GetGameList(CurFoldersTask.SubFolders[2], False);
+				UpdateMapSelection(CurMapInfosTask);
+				Color = "";
+			}
+			case "D":	{
+				CurMapInfosTask = DataFileMgr.Map_GetGameList(CurFoldersTask.SubFolders[3], False);
+				UpdateMapSelection(CurMapInfosTask);
+				Color = "";
+			}
+			case "E":	{
+				CurMapInfosTask = DataFileMgr.Map_GetGameList(CurFoldersTask.SubFolders[4], False);
+				UpdateMapSelection(CurMapInfosTask);
+				Color = "";
+			}
+		}
+		
+		
+    	foreach (Event in PendingEvents) {
+			if (Event.Type == CMlEvent::Type::MouseOver) {
+				if(TextLib::StartsWith("M_Main",  Event.ControlId))	
+					(Page.GetFirstChild(Event.ControlId) as CMlQuad).Opacity = 0.6;
+				if(Event.ControlId == "MapsBg")
+					DehoverAllMaps();
+			}
+
+			if (Event.Type == CMlEvent::Type::MouseOut) {
+				if(TextLib::StartsWith("M_Main",  Event.ControlId))
+					(Page.GetFirstChild(Event.ControlId) as CMlQuad).Opacity = 0.8;
+			}
+
+			if (Event.Type == CMlEvent::Type::MouseClick) {
+				if(Event.ControlId != "")
+					LastClickedId = Event.ControlId;
+			}	
+
+			if (Event.Type == CMlEvent::Type::KeyPress) {
+				switch(Event.KeyName)	{
+					case "Down":
+						MoveDown();
+					case "Right":
+						MoveDown();
+					case "Up": 
+						MoveUp();
+					case "Left":
+						MoveUp();
+					case "Return": 
+						PressEnter();				
+				}	
+				UpdateFocus();
+				}	
+			}	
+
+		if(LastClickedId != ProceededId)	{
+			ProceededId = LastClickedId;
+
+			for (y, 1, 10)	{				
+				if (LastClickedId == "M_Main"^y) {
+					
+					declare CMapInfo Map;
+					Map <=> CurMapInfosTask.MapInfos[y-1];
+											
+					if ((Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected == False) 	{
+						Deselect();
+						
+						(Page.GetFirstChild("MapAuthor") as CMlLabel).SetText(Map.AuthorNickName);
+						(Page.GetFirstChild("SelectedMapImage") as CMlQuad).ImageUrl = "file://Thumbnails/MapUid/"^Map.MapUid;
+																
+						(Page.GetFirstChild("M_Main"^y) as CMlQuad).StyleSelected = True;
+						(Page.GetFirstChild("M_Main"^y) as CMlQuad).ModulateColor = <0.4, 0.4, 0.4>;
+						
+						declare Integer Record_Time = MapRecords[Map].Time;
+						declare Integer Record_NbRespawns = MapRecords[Map].NbRespawns;					
+						declare Text RecordText;
+						declare Text PlatformRecordText;
+						if (Record_Time !=-1)
+							RecordText = TimeToText(Record_Time, True);
+						else
+							RecordText = "-";		
+						if (Record_NbRespawns !=-1)
+							PlatformRecordText = ""^Record_NbRespawns;
+						else	{
+							PlatformRecordText = "-";
+							log("Replay for " ^ Map.Name ^ " not found!");
+						}
+						(Page.GetFirstChild("RaceRecordMap") as CMlLabel).SetText(RecordText);
+						(Page.GetFirstChild("PlatformRecordMap") as CMlLabel).SetText(PlatformRecordText);
+					}
+					else {
+						if(Map.Unlocked)	{
+							wait(TitleControl.IsReady);
+							TitleControl.PlayMap(Map.FileName, "Modes\\TrackMania\\LegacyMode.Script.txt", "");
+								Audio.PlaySoundEvent(CAudioManager::ELibSound::Start , 0, 1.);
+						}
+						else {
+							if (Color == "A") {
+								ShowMessage("You need a bronze medal on the previous map to unlock this map.");
+							}
+							else if (Color == "B") {
+								ShowMessage("You need a silver medal on the previous map to unlock this map.");
+							}
+							else if (Color == "C") {
+								ShowMessage("You need a silver medal on the previous map to unlock this map.");
+							}
+							else if (Color == "D") {
+								ShowMessage("You need a gold medal on the previous map to unlock this map.");
+							}
+							else if (Color == "E") {
+								ShowMessage("You need a gold medal on all the previous maps to unlock this map.");
+							}
+						}
+					}
+				}
+			}
+			
+			if (LastClickedId == "HideMessageDialog") {
+				Page.GetFirstChild("LockFrame").Hide();
+				Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
+			}
+			
+			//back button
+			if (LastClickedId == "xko") {
+				if(MenuPage == "Main"){
+					wait(LeaveTPSound != Null);
+					Audio.PlaySoundEvent(LeaveTPSound, 1.);
+					log("Leaving titlepack...");
+					SendCustomEvent(MENU_ACTION, ["quit_titlepack"]);
+				}
+				else{
+					GoToMainMenu();
+					ClearShownMaps();
+					Deselect();
+				}
+			}
+			
+			//main menu buttons
+			if (LastClickedId == "SoloBTN") {
+				GoToSolo();
+			}
+			if (LastClickedId == "ReplaysBTN") {
+				if(Persistent_IsPlatformTester)
+					SendCustomEvent(MENU_ACTION, ["replays"]);
+				else 
+					SendCustomEvent(MENU_ACTION, ["show_demo_dialog"]);
+			}
+			if (LastClickedId == "LocalPlayBTN") {
+				if(Persistent_IsPlatformTester)
+					SendCustomEvent(MENU_ACTION, ["local"]);
+				else 
+					SendCustomEvent(MENU_ACTION, ["show_demo_dialog"]);
+			}
+			if (LastClickedId == "ProfileBTN") {
+				GoToProfile();
+				MenuPage = "Profile";
+			}		
+			if (LastClickedId == "UpdateBTN") {
+				SendCustomEvent(MENU_ACTION, ["update_tp"]);
+			}
+			
+			//campaign buttons
+			if (LastClickedId == "WhiteBTN" || LastClickedId == "GreenBTN" || LastClickedId == "BlueBTN" || LastClickedId == "RedBTN" || LastClickedId == "BlackBTN")	{
+				Deselect();
+				Audio.PlaySoundEvent(CAudioManager::ELibSound::Valid, 0, 1.);
+				MenuButtonNames = ["WhiteBTN", "GreenBTN", "BlueBTN", "RedBTN", "BlackBTN", "xko"];
+				for(i, 1, 10)	{
+					MenuButtonNames.add("M_Main" ^ i);
+				}
+			}
+			if (LastClickedId == "WhiteBTN" && Color != "A")  {
+				if(CurFoldersTask.SubFolders.count > 0)
+					Color = "A";
+				else
+					ShowMessage("Folder not found!");
+			} 
+			if (LastClickedId == "GreenBTN" && Color != "B") {
+				if(CurFoldersTask.SubFolders.count > 1)
+					Color = "B";
+				else
+					ShowMessage("Folder not found!");
+			} 
+			if (LastClickedId == "BlueBTN" && Color != "C")	{
+				if(CurFoldersTask.SubFolders.count > 2)
+					Color = "C";
+				else
+					ShowMessage("Folder not found!");
+			}
+			if (LastClickedId == "RedBTN" && Color != "D") {
+				if(CurFoldersTask.SubFolders.count > 3)
+					Color = "D";
+				else
+					ShowMessage("Folder not found!");
+			}
+			if (LastClickedId == "BlackBTN" && Color != "E") {
+				if(CurFoldersTask.SubFolders.count > 4)
+					Color = "E";
+				else
+					ShowMessage("Folder not found!");
+			}
+			
+			if (LastClickedId == "MoreMapsBTN") {
+				SendCustomEvent(MENU_ACTION, ["show_demo_dialog"]);
+			}
+			
+			//profile buttons
+			if (LastClickedId == "GraphicSettingsBTN") {
+				SendCustomEvent(MENU_ACTION, ["graphic_settings"]);
+			}
+
+			if (LastClickedId == "InputSettingsBTN") {
+				SendCustomEvent(MENU_ACTION, ["input_settings"]);
+			}
+			
+			if (LastClickedId == "StereoscopyBTN") {
+				SendCustomEvent(MENU_ACTION, ["streoscopy_settings"]);
+			}
+			
+			if (LastClickedId == "HornsBTN") {
+				SendCustomEvent(MENU_ACTION, ["horns"]);
+				sleep(1000);
+				LoadHornName();
+			}
+			if (LastClickedId == "ShowSpeedCheck") {
+				if(Persistent_ShowSpeed)
+					Persistent_ShowSpeed = False;
+				else
+					Persistent_ShowSpeed = True;
+				(Page.GetFirstChild("ShowSpeedCheck") as CMlQuad).StyleSelected = Persistent_ShowSpeed;
+			}
+			if (LastClickedId == "DisableMusicPlayerCheck") {
+				if(Persistent_DisableMusicPlayer)
+					Persistent_DisableMusicPlayer = False;
+				else
+					Persistent_DisableMusicPlayer = True;
+				(Page.GetFirstChild("DisableMusicPlayerCheck") as CMlQuad).StyleSelected = Persistent_DisableMusicPlayer;
+			}
+			if (LastClickedId == "HideEnterPlatformCheck") {
+				if(Persistent_HideEnterPlatform)
+					Persistent_HideEnterPlatform = False;
+				else
+					Persistent_HideEnterPlatform = True;
+				(Page.GetFirstChild("HideEnterPlatformCheck") as CMlQuad).StyleSelected = Persistent_HideEnterPlatform;
+			}
+			if (LastClickedId == "ShowLegacySettingsBTN") {
+				ShowLegacySettings();
+			}
+
+			LastClickedId = "";
+			ProceededId = "";
+		}
+
+		yield;
+	}
+	log("this very page was done by arkady, 2023 :)");	
+}
+--></script>
+</manialink>
