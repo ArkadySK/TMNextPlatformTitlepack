@@ -191,16 +191,16 @@
 		<label id="LabelActivity" text="Choose a difficulty" translate="1"/>
 	</frame>
 	
-	<frame id="MedalsTotalFrame"  z-index="-2" pos="120 13">	
+	<frame id="MedalsTotalFrame"  z-index="-2" pos="120 9.75">	
 		<quad style="Bgs1" substyle="BgList"  sizen="40 10" posn="0 54" z-index="-1" halign="center"/>	
 		<label id="MedalsLabel" size="24 8" pos="0 49.5" textfont="GameFontSemiBold" textsize="4" text="0" valign="center" halign="center" z-index="2"/>	
 		<quad pos="10 54" z-index="2" size="10 10" style="UICommon64_1" substyle="Medal_light"/>
 		<label id="header" text="Medals" sizen="50 5" pos="0 62" z-index="2" style="TextTitle3" textsize="2.5" translate="1" halign="center" valign="center" textfont="GameFontExtraBold" hidden="1"/>
 		<quad style="UICommon128_1" substyle="BgDialogTitle" pos="0 67" sizen="50 11" halign="center" hidden="1"/>
 		<quad style="UICommon128_1" substyle="BgDialog"  posn="0 57" sizen="50 15.5" z-index="-5" halign="center"/>
-</frame>
+	</frame>
 
-<frame id="SelectedMapFrame"  z-index="-2" pos="120 -23.5">	
+	<frame id="SelectedMapFrame"  z-index="-2" pos="120 -23.5">	
 		<quad style="UICommon128_1" substyle="BgDialogTitle" pos="0 31" sizen="50 11" halign="center"/>
 		<quad style="UICommon128_1" substyle="BgDialog"  posn="0 31" sizen="50 76" z-index="-5" halign="center"/>
 		<label pos="0 27.5"  text="Selected map" translate="1" style="TextTitle3" textfont="GameFontExtraBold" textsize="2.5" halign="center"/>
@@ -270,7 +270,7 @@
 		</frame>
 	</frame>
 	
-	<frame pos="-40 23" scale=".95">	
+	<frame pos="-40 21.5" scale=".94">	
 		<quad style="UICommon128_1" substyle="BgDialog" opacity="0.7" sizen="110 144" z-index="-35" halign="center" valign="center" scriptevents="1" id="MapsBg" pos="51 -24"/>
 		<frame id="M_Map1" hidden="1">
 			<quad id="M_Main1" scriptevents="1" />	
