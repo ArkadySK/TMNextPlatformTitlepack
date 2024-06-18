@@ -41,7 +41,7 @@
 	<quad pos="0 0" z-index="0" size="400 200" halign="center" valign="center" scriptevents="1" style="Bgs1" substyle="BgEmpty"/>
 </frame>
 
-<frame id="FrameMainMenu"  hidden="1">
+<frame id="FrameMainMenu" hidden="">
 	<frame id="MainPanel" z-index="-4" pos="-130 70.5">				
 		<quad style="UICommon64_2"  sizen="16 16" pos="-28 12" substyle="Edit_light"/>
 		<label id="LabelWelcome" text="Welcome!" posn="-10 10" sizen="56 8" translate="1"/>
@@ -106,7 +106,7 @@
 	
 	
 	
-	<frame id="FrameProfile" hidden="1">
+<frame id="FrameProfile" hidden="1">
 	<frame id="MainPanel" z-index="-4" pos="-130 70.5">				
 		<quad style="UICommon64_1"  sizen="16 16" pos="-28 12" substyle="Settings_light"/>
 		<label id="LabelWelcome" text="Settings" posn="-10 10" sizen="56 8" translate="1"/>
@@ -184,7 +184,7 @@
 	
 	
 	
-<frame id="FrameSolo"  hidden="">
+<frame id="FrameSolo" hidden="1">
 	<frame id="MainPanel" z-index="-4" pos="-130 70.5">				
 		<quad style="UICommon64_2"  sizen="16 16" pos="-28 12" substyle="Cup_light"/>
 		<label id="LabelWelcome" text="Campaign" translate="1"/>
@@ -230,7 +230,7 @@
 			</frame>
 		</frame>
 		
-		<frame id="CampaignButtons" hidden="">
+		<frame id="CampaignButtons" hidden="1">
 			<frame>
 				<quad class="ModernIcon" style="UICommon64_1" substyle="Flag_light"/>
 				<label class="ModernButton" text=" " id="WhiteBTN" scriptevents="1"/>
@@ -433,7 +433,8 @@
 }
 
 #Const MENU_ACTION "MLHook_menu_action"
-#Const CAMPAIGN_MENU_BUTTON_NAMES ["WhiteBTN", "GreenBTN", "BlueBTN", "RedBTN", "BlackBTN", "xko"]
+#Const CAMPAIGN_MENU_BUTTON_NAMES ["WhiteBTN", "GreenBTN", "BlueBTN", "RedBTN", "DownloadAllMapsBTN", "xko"]
+//#Const CAMPAIGN_MENU_BUTTON_NAMES ["WhiteBTN", "GreenBTN", "BlueBTN", "RedBTN", "BlackBTN", "xko"]
 #Const CAMPAIGN_DEMO_MENU_BUTTON_NAMES ["DemoBTN", "MoreMapsBTN", "xko"]
 
 declare MapRecord[CMapInfo] MapRecords;
@@ -726,7 +727,7 @@ main() {
 	declare persistent Boolean Persistent_HideEnterPlatform for LocalUser;
 	declare persistent Boolean Menu_RefreshRecords for LocalUser;
 	declare persistent Boolean Persistent_IsPlatformTester for LocalUser;
-
+	
 	declare Text ProceededId = "";
 	declare Text ScContext = "";
 	declare Text Color;
