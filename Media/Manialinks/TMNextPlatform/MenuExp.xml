@@ -840,8 +840,10 @@ main() {
 						MoveUp();
 					case "Return": 
 						PressEnter();
-					case "P": 
+					case "P": {
+						GoToMainMenu();
 						GoToSolo(Persistent_IsPlatformTester);
+					}
 					case "M": 
 						GoToLocalPlay(Persistent_IsPlatformTester);
 				}
