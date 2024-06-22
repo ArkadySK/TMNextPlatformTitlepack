@@ -22,13 +22,13 @@
 
 <script><!-- 
 main()	{
+	EnableMenuNavigation(True, True, Page.GetFirstChild("HideDialogButton"), 1);
 	Audio.PlaySoundEvent(CAudioManager::ELibSound::ShowDialog , 1, 1.);
 	while(True)	{
 		yield;
 		foreach(Event, PendingEvents) {
-			if (Event.Type ==  CMlEvent::Type::MouseClick)	{
+			if (Event.Type == CMlEvent::Type::MouseClick)	{
 				if(Event.ControlId == "HideDialogButton")	{
-					Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog , 1, 1.);
 					SendCustomEvent("MLHook_menu_action", ["hide_demo_dialog"]);
 				}
 			}
