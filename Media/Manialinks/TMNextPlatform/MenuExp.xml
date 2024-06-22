@@ -177,6 +177,7 @@
 		</frame>
 	</frame>
 	
+	<label id="SecretText" opacity=".7" hidden="1" size="200 5" pos="0 -86.5" z-index="0" text="P - Platform Campaign		M - Single Map		0 - Interface Designer		1 - Force Demo Mode" halign="center" style="TextPlayerCardName" valign="bottom" textsize=".5" textemboss="1"/>
 </frame>
 	
 	
@@ -654,6 +655,20 @@ Void GoToSolo(Boolean _isTester)	{
 	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
 }
 
+Void GoToLocalPlay(Boolean _isTester)	{
+	if(_isTester)
+		SendCustomEvent(MENU_ACTION, ["local"]);
+	else 
+		SendCustomEvent(MENU_ACTION, ["show_demo_dialog"]);
+}
+
+Void GoToReplays(Boolean _isTester)	{
+	if(_isTester)
+		SendCustomEvent(MENU_ACTION, ["replays"]);
+	else 
+		SendCustomEvent(MENU_ACTION, ["show_demo_dialog"]);
+}
+
 Void GoToProfile()	{
 	SelectedItemIndex = 0;
 	MenuButtonNames = ["UpdateBTN", "xko", "ShowSpeedCheck", "DisableMusicPlayerCheck", "ShowLegacySettingsBTN", "HornsBTN"];
@@ -671,6 +686,11 @@ Void GoToMainMenu()	{
 	Page.GetFirstChild("FrameProfile").Hide();
 	Page.GetFirstChild("FrameMainMenu").Show();
 	Audio.PlaySoundEvent(CAudioManager::ELibSound::HideDialog, 0, 1.);
+}
+
+Void OpenInterfaceDesigner(Boolean _isTester)	{
+	if(_isTester)
+		TitleControl.OpenEditor(CTitleControl::EEditorType::InterfaceDesigner);
 }
 
 Void ShowLegacySettings()	{
@@ -745,6 +765,9 @@ main() {
 	LoadHornName();
 	ReloadAllRecords();
 	
+	if(Persistent_IsPlatformTester)
+		Page.GetFirstChild("SecretText").Show();
+
 	(Page.GetFirstChild("ShowSpeedCheck") as CMlQuad).StyleSelected = Persistent_ShowSpeed;
 	(Page.GetFirstChild("DisableMusicPlayerCheck") as CMlQuad).StyleSelected = Persistent_DisableMusicPlayer;
 	(Page.GetFirstChild("HideEnterPlatformCheck") as CMlQuad).StyleSelected = Persistent_HideEnterPlatform;
@@ -816,11 +839,28 @@ main() {
 					case "Left":
 						MoveUp();
 					case "Return": 
-						PressEnter();				
-				}	
+						PressEnter();
+					case "P": 
+						GoToSolo(Persistent_IsPlatformTester);
+					case "M": 
+						GoToLocalPlay(Persistent_IsPlatformTester);
+				}
+
+				switch (Event.KeyCode) {	
+
+					case 83: //key: zero
+						OpenInterfaceDesigner(Persistent_IsPlatformTester);	
+					case 84: //key: one; action: force demo mode
+						if(Persistent_IsPlatformTester) {
+							Persistent_IsPlatformTester = False;
+							// show demo dialog first
+							GoToReplays(Persistent_IsPlatformTester);
+						}
+				}
+
 				UpdateFocus();
-				}	
 			}	
+		}	
 
 		if(LastClickedId != ProceededId)	{
 			ProceededId = LastClickedId;
@@ -905,31 +945,18 @@ main() {
 			}
 			
 			//main menu buttons
-			if (LastClickedId == "SoloBTN") {
+			if (LastClickedId == "SoloBTN")
 				GoToSolo(Persistent_IsPlatformTester);
-			}
-			if (LastClickedId == "ReplaysBTN") {
-				if(Persistent_IsPlatformTester)
-					SendCustomEvent(MENU_ACTION, ["replays"]);
-				else 
-					SendCustomEvent(MENU_ACTION, ["show_demo_dialog"]);
-			}
-			if (LastClickedId == "LocalPlayBTN") {
-				if(Persistent_IsPlatformTester)
-					SendCustomEvent(MENU_ACTION, ["local"]);
-				else 
-					SendCustomEvent(MENU_ACTION, ["show_demo_dialog"]);
-			}
-			if (LastClickedId == "ProfileBTN") {
+			if (LastClickedId == "ReplaysBTN")
+				GoToReplays(Persistent_IsPlatformTester);
+			if (LastClickedId == "LocalPlayBTN")
+				GoToLocalPlay(Persistent_IsPlatformTester);
+			if (LastClickedId == "ProfileBTN")
 				GoToProfile();
-				MenuPage = "Profile";
-			}		
-			if (LastClickedId == "UpdateBTN") {
+			if (LastClickedId == "UpdateBTN")
 				SendCustomEvent(MENU_ACTION, ["update_tp"]);
-			}
-			if (LastClickedId == "DownloadAllMapsBTN") {
+			if (LastClickedId == "DownloadAllMapsBTN" && Persistent_IsPlatformTester)
 				SendCustomEvent(MENU_ACTION, ["download_all_maps"]);
-			}
 			
 			//campaign buttons
 			if (LastClickedId == "DemoBTN" || LastClickedId == "WhiteBTN" || LastClickedId == "GreenBTN" || LastClickedId == "BlueBTN" || LastClickedId == "RedBTN" || LastClickedId == "BlackBTN")	{
@@ -1027,7 +1054,7 @@ main() {
 
 		yield;
 	}
-	log("this very page was done by arkady, 2023 :)");	
+	log("this very page was done by arkady, 2018-2024 :)");		
 }
 --></script>
 </manialink>
