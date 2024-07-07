@@ -548,6 +548,11 @@ Integer Map_GetMedalCount(CMapInfo Map, Integer Record_NbRespawns)	{
 	return 0;
 }
 
+Boolean IsMapUnlocked(CMapInfo _Map) {
+	//TODO: implement locking system
+	return True;
+}
+
 Void ReloadAllRecords()	{
 	MedalsTotal = 0;
 	declare CurFoldersTask = DataFileMgr.Map_GetGameList(CampaignPath, False);
@@ -599,7 +604,7 @@ Void UpdateMapSelection(CTaskResult_MapList _MapInfosTask)	{
 		if(i > 10)
 			continue;			
 	
-	if (Map.Unlocked == False) {
+	if (!IsMapUnlocked(Map)) {
 		(Page.GetFirstChild("M_Lock"^i) as CMlFrame).Show();
 		(Page.GetFirstChild("M_Name"^i) as CMlLabel).SetText("");
 		(Page.GetFirstChild("M_Icon"^i) as CMlQuad).ImageUrl = "";
@@ -900,7 +905,7 @@ main() {
 						(Page.GetFirstChild("PlatformRecordMap") as CMlLabel).SetText(PlatformRecordText);
 					}
 					else {
-						if(Map.Unlocked)	{
+						if(IsMapUnlocked(Map))	{
 							wait(TitleControl.IsReady);
 							TitleControl.PlayMap(Map.FileName, "Modes\\TrackMania\\LegacyMode.Script.txt", "");
 								Audio.PlaySoundEvent(CAudioManager::ELibSound::Start , 0, 1.);
