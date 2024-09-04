@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<manialink version="3">
 <stylesheet>
 	<style id="LabelWelcome" posn="-10 10"  size="57 8" style="TextTitle3" textfont="GameFontExtraBold" textsize="4" sizen="40 5"/>
 	<style id="LabelActivity" posn="-10 3" sizen="56 10" style="TextTitle2" textfont="GameFontRegular"/>		
@@ -36,7 +34,7 @@
 
 <frame id="LockFrame" z-index="100" hidden="1">	
 	<quad style="UICommon128_1" substyle="BgDialog" posn="0 15" sizen="168 25" z-index="-5" halign="center" />
-	<label  z-index="3" size="157 5" valign="center" pos="-78.5 7" translate="1" autonewline="1" style="TextCardMedium" id="LockR" text="Locked" textsize="2.2"/>
+	<label z-index="3" size="157 5" valign="center" pos="-78.5 7" translate="1" autonewline="1" style="TextCardMedium" id="LockR" text="Locked" textsize="2.2"/>
 	<label z-index="21" text="OK" style="CardButtonMediumL" textsize="3" halign="center" translate="1" id="HideMessageDialog" scriptevents="1"/>
 	<quad pos="0 0" z-index="0" size="400 200" halign="center" valign="center" scriptevents="1" style="Bgs1" substyle="BgEmpty"/>
 </frame>
@@ -45,7 +43,7 @@
 	<frame id="MainPanel" z-index="-4" pos="-130 70.5">				
 		<quad style="UICommon64_2"  sizen="16 16" pos="-28 12" substyle="Edit_light"/>
 		<label id="LabelWelcome" text="Welcome!" posn="-10 10" sizen="56 8" translate="1"/>
-		<label id="LabelActivity" text="Choose an activity" posn="-10 3" sizen="56 10" translate="1" autonewline="1"/>
+		<label id="LabelActivity" text="Choose an activity" posn="-10 3" sizen="56 10" translate="1"/>
 	</frame>	
 	
 	<frame id="FrameAbout" pos="41 5" scale="1.12">
@@ -58,11 +56,11 @@
 		
 		<quad pos="0 2" z-index="0" size="199.4 30" bgcolor="FFF" opacity="0.7" halign="center" image="file://Media/Images/TMNextPlatform/Loadscreen.jpg" keepratio="Clip"/>
 		<label pos="0 -30" z-index="0" size="100 5" text="Credits" translate="1" halign="center" textfont="GameFontExtraBold" style="TextTitle3" textsize="3"/>
-		<label class="AboutText" text= "Main: Arkady" pos="-95 -36" autonewline="1"/>
-		<label class="AboutText" text= "Mappers: Zai, Plantathon, skachacha, Arkes, Arkady" pos="-95 -41" autonewline="1"/>
-		<label class="AboutText" text= "Other testers: bmx22c, florenzius, arnoo" pos="-95 -46" autonewline="1"/>
-		<label class="AboutText" text= "Music: BigBang1112" pos="-95 -51" autonewline="1"/>
-		<label class="AboutText" text= "Updater: ThaumicTom, Plantathon, Arkady" pos="-95 -56" autonewline="1"/>
+		<label class="AboutText" text= "Main: Arkady" pos="-95 -36"/>
+		<label class="AboutText" text= "Mappers: Zai, Plantathon, skachacha, Arkes, tetralovania, Sparkster, Arkady, futurecat, KatGrrrl, nod" pos="-95 -41" autonewline="1"/>
+		<label class="AboutText" text= "Other testers: bmx22c, florenzius, arnoo, jailman" pos="-95 -51"/>
+		<label class="AboutText" text= "Music: BigBang1112" pos="95 -36" halign="right"/>
+		<label class="AboutText" text= "Updater: ThaumicTom, Plantathon, Arkady" pos="-95 -56"/>
 		
 		<quad z-index="-10" size="200 120" style="UICommon128_1" substyle="BgDialog" halign="center" pos="0 55"/>
 	</frame>
@@ -1064,4 +1062,3 @@ main() {
 	log("this very page was done by arkady, 2018-2024 :)");		
 }
 --></script>
-</manialink>
